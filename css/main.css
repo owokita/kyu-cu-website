@@ -7,8 +7,13 @@ header{
     background:url(../images/headerBG.png)center/cover no-repeat;
 }
 #slider{
-    max-height: 82vh;
-    overflow: hidden;
+    /* max-height: 82vh;
+    overflow: hidden; */
+}
+.slide-img{
+    height: 82vh;
+    object-fit: cover;
+    object-position: center center;
 }
 #main-col{
    
