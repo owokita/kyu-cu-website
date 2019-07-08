@@ -1,4 +1,4 @@
-﻿# kyu-cu-website Upgrade
+﻿# Kyu-cu-website Upgrade
 
 If you are reading this then I hope you know that the current Kirinyaga University CU Website was hosted but with very little functionality to the local user.
 I have therefore embarked on a journey to make the website more useful by adding the necessary functionality so as to accomplish the set goals at the beginning of this project. I hope you will take this as a personal project to to make this project a succcess.
@@ -13,7 +13,7 @@ Below are some of the objectives we hope to accomplish by the end of this projec
 7. Online registration of members
 8. Designing a new article page.
  
- I have also created a sub-domain [KTEST.KYUCU.CO.KE](https://test.kyucu.co.ke/) for testing of the website during the development process and to reduce the deployment time time at the end of the project. 
+ I have also created a sub-domain [TEST.KYUCU.CO.KE](https://test.kyucu.co.ke/) for testing of the website during the development process and to reduce the deployment time time at the end of the project. 
 
 ## Any Contributor is invited to this project
 
