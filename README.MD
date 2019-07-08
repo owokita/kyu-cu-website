@@ -1,4 +1,4 @@
-﻿# Kyu-cu-website Upgrade
+﻿# Kyu-CU-Website Upgrade
 
 If you are reading this then I hope you know that the current Kirinyaga University CU Website was hosted but with very little functionality to the local user.
 I have therefore embarked on a journey to make the website more useful by adding the necessary functionality so as to accomplish the set goals at the beginning of this project. I hope you will take this as a personal project to to make this project a succcess.
