@@ -12,6 +12,13 @@ Below are some of the objectives we hope to accomplish by the end of this projec
 6. Implementing the MPESA-API to enable automated Payments.
 7. Online registration of members
 8. Designing a new article page.
+
+## Guidlines On Devopment 
+This upgdrade will involve a big percentage BACK-END DEV. So to make sure we are all on the same path we should have following in mind.
+* We will use **PHP OPP AND PHP PDO** 
+* We will use **PHP STATEMENTS** when doing any communicaton to the database. 
+_**Note**_ that all of the above are for the **security** of our website
+
  
  I have also created a sub-domain [TEST.KYUCU.CO.KE](https://test.kyucu.co.ke/) for testing of the website during the development process and to reduce the deployment time time at the end of the project. 
 
