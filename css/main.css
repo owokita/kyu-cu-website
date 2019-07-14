@@ -115,10 +115,14 @@ box-shadow: -2px 18px 30px -16px rgba(0,0,0,0.75);
 .textBox h1{
 	
 	padding: 5px;
-	font-size: 20px;
+	font-size: 1em;
 	font-family: "Arial Black", "sans-serif";
 	align-content: center;
-	margin-top: 23%;
+    position: absolute;
+    bottom: 0px;
+    margin: 0 auto;
+    width: 100%;
+
 }
 .immageBox:hover .textBox{
 	top: 0;
