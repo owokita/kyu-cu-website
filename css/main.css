@@ -6,6 +6,13 @@ body {
 header{
     background:url(../images/headerBG.png)center/cover no-repeat;
 }
+.vertical-center {
+    
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
 
 .slide-img{
     height: 82vh;
@@ -91,6 +98,7 @@ box-shadow: -2px 18px 30px -16px rgba(0,0,0,0.75);
   }
 
   #quote{
+    position: relative;
     min-height: 55vh;
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url(../images/g6.jpg) center/cover no-repeat fixed;
