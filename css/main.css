@@ -4,6 +4,12 @@ body {
     font-size: 1em;
     
 }
+.fa-whatsapp-square{
+    color: #25D366;
+}
+.fa-facebook-square{
+    color: #3b5998;
+}
 header{
     background:url(../images/headerBG.png)center/cover no-repeat;
 }
@@ -144,7 +150,7 @@ box-shadow: -2px 18px 30px -16px rgba(0,0,0,0.75);
 .tc-ch {
     background: #fff;
     padding: 2em 2em;
-    margin-bottom: 1em;
+    /* margin-bottom: 1em; */
 }
 
 .bht1 a{
@@ -278,7 +284,7 @@ color: #000000;
     color: #fff;
   }
 
-/* ===============BLOG=============== */
+/* //////////////////////////===============BLOG===============////////////////////////////////////////////////////////////////// */
 .logo {
     padding: 1.2em 0;
     text-align: center;
@@ -302,4 +308,13 @@ color: #000000;
     min-height: 40vh;
     background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0),rgba(0,0,0,0),rgba(246,223,250, 0.1),rgba(246,223,250, 0.5),  rgba(246,223,250, 0.8),rgb(246,223,250)),
     url(../images/slider/3.jpeg) center/cover no-repeat fixed; 
+}
+.article-img{
+    max-height: 40vh;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.article-input{
+    border-radius: 20px;
 }
