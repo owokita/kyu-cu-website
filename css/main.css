@@ -148,7 +148,7 @@ box-shadow: -2px 18px 30px -16px rgba(0,0,0,0.75);
 }
 
 .bht1 a{
-    background: #fa4b2a;
+    background: #009500;
     padding: 0.3em 1.8em;
 	display:inline-block;
     color: #fff;
@@ -183,7 +183,7 @@ box-shadow: -2px 18px 30px -16px rgba(0,0,0,0.75);
 /*================ LEADERS' SECTION ============*/
 
 .single-leader{
-    background: #fff;
+    background: #73fb59;
     border-radius: 100px 0 100px 0;
 }
 .leader-img{
@@ -201,8 +201,8 @@ margin: 0 auto;
 .leader-text{
 padding: 0 10px;
 }
-.dash {color:#018d18;}
-.leader-text hr{ border-top: 1px dashed green;
+.dash {color:#000000;}
+.leader-text hr{ border-top: 1px dashed #000000;
     width: 85%;
     margin: 0 auto;
 }
@@ -219,7 +219,7 @@ padding: 0 10px;
     margin: 5px 5px;
 }
 .leader-text h5{margin: 20px 0 -15;
-color: forestgreen;  
+color: #000000;  
 }
 .owl-dot.active{ background-color:black !important; }
 .owl-nav{display: none;}
@@ -244,4 +244,62 @@ color: forestgreen;
 #subscribe-row img{ width: 55px}
 #subscribe-row img:hover{
     filter: grayscale(100%);
+}
+#footer hr{ border-top: 1px solid #f6dffa;  }
+#footer .list-group-item, .card,.form-control,textarea{
+    background-color: #f6dffa;
+}
+#last-row {background-color: #260037;
+}
+#last-row .col-xl-12 #last-row-para { color: #33C722;
+}
+
+/* Back to top button */
+
+.back-to-top {
+    position: fixed;
+    /* display: none; */
+    background: #2eca6a;
+    color: #fff;
+    /* width: 44px;
+    height: 44px; */
+    text-align: center;
+    line-height: 1;
+    font-size: 35px;
+    border-radius: 50%;
+    right: 15px;
+    bottom: 15px;
+    transition: background 0.5s;
+    z-index: 11;
+  }
+  
+  .back-to-top i {
+    padding-top: 12px;
+    color: #fff;
+  }
+
+/* ===============BLOG=============== */
+.logo {
+    padding: 1.2em 0;
+    text-align: center;
+}
+.logo h1 {
+    font-size: 3.4em;
+    
+    
+}
+.logo p {
+    font-size: 14px;
+    margin-top: 0.5em;
+    line-height: 1.8em;
+    color: #fa4b2a;
+    font-weight: 400;
+	position:relative;
+}
+
+.header-bottom{
+    position: relative;
+    min-height: 40vh;
+    background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0),rgba(0,0,0,0),rgba(246,223,250, 0.1),rgba(246,223,250, 0.5),  rgba(246,223,250, 0.8),rgb(246,223,250)),
+    url(../images/slider/3.jpeg) center/cover no-repeat fixed; 
 }
