@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ADMIN</title>
+    <title>MEMBERS</title>
     <!--RESET SCSS-->
     <link rel="stylesheet" href="css/reset.css">
     <!--BOOTSTRAP CSS-->
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="admin/css/admin.css">
     <!--MEDIA QUERIES-->
     <!-- <link rel="stylesheet" href="css/mq..css"> -->
     <!--FONT AWESOME-->
@@ -85,72 +85,45 @@
         <aside id="sidebar" class="">
 
             <ul class="list-unstyled components">
-                <li id="dashboard">
-                    <a href="#"> <span><i class="fas fa-tachometer-alt"></i></span> DASHBOARD</a>
+                <li>
+                    <a href="#"><span><i class="fas fa-tachometer-alt"></i></span> DASHBOARD</a>
                 </li>
-                <li class="">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <span><i class="fas fa-newspaper"></i></span>
-                        POSTS</a>
+                <li>
+                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span><i
+                                class="fas fa-newspaper"></i></span> POSTS</a>
                     <ul class="collapse list-unstyled" id="homeSubmenu">
                         <li>
-                            <a href="#">- Unverified</a>
+                            <a href="#">- Add Post</a>
                         </li>
                         <li>
-                            <a href="#">- Verified</a>
+                            <a href="#">- All Posts</a>
                         </li>
 
                     </ul>
                 </li>
-                <li class="">
-                    <a href="#messages" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <span><i class="far fa-envelope"></i></span> MESSAGES</a>
-                    <ul class="collapse list-unstyled" id="messages">
-                        <li>
-                            <a href="#">- Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#">- Sent</a>
-                        </li>
 
-                    </ul>
-                </li>
 
                 <li>
-                    <a href="#ministries" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <span><i class="fab fa-monero"></i></span> MINISTRIES</a>
-                    <ul class="collapse list-unstyled" id="ministries">
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span><i
+                                class="fab fa-monero"></i></span> MINISTRIES</a>
+                    <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="#">- Add Ministries</a>
+                            <a href="#">- Your Ministries</a>
                         </li>
                         <li>
-                            <a href="#">- Add Sub-Comm</a>
+                            <a href="#">- Add Sub-comm Members</a>
                         </li>
-                        <li>
-                            <a href="#">- Sub-Comm Members</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#members" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <span><i class="fas fa-users"></i></span> MEMBERS</a>
-                    <ul class="collapse list-unstyled" id="members">
                         <li>
                             <a href="#">- All Members</a>
                         </li>
-                        <li>
-                            <a href="#">- Add Member</a>
-                        </li>
-
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><i class="far fa-calendar-alt"></i> EVENTS</a>
+                    <a href="#"><i class="fas fa-user-cog"></i> SETTINGS</a>
                 </li>
-                <li>
-                    <a href="#"> <span><i class="fas fa-user-shield"></i></span> ADMIN</a>
-                </li>
+
             </ul>
+
 
         </aside>
         <div class="content container-fluid">
@@ -159,36 +132,26 @@
                 <div class="col-sm-6 col-md-4 mt-2">
                     <div class="card greenBgMid  text-light p-3">
                         <div class="d-flex">
-                            <div class="d-inline "> <i class="fas fa-question fa-5x"></i></div>
+                            <div class="d-inline "> <i class="fas fa-newspaper fa-5x"></i></div>
                             <div class="flex-grow-1 ">
-                                <h5 class="text-center">Unverified Posts</h5>
-                                <h1 class="text-center">1</h1>
+                                <h5 class="text-center">Your Posts</h5>
+                                <h1 class="text-center">8</h1>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-4 mt-2">
-                        <div class="card greenBgMid  text-light p-3">
-                                <div class="d-flex">
-                                    <div class="d-inline "> <i class="fas fa-newspaper fa-5x"></i></div>
-                                    <div class="flex-grow-1 ">
-                                        <h5 class="text-center">Total Posts</h5>
-                                        <h1 class="text-center">120</h1>
-                                    </div>
-                                </div>
+                    <div class="card greenBgMid  text-light p-3">
+                        <div class="d-flex">
+                            <div class="d-inline "> <i class="fab fa-monero fa-5x"></i></div>
+                            <div class="flex-grow-1 ">
+                                <h5 class="text-center">Your Ministries</h5>
+                                <h1 class="text-center">2</h1>
                             </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-6 col-md-4 mt-2">
-                        <div class="card greenBgMid  text-light p-3">
-                                <div class="d-flex">
-                                    <div class="d-inline "> <i class="fas fa-users fa-5x"></i></i></div>
-                                    <div class="flex-grow-1 ">
-                                        <h5 class="text-center">Total Members</h5>
-                                        <h1 class="text-center">2,000</h1>
-                                    </div>
-                                </div>
-                            </div>
-                </div>
+
             </div>
         </div>
     </main>

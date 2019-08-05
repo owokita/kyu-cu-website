@@ -1,6 +1,10 @@
 body{
     background-color:  #f6dffa; 
+    
 }
+.greenBgDark{background:#009500}
+.greenBgMid{background: #33c722} 
+.greenBgLight{background: #73fb59}
 
 .pBG{
     background-color: #500d62!important;
@@ -26,6 +30,7 @@ box-shadow: 0px 3px 0px 0px rgba(0,0,0,0.72);
 }
 #sidebarCollapse :hover{
     cursor: pointer;
+    background: #7f3d90;
 }
 /* This will hide the drop icon next to the bell */
 #notification::after{
@@ -49,6 +54,7 @@ box-shadow: 0px 3px 0px 0px rgba(0,0,0,0.72);
     display: flex;
     width: 100%;
     align-items: stretch;
+    min-height: 100vh;
 }
 #sidebar {
     min-width: 200px;
@@ -88,7 +94,7 @@ box-shadow: 0px 3px 0px 0px rgba(0,0,0,0.72);
     position: absolute;
     top: 50%;
     right: 20px;
-    /* transform: translateY(-50%); */
+     transform: translateY(-50%); 
 }
 
 #sidebar ul ul a {
@@ -103,7 +109,7 @@ box-shadow: 0px 3px 0px 0px rgba(0,0,0,0.72);
 
 #content {
     width: 100%;
-    padding: 20px;
+    
     min-height: 100vh;
     transition: all 0.3s;
 }
@@ -125,7 +131,7 @@ box-shadow: 0px 3px 0px 0px rgba(0,0,0,0.72);
     }
     #sidebar ul ul a {
         
-        background: rgba(201, 139, 216, 0.8);
+        background: rgba(201, 139, 216, 0.6);
     }
     #sidebar ul li a:hover {
         /* color: #7386D5; */
@@ -135,7 +141,7 @@ box-shadow: 0px 3px 0px 0px rgba(0,0,0,0.72);
     #sidebar ul li.active>a,
     #sidebar a[aria-expanded="true"] {
        
-        background: rgba(201, 139, 216, 0.8);
+        background: rgba(201, 139, 216, 0.6);
     }
 }
 
