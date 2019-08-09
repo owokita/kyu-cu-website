@@ -1,216 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php require 'includes/topnav.php'?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ADMIN</title>
-    <!--RESET SCSS-->
-    <link rel="stylesheet" href="css/reset.css">
-    <!--BOOTSTRAP CSS-->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/admin.css">
-    <!--MEDIA QUERIES-->
-    <!-- <link rel="stylesheet" href="css/mq..css"> -->
-    <!--FONT AWESOME-->
-    <script src="js/all.js"></script>
-    <style type="text/css">
-        .bs-example {
-            margin: 20px;
-        }
+<main class="wrapper">
+    <!-- Right side navigation -->
+    <?php require 'includes/sidenav.php'?>
+    <!--  End of Right side navigation -->
 
-        @media screen and (min-width: 768px) {
+    <div class="content container-fluid">
+        <!-- Admin DashBoad -->
+        <div class="row mt-4">
+            <?php $obj= new USER();
+// $obj->display();
+?>
 
-            .dropdown:hover .dropdown-menu,
-            .btn-group:hover .dropdown-menu {
-                display: block;
-            }
-
-            .dropdown-menu {
-                margin-top: 0;
-            }
-
-            .dropdown-toggle {
-                margin-bottom: 2px;
-            }
-
-            .navbar .dropdown-toggle,
-            .nav-tabs .dropdown-toggle {
-                margin-bottom: 0;
-            }
-        }
-    </style>
-
-</head>
-
-<body>
-    <nav class="navbar navbar-expand-sm text-white d-flex sticky-top p-0" style="background-color: #500d62;">
-        <div id="sidebarCollapse" class="col-auto ">
-            <i class="fas fa-bars"></i>
-        </div>
-        <!-- Links -->
-        <ul class="navbar-nav ">
-            <li class="nav-item dropdown">
-
-                <a class="nav-link dropdown-toggle text-white mr-2" href="#" id="notification" data-toggle="dropdown">
-
-                    <span style="font-size: smaller; position: absolute; top: 0px ;right:45%; width: 20px; background-color: #73fb59;
-                    border-radius: 200px; padding-left: 7px; color: #000000">8</span>
-                    <i class="fas fa-bell"></i>
-                </a>
-                <div class="dropdown-menu" style="position:absolute; transform: translateX(-110px); ">
-                    <a class="dropdown-item" href="#">Profile</a>
-                    <a class="dropdown-item" href="#">Settings</a>
-                    <a class="dropdown-item" href="#">Logout</a>
-                </div>
-
-
-            </li>
-
-            <!-- Dropdown -->
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-white mr-2" href="#" id="navbardrop" data-toggle="dropdown">
-                    Felix
-                </a>
-                <div class="dropdown-menu" style="position:absolute; transform: translateX(-110px); ">
-                    <a class="dropdown-item" href="#">Profile</a>
-                    <a class="dropdown-item" href="#">Settings</a>
-                    <a class="dropdown-item" href="#">Logout</a>
-                </div>
-            </li>
-        </ul>
-    </nav>
-    <main class="wrapper">
-        <!-- Right side navigation -->
-        <aside id="sidebar" class="">
-
-            <ul class="list-unstyled components">
-                <li id="dashboard">
-                    <a href="#"> <span><i class="fas fa-tachometer-alt"></i></span> DASHBOARD</a>
-                </li>
-                <li class="">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <span><i class="fas fa-newspaper"></i></span>
-                        POSTS</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">- Unverified</a>
-                        </li>
-                        <li>
-                            <a href="#">- Verified</a>
-                        </li>
-                        <li>
-                            <a href="#">- Add Category</a>
-                        </li>
-
-                    </ul>
-                </li>
-                <li class="">
-                    <a href="#messages" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <span><i class="far fa-envelope"></i></span> MESSAGES</a>
-                    <ul class="collapse list-unstyled" id="messages">
-                        <li>
-                            <a href="#">- Inbox</a>
-                        </li>
-                        <li>
-                            <a href="#">- Sent</a>
-                        </li>
-
-                    </ul>
-                </li>
-
-                <li>
-                    <a href="#ministries" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <span><i class="fab fa-monero"></i></span> MINISTRIES</a>
-                    <ul class="collapse list-unstyled" id="ministries">
-                        <li>
-                            <a href="#">- Add Ministries</a>
-                        </li>
-                        <li>
-                            <a href="#">- Add Sub-Comm</a>
-                        </li>
-                        <li>
-                            <a href="#">- Sub-Comm Members</a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#members" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <span><i class="fas fa-users"></i></span> MEMBERS</a>
-                    <ul class="collapse list-unstyled" id="members">
-                        <li>
-                            <a href="#">- All Members</a>
-                        </li>
-                        <li>
-                            <a href="#">- Add Member</a>
-                        </li>
-
-                    </ul>
-                </li>
-                <li>
-                    <a href="#"><i class="far fa-calendar-alt"></i> EVENTS</a>
-                </li>
-                <li>
-                    <a href="#leaders" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <span><i class="fas fa-crown"></i></span> LEADERS</a>
-                    <ul class="collapse list-unstyled" id="leaders">
-                        <li>
-                            <a href="#">- Church Leader</a>
-                        </li>
-                        <li>
-                            <a href="#">- Add Positions</a>
-                        </li>
-
-                    </ul>
-                </li>
-
-
-                <li>
-                    <a href="#"> <span><i class="fas fa-user-shield"></i></span> ADMIN</a>
-                </li>
-            </ul>
-
-        </aside>
-        <div class="content container-fluid">
-            <!-- Admin DashBoad -->
-            <div class="row mt-4">
-                <div class="col-sm-6 col-md-4 mt-2">
-                    <div class="card greenBgMid  text-light p-3">
-                        <div class="d-flex">
-                            <div class="d-inline "> <i class="fas fa-question fa-5x"></i></div>
-                            <div class="flex-grow-1 ">
-                                <h5 class="text-center">Unverified Posts</h5>
-                                <h1 class="text-center">1</h1>
-                            </div>
+            <div class="col-sm-6 col-md-4 mt-2">
+                <div class="card greenBgMid text-light p-3">
+                    <div class="d-flex">
+                        <div class="d-inline "> <i class="fas fa-question
+                            fa-5x"></i></div>
+                        <div class="flex-grow-1 ">
+                            <h5 class="text-center">Unverified Posts</h5>
+                            <h1 class="text-center">1</h1>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-4 mt-2">
-                    <div class="card greenBgMid  text-light p-3">
-                        <div class="d-flex">
-                            <div class="d-inline "> <i class="fas fa-newspaper fa-5x"></i></div>
-                            <div class="flex-grow-1 ">
-                                <h5 class="text-center">Total Posts</h5>
-                                <h1 class="text-center">120</h1>
-                            </div>
+            </div>
+            <div class="col-sm-6 col-md-4 mt-2">
+                <div class="card greenBgMid text-light p-3">
+                    <div class="d-flex">
+                        <div class="d-inline "> <i class="fas fa-newspaper
+                            fa-5x"></i></div>
+                        <div class="flex-grow-1 ">
+                            <h5 class="text-center">Total Posts</h5>
+                            <h1 class="text-center">120</h1>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6 col-md-4 mt-2">
-                    <div class="card greenBgMid  text-light p-3">
-                        <div class="d-flex">
-                            <div class="d-inline "> <i class="fas fa-users fa-5x"></i></i></div>
-                            <div class="flex-grow-1 ">
-                                <h5 class="text-center">Total Members</h5>
-                                <h1 class="text-center">2,000</h1>
-                            </div>
+            </div>
+            <div class="col-sm-6 col-md-4 mt-2">
+                <div class="card greenBgMid text-light p-3">
+                    <div class="d-flex">
+                        <div class="d-inline "> <i class="fas fa-users
+                            fa-5x"></i></i></div>
+                        <div class="flex-grow-1 ">
+                            <h5 class="text-center">Total Members</h5>
+                            <h1 class="text-center">2,000</h1>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+</main>
 
 
 
@@ -218,30 +58,26 @@
 
 
 
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/admin.js"></script>
-    <!-- Side Navigation Scripts -->
-    <script>
-
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
-            });
+<script src="js/jquery-3.2.1.min.js"> </script>
+<script src="js/popper.min.js">
+</script>
+<script src="js/bootstrap.min.js"> </script>
+<script src="js/admin.js"> </script> <!-- Side Navigation Scripts -->
+<script>
+    $(document).ready(function() {
+        $('#sidebarCollapse').on('click', function() {
+            $('#sidebar').toggleClass('active');
         });
-        document.querySelector('.content').addEventListener('click', function () {
-            document.getElementById('sidebar').classList.remove('active');
+    });
+    document.querySelector('.content').addEventListener('click', function() {
+        document.getElementById('sidebar').classList.remove('active');
 
-        })
-        document.querySelector('.navbar-nav').addEventListener('click', function () {
-            document.getElementById('sidebar').classList.remove('active');
+    })
+    document.querySelector('.navbar-nav').addEventListener('click', function() {
+        document.getElementById('sidebar').classList.remove('active');
 
-        })
-
-
-
-    </script>
+    })
+</script>
 
 
 
