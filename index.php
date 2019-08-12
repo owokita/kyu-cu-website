@@ -148,8 +148,8 @@
 				<li class="nav-item">
 					<a class="nav-link" href="#footer">CONTACT US</a>
 				</li>
-				<li class="nav-item">
-
+				<li class="nav-item" style=" ">
+					<a class="nav-link " href="user/user.php" style="background-color:green;">YOUR PROFILE</a>
 				</li>
 
 			</ul>
@@ -805,14 +805,14 @@
 	<script src="js/popper.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-		$(document).ready(function () {
-			$(".dropdown, .btn-group").hover(function () {
+		$(document).ready(function() {
+			$(".dropdown, .btn-group").hover(function() {
 				var dropdownMenu = $(this).children(".dropdown-menu");
 				if (dropdownMenu.is(":visible")) {
 					dropdownMenu.parent().toggleClass("open");
 				}
 			});
-		});		
+		});
 	</script>
 	<script src="js/owl.carousel.min.js"></script>
 	<!-- OWL CAROUSEL -->

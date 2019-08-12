@@ -17,7 +17,7 @@
                         <a href="verified.php">- Verified</a>
                     </li>
                     <li>
-                        <a href="#">- Add Category</a>
+                        <a href="addCategory.php">- Add Category</a>
                     </li>
 
                 </ul>
@@ -27,10 +27,10 @@
                     <span><i class="far fa-envelope"></i></span> MESSAGES</a>
                 <ul class="collapse list-unstyled" id="messages">
                     <li>
-                        <a href="#">- Inbox</a>
+                        <a href="inbox.php">- Inbox</a>
                     </li>
                     <li>
-                        <a href="#">- Sent</a>
+                        <a href="sent.php">- Sent</a>
                     </li>
 
                 </ul>
@@ -41,49 +41,39 @@
                     <span><i class="fab fa-monero"></i></span> MINISTRIES</a>
                 <ul class="collapse list-unstyled" id="ministries">
                     <li>
-                        <a href="#">- Add Ministries</a>
+                        <a href="addministy.php">- Add Ministries</a>
                     </li>
                     <li>
-                        <a href="#">- Add Sub-Comm</a>
+                        <a href="addsubcom.php">- Add Sub-Comm</a>
                     </li>
                     <li>
-                        <a href="#">- Sub-Comm Members</a>
+                        <a href="addsubcomMembers.php">- Sub-Comm Members</a>
                     </li>
                 </ul>
             </li>
+            
             <li>
-                <a href="#members" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                    <span><i class="fas fa-users"></i></span> MEMBERS</a>
-                <ul class="collapse list-unstyled" id="members">
-                    <li>
-                        <a href="#">- All Members</a>
-                    </li>
-                    <li>
-                        <a href="#">- Add Member</a>
-                    </li>
-
-                </ul>
+                <a href="allmembers.php"><i class="fas fa-users"></i> MEMBERS</a>
             </li>
             <li>
-                <a href="#"><i class="far fa-calendar-alt"></i> EVENTS</a>
+                <a href="events.php"><i class="far fa-calendar-alt"></i> EVENTS</a>
             </li>
             <li>
                 <a href="#leaders" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                     <span><i class="fas fa-crown"></i></span> LEADERS</a>
                 <ul class="collapse list-unstyled" id="leaders">
                     <li>
-                        <a href="#">- Church Leader</a>
+                        <a href="churchleader.php">- Church Leader</a>
                     </li>
                     <li>
-                        <a href="#">- Add Positions</a>
+                        <a href="addposition.php">- Add Positions</a>
                     </li>
-
                 </ul>
             </li>
 
 
             <li>
-                <a href="#"> <span><i class="fas fa-user-shield"></i></span>
+                <a href="admin.php"> <span><i class="fas fa-user-shield"></i></span>
                     ADMIN</a>
             </li>
         </ul>

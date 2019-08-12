@@ -1,4 +1,8 @@
-<?php require 'includes/topnav.php'?>
+<?php require 'includes/topnav.php';
+if ($_SESSION['user_type'] === "normal" ) {
+    redirect("user.php");
+}
+?>
 
 <main class="wrapper">
     <!-- Right side navigation -->
@@ -7,7 +11,7 @@
 
     <div class="content container-fluid">
         <!-- Admin DashBoad -->
-       <p>VERIFIED</p>
+       <p>addsubcom.php</p>
     </div>
 </main>
 

@@ -1,6 +1,14 @@
+<?php  require 'init.php';
+if (!isset($_SESSION['user_id'])) {
+  redirect("login.php");
+}else {
+    $logid =$_SESSION['user_id'];
+    $objUser = new USER() ;
+    $data = $objUser->getuserbyid($logid);
+}
 
+?>
 
-<?php  require 'init.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,12 +56,19 @@
 </head>
 
 <body>
+  
+
+
     <nav class="navbar navbar-expand-sm text-white d-flex sticky-top p-0" style="background-color: #500d62;">
         <div id="sidebarCollapse" class="col-auto ">
             <i class="fas fa-bars"></i>
         </div>
+        <div id="sidebarCollapse" class="col-auto ">
+            <a class="dropdown-item text-white" href="../index.php "><i class="fas fa-home"></i></a>
+        </div>
         <!-- Links -->
         <ul class="navbar-nav ">
+
             <li class="nav-item dropdown">
 
                 <a class="nav-link dropdown-toggle text-white mr-2" href="#" id="notification" data-toggle="dropdown">
@@ -62,6 +77,7 @@
                     border-radius: 200px; padding-left: 7px; color: #000000">8</span>
                     <i class="fas fa-bell"></i>
                 </a>
+
                 <div class="dropdown-menu" style="position:absolute; transform: translateX(-110px); ">
                     <a class="dropdown-item" href="#">Profile</a>
                     <a class="dropdown-item" href="#">Settings</a>
@@ -74,12 +90,12 @@
             <!-- Dropdown -->
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-white mr-2" href="#" id="navbardrop" data-toggle="dropdown">
-                    Felix
+                   <?php echo $data['user_fname']; ?>
                 </a>
                 <div class="dropdown-menu" style="position:absolute; transform: translateX(-110px); ">
-                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="profile.php">Profile</a>
                     <a class="dropdown-item" href="#">Settings</a>
-                    <a class="dropdown-item" href="#">Logout</a>
+                    <a class="dropdown-item" href="includes/logout.php">Logout</a>
                 </div>
             </li>
         </ul>

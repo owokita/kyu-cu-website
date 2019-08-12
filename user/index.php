@@ -1,5 +1,8 @@
-<?php require 'includes/topnav.php'?>
-
+<?php require 'includes/topnav.php';
+if ($_SESSION['user_type'] === "normal" ) {
+    redirect("user.php");
+} 
+?>
 <main class="wrapper">
     <!-- Right side navigation -->
     <?php require 'includes/sidenav.php'?>
@@ -8,9 +11,7 @@
     <div class="content container-fluid">
         <!-- Admin DashBoad -->
         <div class="row mt-4">
-            <?php $obj= new USER();
-// $obj->display();
-?>
+            
 
             <div class="col-sm-6 col-md-4 mt-2">
                 <div class="card greenBgMid text-light p-3">
