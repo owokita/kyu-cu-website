@@ -24,7 +24,7 @@
 
     <div class="container-fluid">
         <div class="col-md-5 col-sm-6 mx-auto logdiv px-0 mx-0">
-            <form class="logform px-2 " action="includes/register.inc.php" method="POST">
+            <form  id="signupform" class="logform px-2 " action="includes/register.inc.php" method="POST" >
 
                 <div class="img-div">
                     <img src="images/logoicon.ico" alt="" class="log-img ">
@@ -42,17 +42,18 @@
                 <div class="form-row">
                     <div class="col">
                         <div class="form-group ">
-                            <label for="exampleInputfirstname">First Name</label>
-                            <input type="text" class="form-control form-control-sm" id="examplefirstname"
-                                aria-describedby="emailHelp" placeholder="Enter First Name" name="firstname">
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control form-control-sm" id="firstName"
+                                aria-describedby="emailHelp" placeholder="Enter First Name" name="firstname" required>
+                               
 
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group ">
-                            <label for="exampleInputlastname">Last Name</label>
-                            <input type="text" class="form-control form-control-sm" id="exampleInputlastname"
-                                aria-describedby="emailHelp" placeholder="Enter Last Name" name="lastname">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control form-control-sm" id="lastName"
+                                aria-describedby="emailHelp" placeholder="Enter Last Name" name="lastname" required>
 
                         </div>
                     </div>
@@ -62,25 +63,27 @@
                 <div class="form-group">
                     <label for="exampleInputEmail">Email address</label>
                     <input type="email" class="form-control form-control-sm" id="email" aria-describedby="emailHelp"
-                        placeholder="Enter email" name="email">
-                    <span id="email " class="text-danger"></span>
+                        placeholder="Enter email" name="email" required>
+                  
 
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputEmail">Reg No</label>
-                    <input type="text" class="form-control form-control-sm" id="exampleInputEmail"
-                        aria-describedby="emailHelp" placeholder="Enter Reg-No. If Student" name="regno">
+                    <label for="regno">Reg No</label>
+                    <input type="text" class="form-control form-control-sm" id="regno"
+                        aria-describedby="emailHelp" placeholder="Enter Reg-No. If Student" name="regno" >
 
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword">Password</label>
-                    <input type="password" class="form-control form-control-sm" id="exampleInputPassword"
-                        placeholder="Password" name="password">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control form-control-sm" id="password"
+                        placeholder="Password" name="password" required>
+                       
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Password Confirm</label>
-                    <input type="password" class="form-control form-control-sm" id="exampleInputPassword1"
-                        placeholder="assword" name="passordconfirm">
+                    <label for="confirmPassword">Password Confirm</label>
+                    <input type="password" class="form-control form-control-sm" id="confirmPassword"
+                        placeholder="assword" name="passordconfirm" required>
+                        
                 </div>
                 <button type="submit" class="btn btn-success d-flex mx-auto " name="signup-submit">Register</button>
                 <p class="text-center">Already Registered? <a href="login.php" class="text-white">Log-In Here </a></p>
@@ -89,11 +92,18 @@
         </div>
     </div>
 
-
-    <script src="js/jquery-3.2.1.min.js"></script>
+                  
+    <!-- <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <!-- <script src="js/admin.js"></script> -->
+    <script src="js/bootstrap.min.js"></script> -->
+    <script src="js/bootstrap-validate.js"></script>
+    <script src="js/admin.js"></script>
+    
+
+    <script>
+
+
+    </script>
 </body>
 
 </html>
