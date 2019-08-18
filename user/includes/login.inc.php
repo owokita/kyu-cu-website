@@ -36,5 +36,6 @@ if (isset($_POST['login-submit'])) {
         }
     }
 } else {
-    $user->redirect("../login.php?false");
+    require 'init.php';
+    redirect("../login.php");
 }

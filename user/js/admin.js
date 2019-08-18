@@ -11,4 +11,5 @@ bootstrapValidate('#email','email:Enter a valid E-Mail Address!'
 
  bootstrapValidate('#confirmPassword','matches:#password:Password Must Match'
  );
+ 
 

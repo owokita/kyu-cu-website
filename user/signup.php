@@ -1,3 +1,10 @@
+<?php //redirects the user to the home page if the session is active
+require 'includes/init.php';
+if (isset($_SESSION['user_id'])) {
+    redirect("../index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -100,10 +107,7 @@
     <script src="js/admin.js"></script>
     
 
-    <script>
-
-
-    </script>
+    
 </body>
 
 </html>

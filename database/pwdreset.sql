@@ -1,0 +1,36 @@
+-- MySQL Workbench Synchronization
+-- Generated: 2019-08-18 15:45
+-- Model: New Model
+-- Version: 1.0
+-- Project: Name of the project
+-- Author: digio
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+ALTER TABLE `cudb`.`user` 
+CHANGE COLUMN `user_id` `user_id` INT(11) NOT NULL AUTO_INCREMENT ,
+CHANGE COLUMN `user_img` `user_img` VARCHAR(255) NULL DEFAULT 0 ;
+
+ALTER TABLE `cudb`.`article` 
+CHANGE COLUMN `article_edit_date` `article_edit_date` DATETIME NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP ,
+CHANGE COLUMN `article_status` `article_status` TINYINT(4) NULL DEFAULT 0 ;
+
+ALTER TABLE `cudb`.`leaders` 
+CHANGE COLUMN `leaders_quote` `leaders_quote` VARCHAR(45) NULL DEFAULT NULL COMMENT 'Thsi table will contains the leaders of various ministries\n' ;
+
+CREATE TABLE IF NOT EXISTS `cudb`.`pwdreset` (
+  `pwdreset_id` INT(11) NOT NULL AUTO_INCREMENT,
+  `pwdreset_email` VARCHAR(255) NULL DEFAULT NULL,
+  `pwdreset_selector` LONGTEXT NULL DEFAULT NULL,
+  `pwdreset_token` LONGTEXT NULL DEFAULT NULL,
+  `pwdreset_expires` VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`pwdreset_id`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

@@ -1,7 +1,10 @@
 <?php
 require 'includes/init.php';
 $sess = new SESSION();
-
+//redirects the user to the home page if the session is active
+if (isset($_SESSION['user_id'])) {
+    redirect("../index.php");
+}
 
 ?>
 <!DOCTYPE html>
@@ -9,6 +12,7 @@ $sess = new SESSION();
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="images/logoicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
@@ -35,7 +39,9 @@ $sess = new SESSION();
                         echo '<p class =" text-white text-center" style=" background-color: red;border-radius:5px"> No User With That Email</p>';
                     } elseif (isset($_GET['wrong'])) {
                         echo '<p class =" text-white text-center" style=" background-color: red;border-radius:5px"> Wrong Password</p>';
-                    }
+                    } elseif (isset($_GET['resetsuccess'])) {
+                        echo '<p class =" text-white text-center" style=" background-color: green;border-radius:5px"> Password Reset Was Successful</p>';
+                    } 
                     
                     ?>
 
@@ -57,14 +63,11 @@ $sess = new SESSION();
                 </div>
                 <button type="login" class="btn btn-success d-flex mx-auto" name="login-submit">Login</button>
                 <p class="text-center">New User? <a href="signup.php" class="text-white">Register Here </a></p>
+                <p class="text-center"> <a href="reset.php" class="text-white">Forgot Password? </a></p>
             </form>
         </div>
     </div>
     
-
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
 </body>
 
 </html>

@@ -25,6 +25,7 @@
 	<script>
 		new WOW().init();
 	</script>
+	<!-- this scipt is used to enable drop drop down on hover of the header -->
 	<style type="text/css">
 		.bs-example {
 			margin: 20px;
