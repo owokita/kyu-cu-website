@@ -20,7 +20,7 @@ if ($_SESSION['user_type'] === "normal" ) {
                             fa-5x"></i></div>
                         <div class="flex-grow-1 ">
                             <h5 class="text-center">Unverified Posts</h5>
-                            <h1 class="text-center">1</h1>
+                            <h1 class="text-center">0</h1>
                         </div>
                     </div>
                 </div>
@@ -31,8 +31,13 @@ if ($_SESSION['user_type'] === "normal" ) {
                         <div class="d-inline "> <i class="fas fa-newspaper
                             fa-5x"></i></div>
                         <div class="flex-grow-1 ">
-                            <h5 class="text-center">Total Posts</h5>
-                            <h1 class="text-center">120</h1>
+                        <?php 
+                            $userOBJ = new USER();
+                            $sql= "SELECT count(article_id) as id from article";
+                            $postCount = $userOBJ->count($sql);
+                             ?>
+                            <h5 class="text-center">Total Posts</h5>                            
+                            <h1 class="text-center"><?php echo $postCount['id'] ?></h1>
                         </div>
                     </div>
                 </div>
@@ -43,8 +48,13 @@ if ($_SESSION['user_type'] === "normal" ) {
                         <div class="d-inline "> <i class="fas fa-users
                             fa-5x"></i></i></div>
                         <div class="flex-grow-1 ">
+                        <?php 
+                            $userOBJ = new USER();
+                            $sql= "SELECT count(user_id) as id from user";
+                            $memberCount = $userOBJ->count($sql);
+                             ?>
                             <h5 class="text-center">Total Members</h5>
-                            <h1 class="text-center">2,000</h1>
+                            <h1 class="text-center"><?php echo $memberCount['id'] ?></h1>
                         </div>
                     </div>
                 </div>

@@ -10,6 +10,7 @@ if (isset($_SESSION['user_id'])) {
 
 <head>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="images/logoicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Signup</title>
@@ -31,7 +32,7 @@ if (isset($_SESSION['user_id'])) {
 
     <div class="container-fluid">
         <div class="col-md-5 col-sm-6 mx-auto logdiv px-0 mx-0">
-            <form  id="signupform" class="logform px-2 " action="includes/register.inc.php" method="POST" >
+            <form id="signupform" class="logform px-2 " action="includes/register.inc.php" method="POST">
 
                 <div class="img-div">
                     <img src="images/logoicon.ico" alt="" class="log-img ">
@@ -52,7 +53,7 @@ if (isset($_SESSION['user_id'])) {
                             <label for="firstName">First Name</label>
                             <input type="text" class="form-control form-control-sm" id="firstName"
                                 aria-describedby="emailHelp" placeholder="Enter First Name" name="firstname" required>
-                               
+
 
                         </div>
                     </div>
@@ -71,26 +72,38 @@ if (isset($_SESSION['user_id'])) {
                     <label for="exampleInputEmail">Email address</label>
                     <input type="email" class="form-control form-control-sm" id="email" aria-describedby="emailHelp"
                         placeholder="Enter email" name="email" required>
-                  
+
 
                 </div>
+                <div class="form-group">
+                <label for="phoneNo">Phone No</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">+254</span>
+                        </div>
+                        <input type="number" id="phoneNo" class="form-control" placeholder=" e.g 701702734"
+                            aria-label="phoneNo" aria-describedby="basic-addon1" name="phoneNo" required>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <label for="regno">Reg No</label>
-                    <input type="text" class="form-control form-control-sm" id="regno"
-                        aria-describedby="emailHelp" placeholder="Enter Reg-No. If Student" name="regno" >
+                    <input type="text" class="form-control form-control-sm" id="regno" aria-describedby="emailHelp"
+                        placeholder="Enter Reg-No. If Student" name="regno">
 
                 </div>
+                
                 <div class="form-group">
                     <label for="password">Password</label>
-                    <input type="password" class="form-control form-control-sm" id="password"
-                        placeholder="Password" name="password" required>
-                       
+                    <input type="password" class="form-control form-control-sm" id="password" placeholder="Password"
+                        name="password" required>
+
                 </div>
                 <div class="form-group">
                     <label for="confirmPassword">Password Confirm</label>
                     <input type="password" class="form-control form-control-sm" id="confirmPassword"
                         placeholder="assword" name="passordconfirm" required>
-                        
+
                 </div>
                 <button type="submit" class="btn btn-success d-flex mx-auto " name="signup-submit">Register</button>
                 <p class="text-center">Already Registered? <a href="login.php" class="text-white">Log-In Here </a></p>
@@ -99,15 +112,15 @@ if (isset($_SESSION['user_id'])) {
         </div>
     </div>
 
-                  
+
     <!-- <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script> -->
     <script src="js/bootstrap-validate.js"></script>
     <script src="js/admin.js"></script>
-    
 
-    
+
+
 </body>
 
 </html>

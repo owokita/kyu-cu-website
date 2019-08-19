@@ -24,6 +24,7 @@ class USER extends SESSION
         }
     }
 
+    
     public function getAllUsers($start,$limit){
         
         $sql = ("SELECT *  FROM user LIMIT $start,$limit"); 
