@@ -35,6 +35,16 @@ class DATABASE
         }
         return $data;
     }
+//this function executes only queries wihout prepared statements
+    function queryNone($sql){
+        $stmt = $this->conn()->prepare($sql);
+        $stmt->execute();
+        $data = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $data[] = $row;
+        }
+        return $data;
+    }
 
 
 
