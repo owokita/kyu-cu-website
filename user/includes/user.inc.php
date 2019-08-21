@@ -41,7 +41,7 @@ class USER extends SESSION
 
     public function countSpecific($field,$table,$condition)
     {
-        $sql = "SELECT count($field) as id from $table where $field = $condition";
+        $sql = "SELECT count($field) as id from $table where $field = '$condition';";
         $stmt = $this->conn()->prepare($sql);
         $stmt->execute();
         $row =$stmt->fetch();

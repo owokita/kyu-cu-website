@@ -27,16 +27,18 @@ class DATABASE
             echo "Connection failed".$e->getMessage();
         }
     }
-    function query_1($sql,$id){
+    public function query_1($sql, $id)
+    {
         $stmt = $this->conn()->prepare($sql);
-        $stmt->execute([$id]);       
+        $stmt->execute([$id]);
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $data = $row;
         }
         return $data;
     }
-//this function executes only queries wihout prepared statements
-    function queryNone($sql){
+    //this function executes only queries wihout prepared statements
+    public function queryNone($sql)
+    {
         $stmt = $this->conn()->prepare($sql);
         $stmt->execute();
         $data = [];
@@ -46,20 +48,13 @@ class DATABASE
         return $data;
     }
 
-    public function queryInsert($sql){
+    public function queryInsert($sql)
+    {
         $stmt = $this->conn()->prepare($sql);
         if ($stmt->execute()) {
             return true;
         } else {
             return false;
         }
-
     }
-
 }
-
-
-
-
-
-
