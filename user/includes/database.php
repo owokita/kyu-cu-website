@@ -27,6 +27,7 @@ class DATABASE
             echo "Connection failed".$e->getMessage();
         }
     }
+    
     public function query_1($sql, $id)
     {
         $stmt = $this->conn()->prepare($sql);

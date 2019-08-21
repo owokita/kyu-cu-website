@@ -143,7 +143,7 @@ elseif (isset($_POST['registerAdmin'])) {
     $userOBJ= new USER();
     $sessID = $userOBJ->getSessionID();
     $sessdata =$userOBJ->getuserbyid($sessID);
-    $sessName = $sessdata['user_fname'] . ''. $sessfname = $sessdata['user_lname'];
+    $sessName = $sessdata['user_fname'] . ' '. $sessfname = $sessdata['user_lname'];
 
     $sql = "INSERT INTO admin (admin_fk_user_id, admin_registered_by) VALUES ('$user_id','$sessName');";
     if ($userOBJ->queryInsert($sql)) {

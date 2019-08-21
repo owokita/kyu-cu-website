@@ -29,7 +29,8 @@ if ($_SESSION['user_type'] === "normal") {
                                 <select id="inputState" name="position" class="form-control form-control-sm" required>
                                     <option disabled=="disabled" selected="selected">-- Select A Position --</option>
                                     <?php foreach ($availablePositions as $availablePosition):?>
-                                        <option><?php echo $availablePosition['position_name'] ?></option>
+                                    <option><?php echo $availablePosition['position_name'] ?>
+                                    </option>
                                     <?php endforeach?>
 
                                 </select>
@@ -71,6 +72,7 @@ if ($_SESSION['user_type'] === "normal") {
                             <th scope="col">Phone No.</th>
                             <th scope="col">Email</th>
                             <th scope="col">Added By</th>
+                            <th scope="col">Added By</th>
 
                         </tr>
                     </thead>
@@ -89,6 +91,10 @@ if ($_SESSION['user_type'] === "normal") {
                             <td><?php echo $leader['user_email']; ?>
                             </td>
                             <td><?php echo $leader['leader_added_by']; ?>
+                            </td>
+                            <td><button id="<?php echo $leader['leaders_fk_user_id']; ?>"
+                                    type="button" class="btn btn-danger btn-sm" data-toggle="modal" onclick="reply_click(this.id)"
+                                    data-target=".bd-example-modal-sm">Remove</button>
                             </td>
 
 
@@ -122,7 +128,7 @@ if ($_SESSION['user_type'] === "normal") {
                             } else {
                                 //get the results from the url and seperate to get the user id and the position
                                 $urlData= $_GET['message'];
-                                $Data= explode("-",$urlData);
+                                $Data= explode("-", $urlData);
                                                                 
                                 echo '<p class =" text-white text-center" style=" background-color: green;border-radius:5px">Are you Sure?</p>';
                                 //Fetch name of the id
@@ -130,13 +136,13 @@ if ($_SESSION['user_type'] === "normal") {
                                 $reslut = $userOBJ->getuserbyid($Data[0]);
                                 
                                 echo 'You want to make <strong>'. $reslut['user_fname'].' '. $reslut['user_lname'].' </strong> of email '. $reslut['user_email'].' the <strong>'. $Data[1].' </strong> ';
-                             }
+                            }
                         }
                         ?>
             </div>
             <div class="modal-footer">
                 <!-- this form will register the leader -->
-                
+
                 <form id="registerLeader" action="includes/register.inc.php" method="POST">
                     <!-- The leader name -->
                     <input type="hidden" name="id"
@@ -166,7 +172,25 @@ if ($_SESSION['user_type'] === "normal") {
 
 
 
-
+<!-- Confirm Deletion Modal -->
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col p-2">
+                        <h6 class=" text-center">Confirmation</h6>
+                        <p >Are you Sure You want to Remove this Leader From His/Her Position</p>
+                        
+                        <button type="button" data-dismiss="modal" class="btn btn-secondary  btn-sm">NO</button>
+                        <a id="demo" class="btn btn-danger btn-sm" href="">YES </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script src="js/jquery-3.2.1.min.js"> </script>
 <script src="js/popper.min.js">
@@ -187,6 +211,12 @@ if ($_SESSION['user_type'] === "normal") {
         document.getElementById('sidebar').classList.remove('active');
 
     })
+    //this function will get the value of he button clicked and insert it inthe modal
+    function reply_click(clicked_id) {
+        x= clicked_id;
+        document.getElementById("demo").href = "includes/delete.inc.php?leader="+x; 
+
+    }
 </script>
 
 </body>

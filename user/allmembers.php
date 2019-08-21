@@ -82,6 +82,7 @@ if ($_SESSION['user_type'] === "normal") {
                             <th scope="col">Email</th>
                             <th scope="col">Course</th>
                             <th scope="col">Join Date</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -102,6 +103,12 @@ if ($_SESSION['user_type'] === "normal") {
                             </td>
                             <td><?php echo $date[0] ?>
                             </td>
+                            <td>
+                            <button id="<?php echo $result['user_id']; ?>"
+                                  
+                                    type="button" class="btn btn-danger btn-sm" data-toggle="modal" onclick="reply_click(this.id)"
+                                    data-target=".bd-example-modal-sm">Remove</button>
+                            </td>
                         </tr>
                         <?php endforeach?>
 
@@ -113,7 +120,26 @@ if ($_SESSION['user_type'] === "normal") {
     </div>
     
 </main>
-
+<!-- Confirm Deletion Modal -->
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col p-2">
+                        <h6 class=" text-center">Confirmation</h6>
+                        <p >Are you sure you want to Remove. </p>
+                        <p >Note That All His/Her Data Will Be removed From The Database </p>
+                        
+                        <button type="button" data-dismiss="modal" class="btn btn-secondary  btn-sm">NO</button>
+                        <a id="demo" class="btn btn-danger btn-sm" href="">YES </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="RegNewMemberModal" tabindex="-1" role="dialog" aria-labelledby="RegNewMemberModal"
@@ -217,6 +243,12 @@ if ($_SESSION['user_type'] === "normal") {
         document.getElementById('sidebar').classList.remove('active');
 
     })
+
+    //this function will get the value of he button clicked and insert it inthe modal
+    function reply_click(clicked_id) {
+        x= clicked_id;
+        document.getElementById("demo").href = "includes/delete.inc.php?user="+x; 
+    }
 </script>
 
 <script type="text/javascript">

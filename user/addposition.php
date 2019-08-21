@@ -47,9 +47,10 @@ if ($_SESSION['user_type'] === "normal") {
                     <tr>
                         <th scope="row" class="w-auto"><?php echo $position['position_name']; ?>
                         </th>
-                        <td scope="row" class="w-auto"> <a
-                                href="includes/delete.inc.php?position=<?php echo $position['position_name']; ?>"
-                                class="btn btn-danger btn-sm"> REMOVE </a>
+                        <td scope="row" class="w-auto"><button id="<?php echo $position['position_name']; ?>"
+                                    type="button" class="btn btn-danger btn-sm" data-toggle="modal" onclick="reply_click(this.id)"
+                                    data-target=".bd-example-modal-sm">Remove</button>
+                            </td>
                         </td>
                     </tr>
                     <?php endforeach?>
@@ -63,7 +64,26 @@ if ($_SESSION['user_type'] === "normal") {
     </div>
 </main>
 
-
+<!-- Confirm Deletion Modal -->
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col p-2">
+                        <h6 class=" text-center">Confirmation</h6>
+                        <p >Are you Sure You want to Remove this  Position</p>
+                        <p >NOTE: All  members entitled to this Position Will be Affected</p>
+                        
+                        <button type="button" data-dismiss="modal" class="btn btn-secondary  btn-sm">NO</button>
+                        <a id="demo" class="btn btn-danger btn-sm" href="">YES </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
@@ -88,6 +108,13 @@ if ($_SESSION['user_type'] === "normal") {
         document.getElementById('sidebar').classList.remove('active');
 
     })
+
+    //this function will get the value of he button clicked and insert it inthe modal
+    function reply_click(clicked_id) {
+        x= clicked_id;
+        document.getElementById("demo").href = "includes/delete.inc.php?position="+x; 
+
+    }
 </script>
 
 
