@@ -1,6 +1,6 @@
 <?php require 'includes/topnav.php';
     $sess = new SESSION();
-    $sess->is_admin();
+   
 ?>
 
 <main class="wrapper">
@@ -8,7 +8,7 @@
     <?php require 'includes/userSidenav.php'?>
     <!--  End of Right side navigation -->
     <div class="content container-fluid">
-        <!-- Admin DashBoad -->
+        <!-- User Dashboard -->
         <div class="row mt-4">
             <div class="col-sm-6 col-md-4 mt-2">
                 <div class="card greenBgMid  text-light p-3">
@@ -16,7 +16,7 @@
                         <div class="d-inline "> <i class="fas fa-newspaper fa-5x"></i></div>
                         <div class="flex-grow-1 ">
                             <h5 class="text-center">Your Posts</h5>
-                            <h1 class="text-center">8</h1>
+                            <h1 class="text-center">0</h1>
                         </div>
                     </div>
                 </div>
@@ -27,7 +27,7 @@
                         <div class="d-inline "> <i class="fab fa-monero fa-5x"></i></div>
                         <div class="flex-grow-1 ">
                             <h5 class="text-center">Your Ministries</h5>
-                            <h1 class="text-center">2</h1>
+                            <h1 class="text-center">0</h1>
                         </div>
                     </div>
                 </div>
@@ -73,3 +73,14 @@
 </body>
 
 </html>
+
+<?php
+/*this  code will pop up the modal immediately the page
+ loads incase there is a new message in the form*/
+if (isset($_GET['message'])) {
+    echo '<script>
+        $("#confirmUser").modal();
+    
+    </script>';
+}
+    ?>

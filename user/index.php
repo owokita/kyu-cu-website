@@ -33,8 +33,7 @@ if ($_SESSION['user_type'] === "normal" ) {
                         <div class="flex-grow-1 ">
                         <?php 
                             $userOBJ = new USER();
-                            $sql= "SELECT count(article_id) as id from article";
-                            $postCount = $userOBJ->count($sql);
+                            $postCount = $userOBJ->count('article_id','article');
                              ?>
                             <h5 class="text-center">Total Posts</h5>                            
                             <h1 class="text-center"><?php echo $postCount['id'] ?></h1>
@@ -50,8 +49,7 @@ if ($_SESSION['user_type'] === "normal" ) {
                         <div class="flex-grow-1 ">
                         <?php 
                             $userOBJ = new USER();
-                            $sql= "SELECT count(user_id) as id from user";
-                            $memberCount = $userOBJ->count($sql);
+                            $memberCount = $userOBJ->count('user_id','user');
                              ?>
                             <h5 class="text-center">Total Members</h5>
                             <h1 class="text-center"><?php echo $memberCount['id'] ?></h1>

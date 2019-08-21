@@ -28,8 +28,7 @@ if ($_SESSION['user_type'] === "normal") {
             $count=$start;
 
 
-            $sql = "SELECT count(user_id) as id from user";
-            $countResult = $userOBJ->count($sql);
+            $countResult = $userOBJ->count('user_id','user');
             $count = $countResult['id'];
             $pages = ceil($count/$limit) ;
 
@@ -89,7 +88,7 @@ if ($_SESSION['user_type'] === "normal") {
                         <?php foreach ($results as $result):?>
                         <tr>
                             <?php   $date= explode(" ", $result['user_joindate'], 2);  ?>
-                            <th scope="row" class="w-auto"><?php echo $count; $count+=1 ?>
+                            <th scope="row" class="w-auto"><?php echo $result['user_id'];?>
                             </th>
                             <td class="text-capitalize"><?php echo ucwords($result['user_fname']); echo " "; echo $result['user_lname'];?>
                             </td>
@@ -239,7 +238,6 @@ if ($_SESSION['user_type'] === "normal") {
  loads incase there is a new message in the form*/
 if (isset($_GET['message'])) {
     echo '<script>
-    
         $("#RegNewMemberModal").modal();
     
     </script>';

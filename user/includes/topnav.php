@@ -17,7 +17,7 @@ if (!isset($_SESSION['user_id'])) {
     <link rel="icon" type="image/png" href="images/logoicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CU-USER</title>
+    <title>MEMBER</title>
     <!--RESET SCSS-->
     <link rel="stylesheet" href="css/reset.css">
     <!--BOOTSTRAP CSS-->
@@ -64,8 +64,18 @@ if (!isset($_SESSION['user_id'])) {
         <div id="sidebarCollapse" class="col-auto ">
             <i class="fas fa-bars"></i>
         </div>
-        <div id="sidebarCollapse" class="col-auto ">
+        <div id="sidebarCollapse" class="col-auto d-flex">
+            <!-- This link will lead to the home page -->
             <a class="dropdown-item text-white" href="../index.php "><i class="fas fa-home"></i></a>
+            <!-- This link will lead to the admin page -->
+            <?php
+                if ($objUser->admintypeSuper($logid)) {
+                echo '<a class="dropdown-item text-white" href="index.php "><i class="fas fa-user-shield"></i></a>';
+                }
+            ?>
+            
+        
+            
         </div>
         <!-- Links -->
         <ul class="navbar-nav ">
@@ -80,9 +90,9 @@ if (!isset($_SESSION['user_id'])) {
                 </a>
 
                 <div class="dropdown-menu" style="position:absolute; transform: translateX(-110px); ">
-                    <a class="dropdown-item" href="#">Profile</a>
-                    <a class="dropdown-item" href="#">Settings</a>
-                    <a class="dropdown-item" href="#">Logout</a>
+                    <a class="dropdown-item" href="#">still</a>
+                    <a class="dropdown-item" href="#">under</a>
+                    <a class="dropdown-item" href="#">development</a>
                 </div>
 
 
@@ -94,7 +104,7 @@ if (!isset($_SESSION['user_id'])) {
                    <?php echo $data['user_fname']; ?>
                 </a>
                 <div class="dropdown-menu" style="position:absolute; transform: translateX(-110px); ">
-                    <a class="dropdown-item" href="profile.php">Profile</a>
+                    <a class="dropdown-item" href="user.php">Profile</a>
                     <a class="dropdown-item" href="#">Settings</a>
                     <a class="dropdown-item" href="includes/logout.php">Logout</a>
                 </div>

@@ -3,8 +3,9 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-function sendmail($to, $message, $from,$subject)
+function sendmail($to, $message, $from, $subject)
 {
+    
     //Load Composer's autoloader
     require 'vendor/autoload.php';
     // Instantiation and passing `true` enables exceptions
@@ -21,6 +22,7 @@ function sendmail($to, $message, $from,$subject)
         $mail->SMTPSecure = 'ssl';     // Enable TLS encryption, `ssl` also accepted
         $mail->Port       = 465;
 
+        
         //RECEPIENTS
         $mail->setFrom($from, 'Christian Union - KYU');
         $mail->addAddress($to);

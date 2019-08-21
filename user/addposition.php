@@ -10,8 +10,7 @@ if ($_SESSION['user_type'] === "normal" ) {
     <!--  End of Right side navigation -->
 
     <div class="content container-fluid">
-        <!-- Admin DashBoad -->
-       <p>addposition</p>
+        
     </div>
 </main>
 

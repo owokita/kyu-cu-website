@@ -46,7 +46,15 @@ class DATABASE
         return $data;
     }
 
+    public function queryInsert($sql){
+        $stmt = $this->conn()->prepare($sql);
+        if ($stmt->execute()) {
+            return true;
+        } else {
+            return false;
+        }
 
+    }
 
 }
 
