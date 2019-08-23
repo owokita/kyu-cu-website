@@ -16,10 +16,10 @@ use PHPMailer\PHPMailer\Exception;
             //SMPT SERVER CONFIGURATION
         $mail->SMTPDebug = 2;    // Enable verbose debug output
         $mail->isSMTP();         // Set maile0791342771KYUCU.r to use SMTP
-        $mail->Host = 'mail.kyucu.co.ke';
+        $mail->Host = '**************';
             $mail->SMTPAuth   = true;
-            $mail->Username   = 'noreply@kyucu.co.ke';        // SMTP username
-            $mail->Password   = 'L_rQhwMMr@df';
+            $mail->Username   = '*****************8';        // SMTP username
+            $mail->Password   = '***************';
             $mail->SMTPSecure = 'ssl';     // Enable TLS encryption, `ssl` also accepted
             $mail->Port       = 465;
           
