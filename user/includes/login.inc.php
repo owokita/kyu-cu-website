@@ -1,10 +1,27 @@
 <?php
+
+//GOOGLW RECAPTCHA SECURITY
+define('SITE_KEY', '6LerYbQUAAAAADOzC2W_JWN2-1TPXfZMwznqV_e9');
+define('SECRET_KEY', '6LerYbQUAAAAANIAUCjJkHfv1DC1Pd3YA0K1TGni'); 
 if (isset($_POST['login-submit'])) {
     require 'init.php';
     $user_email = $_POST['email'];
     $user_pwd = $_POST['password'];
     
-    //Ckecks if the Email Address Exists
+    function getCaptcha($SecretKey){
+        // $Response="";
+        $Response =
+         file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".SECRET_KEY."&response={$SecretKey}");
+        //decode the json
+        $Retrun = json_decode($Response);
+
+        return $Retrun;
+    }
+
+    $Retrun = getCaptcha($_POST['g-recaptcha-response']);
+    //check if the user is a robot
+   if ($Retrun->success == true && $Retrun->score > 0.5 ) {
+       //Ckecks if the Email Address Exists
     $user= new USER();
     if (!$user->getuserbyEmail($user_email)) {
         $user->redirect("../login.php?false");
@@ -49,6 +66,12 @@ if (isset($_POST['login-submit'])) {
             # code...
         }
     }
+   } else {
+    require 'init.php';
+    $user->redirect("../login.php?robot");
+   }
+   
+    
 } else {
     require 'init.php';
     redirect("../login.php");

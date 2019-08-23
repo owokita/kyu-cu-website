@@ -15,8 +15,7 @@ bootstrapValidate('#email','email:Enter a valid E-Mail Address!'
 
  bootstrapValidate('#phoneNo', 'max:9:Max Entry is 9 digits');
  bootstrapValidate('#phoneNo', 'min:9:Minimun Entry is 9 digits');
-
-
+ bootstrapValidate('#password', 'min:4:Weak Password');
  bootstrapValidate('#confirmPassword','matches:#password:Password Must Match'
  );
  

@@ -13,12 +13,13 @@ try {
     //SMPT SERVER CONFIGURATION
     $mail->SMTPDebug = 2;    // Enable verbose debug output
     $mail->isSMTP();         // Set maile0791342771KYUCU.r to use SMTP
-    $mail->Host = 'smtp.elasticemail.com';
+    $mail->Host = '   smtp25.elasticemail.com';
     $mail->SMTPAuth   = true;
     $mail->Username   = '1kyuc.cu@gmail.com';                     // SMTP username
     $mail->Password   = 'e91bc04e-8734-4243-bb3d-0b13bc6deab3';
     $mail->SMTPSecure = 'ssl';     // Enable TLS encryption, `ssl` also accepted
-    $mail->Port       =  2525;
+    $mail->Port       =
+    25;
 
     //RECEPIENTS
     $mail->setFrom('info@kyucu.co.ke', 'CHRISTIAN UNION - KYU');

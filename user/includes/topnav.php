@@ -69,9 +69,10 @@ if (!isset($_SESSION['user_id'])) {
             <a class="dropdown-item text-white" href="../index.php "><i class="fas fa-home"></i></a>
             <!-- This link will lead to the admin page -->
             <?php
-                if ($objUser->admintypeSuper($logid)) {
+            //FIXME: NOT MAKING SENSE
+                if ($objUser->isAdmin($logid)) {
                 echo '<a class="dropdown-item text-white" href="index.php "><i class="fas fa-user-shield"></i></a>';
-                }
+                } 
             ?>
             
         
@@ -105,7 +106,7 @@ if (!isset($_SESSION['user_id'])) {
                 </a>
                 <div class="dropdown-menu" style="position:absolute; transform: translateX(-110px); ">
                     <a class="dropdown-item" href="user.php">Profile</a>
-                    <a class="dropdown-item" href="#">Settings</a>
+                    <a class="dropdown-item" href="settings.php">Settings</a>
                     <a class="dropdown-item" href="includes/logout.php">Logout</a>
                 </div>
             </li>

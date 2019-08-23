@@ -45,7 +45,7 @@ if (isset($_POST['reset-pwd'])) {
     sendmail($user_email, $message, $from, $subject);
 
     redirect("../reset.php?reset=success");
-} 
+}
 
 //set new password
 elseif (isset($_POST['new-pwd'])) {
@@ -102,6 +102,27 @@ elseif (isset($_POST['new-pwd'])) {
             }
         }
     }
+} elseif(isset($_POST['updatepassword'])){
+    require 'init.php';
+    $user_pwd = $_POST['password'];
+    $userOBJ= new USER();
+    $sessID = $userOBJ->getSessionID();
+
+     //update the user password
+     $sql = "UPDATE user SET user_pwd = ? WHERE user_id =?";
+
+     if (!$stmt = $userOBJ->conn()->prepare($sql)) {
+         echo "there was an error in preparing the update password script";
+         exit();
+     } else {
+         //hash the password before inserting into the databse
+         $hashedpwd = password_hash($user_pwd, PASSWORD_DEFAULT);
+         $stmt->execute([$hashedpwd,$sessID]);
+
+         redirect("../settings.php?message=resetsuccess");
+     }
+
+
 } else {
     require 'init.php';
     redirect("../login.php");

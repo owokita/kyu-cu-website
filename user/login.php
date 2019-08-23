@@ -1,4 +1,8 @@
 <?php
+
+//GOOGLW RECAPTCHA SECURITY
+define('SITE_KEY', '6LerYbQUAAAAADOzC2W_JWN2-1TPXfZMwznqV_e9');
+define('SECRET_KEY', '6LerYbQUAAAAANIAUCjJkHfv1DC1Pd3YA0K1TGni');
 require 'includes/init.php';
 $sess = new SESSION();
 //redirects the user to the home page if the session is active
@@ -22,8 +26,8 @@ if (isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="css/bootstrap.css">
     <!-- main.css -->
     <link rel="stylesheet" href="css/login.css">
-
-
+    <!-- //Google recaptcha form -->
+    <script src="https://www.google.com/recaptcha/api.js?render=<?php echo SITE_KEY; ?>"></script>
 </head>
 
 <body>
@@ -41,11 +45,14 @@ if (isset($_SESSION['user_id'])) {
                         echo '<p class =" text-white text-center" style=" background-color: red;border-radius:5px"> Wrong Password</p>';
                     } elseif (isset($_GET['resetsuccess'])) {
                         echo '<p class =" text-white text-center" style=" background-color: green;border-radius:5px"> Password Reset Was Successful</p>';
-                    } 
+                    } elseif (isset($_GET['robot'])) {
+                        echo '<p class =" text-white text-center" style=" background-color: red;border-radius:5px"> You Are Behaving Like a Robot Please Try Again Later</p>';
+                    }
                     
                     ?>
 
                 </div>
+                <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response" id="">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
@@ -54,8 +61,8 @@ if (isset($_SESSION['user_id'])) {
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password"
-                        name="password" required>
+                    <input type="password" class="form-control" id="password" placeholder="Password" name="password"
+                        required>
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1" name="remember">
@@ -67,7 +74,18 @@ if (isset($_SESSION['user_id'])) {
             </form>
         </div>
     </div>
-    
+<!-- //Google Recaptcha Security -->
+    <script>
+        grecaptcha.ready(function() {
+            grecaptcha.execute('<?php echo SITE_KEY; ?>', {
+                action: 'login'
+            }).then(function(token) {
+                // console.log(token);
+                document.getElementById('g-recaptcha-response').value = token;
+            });
+        });
+    </script>
+
 </body>
 
 </html>

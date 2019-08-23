@@ -28,12 +28,13 @@ if (isset($_POST['signup-submit'])) {
                 //send email congaratutaling him for his signup
                 require 'mailer.php';
                 
-                $message="Hi ". $user_fname  ." ". $user_lastname.", Congratulation for joining KYUCU Community. Login to your profile using the link below to post your first Article
+                $message='
+                <h3 style="color: green">Kirinyaga University Christian Union</h3>
+                Hi ". $user_fname  ." ". $user_lastname.", Congratulation for joining KYUCU Community. Login to your profile using the link below to post your first Article
                 https://test.kyucu.co.ke/user/login.php
-                ";
+                ';
                 $subject= "Welcome to Christian Union- KYU";
-                $from= "info@kyucu.co.ke";
-                sendmail($_POST['email'], $message, $from, $subject);
+                sendmail($_POST['email'], $subject, $message);
 
                 $user->redirect("../signup.php?success");
             } else {
@@ -42,6 +43,8 @@ if (isset($_POST['signup-submit'])) {
             }
         }
     }
+
+// admin registration of new members
 } elseif (isset($_POST['ADMINnewMemberReg'])) {
     $user_fname = $_POST['firstname'];
     $user_lastname = $_POST['lastname'];
@@ -73,15 +76,19 @@ if (isset($_POST['signup-submit'])) {
                     //send email congaratutaling him for his signup
                 require 'mailer.php';
                     
-                $message="Hi ". $user_fname  ." ". $user_lastname.", Congratulation for joining KYUCU Community. <br>  ";
-                $message .= " Your temporary Login Password is <strong>" . $user_pwd . "</strong> <br>";
+                $message='
+
+             
+                <h3 style="color: green">Kirinyaga University Christian Union</h3>
+                Hi '. $user_fname  .' '. $user_lastname.', Congratulation for joining KYUCU Community. <br>  ";
+                $message .= " Your temporary Login Password is <strong> ' . $user_pwd . ' </strong> <br>";
                 $message .= " You can Change this password Later. <br>";
                 $message .=" Login to your profile using the link below to post your first Article 
-                    https://test.kyucu.co.ke/user/login.php ";
+                    https://test.kyucu.co.ke/user/login.php ';
 
                 $subject= "Welcome to Christian Union- KYU";
                 $from= "info@kyucu.co.ke";
-                sendmail($_POST['email'], $message, $from, $subject);
+                sendmail($_POST['email'], $subject, $message);
     
                 $user->redirect("../allmembers.php?message=success");
             } else {
@@ -145,8 +152,33 @@ elseif (isset($_POST['registerAdmin'])) {
     $sessdata =$userOBJ->getuserbyid($sessID);
     $sessName = $sessdata['user_fname'] . ' '. $sessfname = $sessdata['user_lname'];
 
+    $userdata =$userOBJ->getuserbyid($user_id);
+    $userName = $userdata['user_fname'] . ' '. $userfname = $userdata['user_lname'];
+
     $sql = "INSERT INTO admin (admin_fk_user_id, admin_registered_by) VALUES ('$user_id','$sessName');";
     if ($userOBJ->queryInsert($sql)) {
+
+         //send email congaratutaling him for his new position
+         require 'mailer.php';
+                
+         $message='
+   
+         <h3 style="color: green">Kirinyaga University Christian Union</h3>
+        
+         Congratulation '. $userName .',  . <br>
+          You are now an <strong> ADMINISTRATOR  </strong> of the  Kirinyaga University Christian Union WEBSITE. <br>
+          Use link Below to get access to the adminpage. <br>
+
+          https://test.kyucu.co.ke/user/index.php <br>
+
+          Incase you cannot access the page just logout and login once more <br>
+ 
+          Thank You
+         ';
+         $subject= "You Are Now A Leader ";
+         sendmail($userdata['user_email'] , $subject, $message);
+ 
+
         redirect("../admin.php");
     } else {
         echo " there was a server error 101-2000. Please Notify the admin of this Error";
@@ -163,10 +195,34 @@ elseif (isset($_POST['registerLeader'])) {
     $userOBJ= new USER();
     $sessID = $userOBJ->getSessionID();
     $sessdata =$userOBJ->getuserbyid($sessID);
+    
     $sessName = $sessdata['user_fname'] . ' '. $sessfname = $sessdata['user_lname'];
+    $userdata =$userOBJ->getuserbyid($user_id);
+    $userName = $userdata['user_fname'] . ' '. $userfname = $userdata['user_lname'];
+
+  
+
 
     $sql = "INSERT INTO leaders (leaders_fk_user_id, leaders_fk_position_name, leader_added_by) VALUES ('$user_id', '$requested_position', '$sessName');";
     if ($userOBJ->queryInsert($sql)) {
+
+        //send email congaratutaling him for his new position
+        require 'mailer.php';
+                
+        $message='
+        <h3 style="color: green">Kirinyaga University Christian Union</h3>
+        
+        Congratulation '. $userName .',  . <br>
+         You are now the <strong> '. $requested_position .' </strong> of Kirinyaga University Christian Union. <br>
+         Use link Below to Update your quote that will appear on The Homepage.
+         https://test.kyucu.co.ke/user/settings.php <br>
+
+         We wish you all the best 
+        ';
+        $subject= "You Are Now A Leader ";
+        sendmail($userdata['user_email'], $subject, $message);
+
+
         redirect("../churchleader.php");
     } else {
         echo " there was a server error 101-2000. Please Notify the admin of this Error";

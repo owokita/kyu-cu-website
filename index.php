@@ -1,3 +1,6 @@
+
+<?php require 'user/includes/init.php' ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -556,120 +559,25 @@
 				<h3 class="mx-auto">Meet Our Dedicated Leaders</h3>
 			</div>
 			<div class="wrapper container text-center">
+				<?php  $sql = "select user_fname,user_lname, leaders_quote,leaders_fk_position_name from leaders
+inner join user on user_id = leaders_fk_user_id;";
+				$userOBJ = new USER();
+				$leaders = $userOBJ->queryNone($sql);				
+				?>
 				<div class="leaders-carousel owl-carousel">
-					<div class="single-leader py-3">
-						<div class="leader-img">
-							<img src="images/2.jpg" alt="" srcset="">
-						</div>
-						<div class="leader-text">
-							<h5 class="text-uppercase">daniel washira</h5>
-							<h6>Software Developer</h6>
-							<p class="dash">
-								<i class="fas fa-asterisk"></i>
-								<i class="fas fa-asterisk"></i>
-								<i class="fas fa-asterisk"></i>
-								<i class="fas fa-asterisk"></i>
-								<i class="fas fa-asterisk"></i>
-							</p>
-							<hr>
-							<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, explicabo! </p>
-						</div>
-					</div>
-					<div class="single-leader py-3">
-						<div class="leader-img">
-							<img src="images/3.jpg" alt="" srcset="">
-						</div>
-						<div class="leader-text">
-							<h5 class="text-uppercase">SIMO ICT</h5>
-							<h6>Android Developer</h6>
-							<p class="dash">
-								<i class="fas fa-asterisk"></i>
-								<i class="fas fa-asterisk"></i>
-								<i class="fas fa-asterisk"></i>
-								<i class="fas fa-asterisk"></i>
-								<i class="fas fa-asterisk"></i>
-							</p>
-							<hr>
-							<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, explicabo! </p>
-
-						</div>
-					</div>
-					<div class="single-leader py-3">
-						<div class="leader-img">
-							<img src="images/2.jpg" alt="" srcset="">
-						</div>
-						<div class="leader-text">
-							<h5>MERCY BENU</h5>
-							<h6>Software Developer</h6>
-							<p class="dash">
-								<i class="fas fa-asterisk"></i>
-								<i class="fas fa-asterisk"></i>
-								<i class="fas fa-asterisk"></i>
-								<i class="fas fa-asterisk"></i>
-								<i class="fas fa-asterisk"></i>
-							</p>
-							<hr>
-							<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, explicabo! </p>
-
-						</div>
-					</div>
-					<div class="single-leader py-3">
-						<div class="leader-img">
-							<img src="images/3.jpg" alt="" srcset="">
-						</div>
-						<div class="leader-text">
-							<h5 class="text-uppercase">sample sample</h6>
-								<h6>Software Developer</h6>
-								<p class="dash">
-									<i class="fas fa-asterisk"></i>
-									<i class="fas fa-asterisk"></i>
-									<i class="fas fa-asterisk"></i>
-									<i class="fas fa-asterisk"></i>
-									<i class="fas fa-asterisk"></i>
-								</p>
+					<?php foreach ($leaders as $leader): ?>
+						<div class="single-leader py-3">
+							<div class="leader-img">
+								<img src="images/2.jpg" alt="" srcset="">
+							</div>
+							<div class="leader-text">
+								<h5 class="text-uppercase"> <?php echo $leader['user_fname']; ?> <?php echo $leader['user_lname']; ?></h5>
+								<h6><?php echo $leader['leaders_fk_position_name']; ?> </h6>
 								<hr>
-								<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, explicabo! </p>
-
+								<p> <?php echo $leader['leaders_quote']; ?> </p>
+							</div>
 						</div>
-					</div>
-					<div class="single-leader py-3">
-						<div class="leader-img">
-							<img src="images/2.jpg" alt="" srcset="">
-						</div>
-						<div class="leader-text">
-							<h5 class="text-uppercase">SIMON KARIUKI</h5>
-							<h6>Software Developer</h6>
-							<p class="dash">
-								<i class="fas fa-asterisk"></i>
-								<i class="fas fa-asterisk"></i>
-								<i class="fas fa-asterisk"></i>
-								<i class="fas fa-asterisk"></i>
-								<i class="fas fa-asterisk"></i>
-							</p>
-							<hr>
-							<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, explicabo! </p>
-
-						</div>
-					</div>
-					<div class="single-leader py-3">
-						<div class="leader-img">
-							<img src="images/3.jpg" alt="" srcset="">
-						</div>
-						<div class="leader-text">
-							<h5>UNCLE CLOCKWISE</h5>
-							<h6>Android Developer</h6>
-							<p class="dash">
-								<i class="fas fa-asterisk"></i>
-								<i class="fas fa-asterisk"></i>
-								<i class="fas fa-asterisk"></i>
-								<i class="fas fa-asterisk"></i>
-								<i class="fas fa-asterisk"></i>
-							</p>
-							<hr>
-							<p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt, explicabo! </p>
-						</div>
-					</div>
-
+					<?php endforeach;?>
 				</div>
 			</div>
 		</section>

@@ -58,4 +58,14 @@ class DATABASE
             return false;
         }
     }
+
+    public function writeSpecific($sql,$condition)
+    {
+        $stmt = $this->conn()->prepare($sql);
+        if ($stmt->execute([$condition])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

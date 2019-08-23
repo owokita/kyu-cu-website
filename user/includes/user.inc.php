@@ -65,6 +65,20 @@ class USER extends SESSION
         return $data;
     }
 
+    //check if the user is a leader it returns the data if found else false
+    public function getLeaderData($id){
+        
+        $sql = "SELECT * from leaders WHERE leaders_fk_user_id = $id";
+        $stmt = $this->conn()->prepare($sql);
+        $stmt->execute();
+        $row =$stmt->fetch();
+
+        return $row;
+
+        
+        
+    }
+
     
 
 }

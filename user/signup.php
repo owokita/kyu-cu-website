@@ -76,7 +76,7 @@ if (isset($_SESSION['user_id'])) {
 
                 </div>
                 <div class="form-group">
-                <label for="phoneNo">Phone No</label>
+                    <label for="phoneNo">Phone No</label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="basic-addon1">+254</span>
@@ -92,7 +92,7 @@ if (isset($_SESSION['user_id'])) {
                         placeholder="Enter Reg-No. If Student" name="regno">
 
                 </div>
-                
+
                 <div class="form-group">
                     <label for="password">Password</label>
                     <input type="password" class="form-control form-control-sm" id="password" placeholder="Password"
@@ -102,7 +102,7 @@ if (isset($_SESSION['user_id'])) {
                 <div class="form-group">
                     <label for="confirmPassword">Password Confirm</label>
                     <input type="password" class="form-control form-control-sm" id="confirmPassword"
-                        placeholder="assword" name="passordconfirm" required>
+                        placeholder="assword" name="Password confirmation" required>
 
                 </div>
                 <button type="submit" class="btn btn-success d-flex mx-auto " name="signup-submit">Register</button>
