@@ -1,8 +1,8 @@
 <?php
 
 //GOOGLW RECAPTCHA SECURITY
-define('SITE_KEY', '6LerYbQUAAAAADOzC2W_JWN2-1TPXfZMwznqV_e9');
-define('SECRET_KEY', '6LerYbQUAAAAANIAUCjJkHfv1DC1Pd3YA0K1TGni');
+define('SITE_KEY', '');
+define('SECRET_KEY', '');
 require 'includes/init.php';
 $sess = new SESSION();
 //redirects the user to the home page if the session is active
