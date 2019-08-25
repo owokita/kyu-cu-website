@@ -1,13 +1,13 @@
 <?php
 require_once 'init.php';
 if (isset($_POST['signup-submit'])) {
-    $user_fname = ucfirst(strtolower($_POST['firstname'])) ;
+    $user_fname = ucfirst(strtolower($_POST['firstname']));
     $user_lastname =ucfirst(strtolower($_POST['lastname'])) ;
     $user_email = strtolower($_POST['email']) ;
-    $user_regno = $_POST['regno'];
+    $user_regno = strtoupper($_POST['regno']) ;
     $user_pwd = $_POST['password'];
     $user_phone= "+254";
-    $user_phone .= $_POST['phoneNo'];
+    $user_phone .= strtoupper($_POST['course']);
 
     
 
@@ -30,8 +30,9 @@ if (isset($_POST['signup-submit'])) {
                 
                 $message='
                 <h3 style="color: green">Kirinyaga University Christian Union</h3>
-                Hi ". $user_fname  ." ". $user_lastname.", Congratulation for joining KYUCU Community. Login to your profile using the link below to post your first Article
-                https://test.kyucu.co.ke/user/login.php
+                Hi '. $user_fname  .' '. $user_lastname.', Congratulation for joining KYUCU Community. Login to your profile using the link below to post your first Article. <br>
+                <a href="https://test.kyucu.co.ke/user/login.php">https://test.kyucu.co.ke/user/login.php</a>
+                
                 ';
                 $subject= "Welcome to Christian Union- KYU";
                 sendmail($_POST['email'], $subject, $message);
@@ -44,15 +45,15 @@ if (isset($_POST['signup-submit'])) {
         }
     }
 
-// admin registration of new members
+    // admin registration of new members
 } elseif (isset($_POST['ADMINnewMemberReg'])) {
-    $user_fname = $_POST['firstname'];
-    $user_lastname = $_POST['lastname'];
-    $user_email = $_POST['email'];
-    $user_regno = $_POST['regno'];
+    $user_fname = ucfirst(strtolower($_POST['firstname']));
+    $user_lastname = ucfirst(strtolower($_POST['lastname'])) ;
+    $user_email = strtolower($_POST['email']) ;
+    $user_regno = strtoupper($_POST['regno']) ;
     $user_phone= "+254";
     $user_phone .= $_POST['phoneNo'];
-    $user_course = $_POST['course'];
+    $user_course = strtoupper($_POST['course']);
 
     $user= new USER();
 
@@ -83,7 +84,8 @@ if (isset($_POST['signup-submit'])) {
                 Hi '. $user_fname  .' '. $user_lastname.', Congratulation for joining KYUCU Community. <br>  ";
                 $message .= " Your temporary Login Password is <strong> ' . $user_pwd . ' </strong> <br>";
                 $message .= " You can Change this password Later. <br>";
-                $message .=" Login to your profile using the link below to post your first Article 
+                $message .=" Login to your profile using the link below to post your first Article
+
                     https://test.kyucu.co.ke/user/login.php ';
 
                 $subject= "Welcome to Christian Union- KYU";
@@ -111,9 +113,21 @@ if (isset($_POST['signup-submit'])) {
         $data =$userOBJ->getUserDataByEmail($user_email);
         $id= $data['user_id'];
 
+        //if the leader is assigned to aministry
+        if (isset($_POST['ministry'])) {
+            $ministry = $_POST['ministry'];
+            if(!empty($ministry)) {
+                echo $ministry;
+                // exit();
+                // redirect("../churchleader.php");
+            }
+        } else {
+           echo "this field has not been set";
+        }
+
         //combine the user id and the user position with a hyphen separating them then store
         //the varible will be retured in the url
-        $retrun= $id . "-" . $user_position;
+        $retrun= $id . "-" . $user_position . "-" .$ministry;
 
         // 2)Check if the User is Already a leader
         $leaderData = $userOBJ->countSpecific('leaders_fk_user_id', 'leaders', $id);
@@ -159,24 +173,24 @@ elseif (isset($_POST['registerAdmin'])) {
     if ($userOBJ->queryInsert($sql)) {
 
          //send email congaratutaling him for his new position
-         require 'mailer.php';
+        require 'mailer.php';
                 
-         $message='
+        $message='
    
          <h3 style="color: green">Kirinyaga University Christian Union</h3>
         
          Congratulation '. $userName .',  . <br>
           You are now an <strong> ADMINISTRATOR  </strong> of the  Kirinyaga University Christian Union WEBSITE. <br>
-          Use link Below to get access to the adminpage. <br>
-
-          https://test.kyucu.co.ke/user/index.php <br>
+          Use link Below to get access to the adminpage. <br> <br>
+          <a href="https://test.kyucu.co.ke/user/index.php">https://test.kyucu.co.ke/user/index.php</a>
+           <br>
 
           Incase you cannot access the page just logout and login once more <br>
  
           Thank You
          ';
-         $subject= "You Are Now A Leader ";
-         sendmail($userdata['user_email'] , $subject, $message);
+        $subject= "You Are Now A Leader ";
+        sendmail($userdata['user_email'], $subject, $message);
  
 
         redirect("../admin.php");
@@ -190,6 +204,10 @@ elseif (isset($_POST['registerAdmin'])) {
 elseif (isset($_POST['registerLeader'])) {
     $user_id = $_POST['id'];
     $requested_position = $_POST['position'];
+    $requested_ministry = $_POST['ministry'];
+
+    
+
 
     //get the session of the person who is logged in;
     $userOBJ= new USER();
@@ -208,31 +226,49 @@ elseif (isset($_POST['registerLeader'])) {
 
         //send email congaratutaling him for his new position
         require 'mailer.php';
-                
+               
         $message='
         <h3 style="color: green">Kirinyaga University Christian Union</h3>
         
         Congratulation '. $userName .',  . <br>
          You are now the <strong> '. $requested_position .' </strong> of Kirinyaga University Christian Union. <br>
-         Use link Below to Update your quote that will appear on The Homepage.
-         https://test.kyucu.co.ke/user/settings.php <br>
+         Use link Below to Update your message that will appear on The Homepage. <br>
+
+         <a href="https://test.kyucu.co.ke/user/settings.php">https://test.kyucu.co.ke/user/settings.php</a>
+          <br>
 
          We wish you all the best 
         ';
         $subject= "You Are Now A Leader ";
         sendmail($userdata['user_email'], $subject, $message);
 
+        //TODO: CHECK IF THE MINISTRY IS OCCUPIED
+        //if the leader is assigned to aministry
+        if (isset($_POST['ministry'])) {
+            $ministry = $_POST['ministry'];
+            if(!empty($ministry)) {
+                $sql ="UPDATE leaders SET leaders_fk_mty_id = '$ministry' WHERE (leaders_fk_user_id = '$user_id');";
+                $userOBJ->queryInsert($sql);
+                $sql = "UPDATE ministries SET mty_leader = '$user_id' WHERE (mty_id = '$ministry');";
+                $userOBJ->queryInsert($sql);
+            }
+        } else {
+
+           echo "this field has not been set";
+        }
 
         redirect("../churchleader.php");
+        
     } else {
         echo " there was a server error 101-2000. Please Notify the admin of this Error";
         exit();
     }
     exit();
-} 
+}
 //ADD POSITION
 elseif (isset($_POST['addPosition'])) {
     $position = $_POST['position'];
+
     $userOBJ= new USER();
     //check if the position already exits
 
@@ -246,6 +282,8 @@ elseif (isset($_POST['addPosition'])) {
         $sql = "INSERT INTO position (position_name) VALUES ('$position');";
         $userOBJ->queryInsert($sql);
         //TODO: return the user with message
+
+        
         redirect("../addposition.php");
     }
 } else {

@@ -568,7 +568,7 @@ inner join user on user_id = leaders_fk_user_id;";
 					<?php foreach ($leaders as $leader): ?>
 						<div class="single-leader py-3">
 							<div class="leader-img">
-								<img src="images/2.jpg" alt="" srcset="">
+								<!-- <img src="images/2.jpg" alt="" srcset=""> -->
 							</div>
 							<div class="leader-text">
 								<h5 class="text-uppercase"> <?php echo $leader['user_fname']; ?> <?php echo $leader['user_lname']; ?></h5>

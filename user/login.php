@@ -27,7 +27,9 @@ if (isset($_SESSION['user_id'])) {
     <!-- main.css -->
     <link rel="stylesheet" href="css/login.css">
     <!-- //Google recaptcha form -->
-    <script src="https://www.google.com/recaptcha/api.js?render=<?php echo SITE_KEY; ?>"></script>
+    <script
+        src="https://www.google.com/recaptcha/api.js?render=<?php echo SITE_KEY; ?>">
+    </script>
 </head>
 
 <body>
@@ -46,7 +48,7 @@ if (isset($_SESSION['user_id'])) {
                     } elseif (isset($_GET['resetsuccess'])) {
                         echo '<p class =" text-white text-center" style=" background-color: green;border-radius:5px"> Password Reset Was Successful</p>';
                     } elseif (isset($_GET['robot'])) {
-                        echo '<p class =" text-white text-center" style=" background-color: red;border-radius:5px"> You Are Behaving Like a Robot Please Try Again Later</p>';
+                        echo '<p class =" text-white text-center" style=" background-color: red;border-radius:5px">Google Report is You Are Behaving Like a Robot Please Try Again Later</p>';
                     }
                     
                     ?>
@@ -74,7 +76,7 @@ if (isset($_SESSION['user_id'])) {
             </form>
         </div>
     </div>
-<!-- //Google Recaptcha Security -->
+    <!-- //Google Recaptcha Security -->
     <script>
         grecaptcha.ready(function() {
             grecaptcha.execute('<?php echo SITE_KEY; ?>', {

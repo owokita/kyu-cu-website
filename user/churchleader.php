@@ -17,13 +17,16 @@ if ($_SESSION['user_type'] === "normal") {
                 left outer join leaders on leaders_fk_position_name = position_name 
                 WHERE leaders_fk_position_name is NULL;";
         $availablePositions = $userOBJ->queryNone($sql);
+
+        $sql2="select mty_id from ministries where mty_leader is null";
+        $availableMinistries = $userOBJ->queryNone($sql2);
         ?>
         <div class="row mt-2">
             <div class="col ">
                 <!-- Form to Request Registration Of A new Admin -->
                 <form id="postuser" action="includes/register.inc.php" method="POST">
                     <div class="form-row">
-                        <div class="col">
+                        <div class="col-auto">
                             <div class="form-group ">
                                 <label for="firstName">Select Position</label>
                                 <select id="inputState" name="position" class="form-control form-control-sm" required>
@@ -36,7 +39,25 @@ if ($_SESSION['user_type'] === "normal") {
                                 </select>
                             </div>
                         </div>
-                        <div class="col">
+
+                        <!-- //ministry should only be selected if the leader is reponsible of a ministry -->
+                        <div class="col-auto">
+                            <div class="form-group form-group-sm">
+
+                                <label for="firstName">Select Ministry</label>
+                                <select id="inputState" name="ministry" class="form-control form-control-sm">
+                                    <option disabled=="disabled" selected="selected">-- Select A Ministry --</option>
+                                    <?php foreach ($availableMinistries as $availableMinistry):?>
+                                    <option><?php echo $availableMinistry['mty_id'] ?>
+                                    </option>
+                                    <?php endforeach?>
+
+                                </select>
+
+                            </div>
+                        </div>
+
+                        <div class="col-auto">
                             <div class="form-group ">
                                 <label for="lastName">Enter Email</label>
                                 <input type="email" class="form-control form-control-sm" id="lastName"
@@ -46,7 +67,7 @@ if ($_SESSION['user_type'] === "normal") {
                         </div>
                     </div>
                 </form>
-                <div class="col ">
+                <div class="col">
                     <button type="submit" id="showmodal" class="btn btn-outline-success btn-sm" form="postuser"
                         name="checkLeader"> <span><i class="fas fa-user-plus"></i></span>
                         Submit</button>
@@ -92,9 +113,10 @@ if ($_SESSION['user_type'] === "normal") {
                             </td>
                             <td><?php echo $leader['leader_added_by']; ?>
                             </td>
-                            <td><button id="<?php echo $leader['leaders_fk_user_id']; ?>"
-                                    type="button" class="btn btn-danger btn-sm" data-toggle="modal" onclick="reply_click(this.id)"
-                                    data-target=".bd-example-modal-sm">Remove</button>
+                            <td><button
+                                    id="<?php echo $leader['leaders_fk_user_id']; ?>"
+                                    type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                                    onclick="reply_click(this.id)" data-target=".bd-example-modal-sm">Remove</button>
                             </td>
 
 
@@ -129,6 +151,9 @@ if ($_SESSION['user_type'] === "normal") {
                                 //get the results from the url and seperate to get the user id and the position
                                 $urlData= $_GET['message'];
                                 $Data= explode("-", $urlData);
+                                
+                              
+                                
                                                                 
                                 echo '<p class =" text-white text-center" style=" background-color: green;border-radius:5px">Are you Sure?</p>';
                                 //Fetch name of the id
@@ -150,6 +175,9 @@ if ($_SESSION['user_type'] === "normal") {
                     <!-- The leader position-->
                     <input type="hidden" name="position"
                         value="<?php echo $Data[1]?>">
+
+                    <input type="hidden" name="ministry"
+                        value="<?php echo $Data[2]?>">
                 </form>
                 <?php
                     
@@ -180,9 +208,10 @@ if ($_SESSION['user_type'] === "normal") {
             <div class="container-fluid">
                 <div class="row">
                     <div class="col p-2">
-                        <h6 class=" text-center">Confirmation</h6>
-                        <p >Are you Sure You want to Remove this Leader From His/Her Position</p>
-                        
+                    <h6 class="text-white text-center py-2 rounded" style="background: red"><span><i class="fas fa-exclamation-triangle"></i></span> WARNING</h6>
+                        <p>Removing this Leader will delete his/her leadership records but not his/her Membership</p>
+                        <p>Are you sure you want to continue?</p>
+
                         <button type="button" data-dismiss="modal" class="btn btn-secondary  btn-sm">NO</button>
                         <a id="demo" class="btn btn-danger btn-sm" href="">YES </a>
                     </div>
@@ -213,8 +242,8 @@ if ($_SESSION['user_type'] === "normal") {
     })
     //this function will get the value of he button clicked and insert it inthe modal
     function reply_click(clicked_id) {
-        x= clicked_id;
-        document.getElementById("demo").href = "includes/delete.inc.php?leader="+x; 
+        x = clicked_id;
+        document.getElementById("demo").href = "includes/delete.inc.php?leader=" + x;
 
     }
 </script>

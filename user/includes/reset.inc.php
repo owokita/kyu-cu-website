@@ -3,48 +3,56 @@ if (isset($_POST['reset-pwd'])) {
     require 'init.php';
     $user_email = $_POST['email'];
 
-    $selector= bin2hex(random_bytes(8)) ;
-    $token = random_bytes(32);
-
-    $url = "www.test.kyucu.co.ke/user/new-password.php?selector=".$selector."&validator=".bin2hex($token);
-
-    $expires =date("U") + 1800;
-
-    $db = new DATABASE();
+    $userOBJ = new USER();
+    //check if the email exits in the database
+    if ($userOBJ->getuserbyEmail($user_email)) {
+        
+        $selector= bin2hex(random_bytes(8)) ;
+        $token = random_bytes(32);
     
-    //delete all tokens in the database from the specific user
-    $sql = "DELETE FROM pwdreset WHERE pwdreset_email = ?";
-    if (!$stmt = $db->conn()->prepare($sql)) {
-        echo "there was an error ";
-        exit();
+        $url = "www.test.kyucu.co.ke/user/new-password.php?selector=".$selector."&validator=".bin2hex($token);
+    
+        $expires =date("U") + 1800;
+    
+        $db = new DATABASE();
+        
+        //delete all tokens in the database from the specific user
+        $sql = "DELETE FROM pwdreset WHERE pwdreset_email = ?";
+        if (!$stmt = $db->conn()->prepare($sql)) {
+            echo "there was an error ";
+            exit();
+        } else {
+            $stmt->execute([$user_email]);
+        }
+    
+        //insert the token to the database
+        $sql = "INSERT INTO pwdreset (pwdreset_email,pwdreset_selector,pwdreset_token,pwdreset_expires)
+         VALUES(?,?,?,?)";
+        if (!$stmt = $db->conn()->prepare($sql)) {
+            echo "there was an error ";
+            exit();
+        } else {
+            //hash the token before inserting into the databse
+            $hashedToken = password_hash($token, PASSWORD_DEFAULT);
+            $stmt->execute([$user_email,$selector,$hashedToken,$expires]);
+        }
+    
+        //sending the email to the user
+        require 'mailer.php';
+        $message='<p> We received a request to Reset Your Password. If you did not Send this request Please Ignore this Email And Try To Login </p> 
+         <br> <p> Below is Your Password Reset Link </p> 
+        <br> <a href="' .$url.'"> ' . $url. ' </a> ';
+    
+    
+        $subject= "Password Reset ";
+       
+        sendmail($user_email,$subject, $message);
+    
+        redirect("../reset.php?reset=success");
     } else {
-        $stmt->execute([$user_email]);
+        echo "you email does not exist in the database";
     }
-
-    //insert the token to the database
-    $sql = "INSERT INTO pwdreset (pwdreset_email,pwdreset_selector,pwdreset_token,pwdreset_expires)
-     VALUES(?,?,?,?)";
-    if (!$stmt = $db->conn()->prepare($sql)) {
-        echo "there was an error ";
-        exit();
-    } else {
-        //hash the token before inserting into the databse
-        $hashedToken = password_hash($token, PASSWORD_DEFAULT);
-        $stmt->execute([$user_email,$selector,$hashedToken,$expires]);
-    }
-
-    //sending the email to the user
-    require 'mailer.php';
-    $message='<p>We received a request to Reset Your Password. If you did not Send this request Please Ignore this Email And Try To Login </p>';
-    $message .= '<br> <p>Below is Your Password Reset Link</p>';
-    $message .= '<br> <a href="' .$url .'">' . $url. '</a>';
-
-
-    $subject= "Password Reset ";
-    $from= "info@kyucu.co.ke";
-    sendmail($user_email, $message, $from, $subject);
-
-    redirect("../reset.php?reset=success");
+    
 }
 
 //set new password
@@ -61,7 +69,9 @@ elseif (isset($_POST['new-pwd'])) {
     //retrive the selector token from the database
     $sql = "SELECT * FROM pwdreset WHERE pwdreset_selector =? AND pwdreset_expires >= ?";
     if (!$stmt = $db->conn()->prepare($sql)) {
-        echo "there was an error ";
+        echo "You have no right to reset your password Please contact the Admin for HELP
+        
+        ";
         exit();
     } else {
         $stmt->execute([$selector,$currentDate]);

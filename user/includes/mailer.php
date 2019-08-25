@@ -14,7 +14,7 @@ use PHPMailer\PHPMailer\Exception;
 
         try {
             //SMPT SERVER CONFIGURATION
-        $mail->SMTPDebug = 2;    // Enable verbose debug output
+        // $mail->SMTPDebug = 2;    // Enable verbose debug output
         $mail->isSMTP();         // Set maile0791342771KYUCU.r to use SMTP
         $mail->Host = 'mail.kyucu.co.ke';
             $mail->SMTPAuth   = true;
@@ -28,8 +28,7 @@ use PHPMailer\PHPMailer\Exception;
             //RECEPIENTS
             $mail->setFrom('noreply@kyucu.co.ke', 'Christian Union - KYU');
             $mail->addAddress($to);
-            // $mail->addReplyTo('info@kyucu.co.ke', 'KYU_CU');
-            $mail->addAttachment($logo , 'My uploaded file');
+
         
             //CONTENT
             $mail->isHTML(true);

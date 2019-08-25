@@ -2,7 +2,7 @@
 
     <ul class="list-unstyled components">
         <li>
-            <a href="user.php"><span><i class="fas fa-tachometer-alt"></i></span> DASHBOARD</a>
+            <a href="user.php"><span><i class="fas fa-tachometer-alt"></i></span> USER DASHBOARD</a>
         </li>
         <li>
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><span><i

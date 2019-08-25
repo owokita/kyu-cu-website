@@ -28,7 +28,7 @@ if ($_SESSION['user_type'] === "normal") {
             $count=$start;
 
 
-            $countResult = $userOBJ->count('user_id','user');
+            $countResult = $userOBJ->count('user_id', 'user');
             $count = $countResult['id'];
             $pages = ceil($count/$limit) ;
 
@@ -68,6 +68,11 @@ if ($_SESSION['user_type'] === "normal") {
                                 </select>
                             </form>
                         </li>
+                        <li>
+                            <a href="includes\phpspreadsheet\spreadsheetTEMPLATE.php"
+                                class=" ml-5 btn btn-primary btn-sm"> <span><i class="fas fa-print"></i></span>
+                                Print</a>
+                        </li>
                     </ul>
                 </nav>
 
@@ -104,10 +109,10 @@ if ($_SESSION['user_type'] === "normal") {
                             <td><?php echo $date[0] ?>
                             </td>
                             <td>
-                            <button id="<?php echo $result['user_id']; ?>"
-                                  
-                                    type="button" class="btn btn-danger btn-sm" data-toggle="modal" onclick="reply_click(this.id)"
-                                    data-target=".bd-example-modal-sm">Remove</button>
+                                <button
+                                    id="<?php echo $result['user_id']; ?>"
+                                    type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                                    onclick="reply_click(this.id)" data-target=".bd-example-modal-sm">Remove</button>
                             </td>
                         </tr>
                         <?php endforeach?>
@@ -118,7 +123,7 @@ if ($_SESSION['user_type'] === "normal") {
 
         </div>
     </div>
-    
+
 </main>
 <!-- Confirm Deletion Modal -->
 <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
@@ -128,10 +133,10 @@ if ($_SESSION['user_type'] === "normal") {
             <div class="container-fluid">
                 <div class="row">
                     <div class="col p-2">
-                        <h6 class=" text-center">Confirmation</h6>
-                        <p >Are you sure you want to Remove. </p>
-                        <p >Note That All His/Her Data Will Be removed From The Database </p>
-                        
+                    <h6 class="text-white text-center py-2 rounded" style="background: red"><span><i class="fas fa-exclamation-triangle"></i></span> WARNING</h6>
+                        <p>Removing this Member will delete all of his/her data in the database</p>
+                        <p>Are you sure you want to continue?</p>
+
                         <button type="button" data-dismiss="modal" class="btn btn-secondary  btn-sm">NO</button>
                         <a id="demo" class="btn btn-danger btn-sm" href="">YES </a>
                     </div>
@@ -162,8 +167,7 @@ if ($_SESSION['user_type'] === "normal") {
                             } elseif ($_GET['message'] == "success") {
                                 echo '<p class =" text-white text-center" style=" background-color: green;border-radius:5px"> Member Registered Successfully</p>';
                             }
-                            
-                        }  
+                        }
                         ?>
                         <div class="form-row">
                             <div class="col">
@@ -218,7 +222,8 @@ if ($_SESSION['user_type'] === "normal") {
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cancle</button>
-                <button type="submit" class="btn btn-success" form="newMemberReg" name="ADMINnewMemberReg">Register</button>
+                <button type="submit" class="btn btn-success" form="newMemberReg"
+                    name="ADMINnewMemberReg">Register</button>
             </div>
         </div>
     </div>
@@ -246,8 +251,8 @@ if ($_SESSION['user_type'] === "normal") {
 
     //this function will get the value of he button clicked and insert it inthe modal
     function reply_click(clicked_id) {
-        x= clicked_id;
-        document.getElementById("demo").href = "includes/delete.inc.php?user="+x; 
+        x = clicked_id;
+        document.getElementById("demo").href = "includes/delete.inc.php?user=" + x;
     }
 </script>
 
@@ -274,4 +279,3 @@ if (isset($_GET['message'])) {
     
     </script>';
 }
-    ?>

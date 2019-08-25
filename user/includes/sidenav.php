@@ -2,8 +2,8 @@
 
         <ul class="list-unstyled components">
             <li id="dashboard">
-                <a href="index.php"> <span><i class="fas fa-tachometer-alt"></i></span>
-                    DASHBOARD</a>
+                <a href="index.php"> 
+                ADMIN DASHBOARD</a>
             </li>
             <li class="">
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -42,9 +42,6 @@
                 <ul class="collapse list-unstyled" id="ministries">
                     <li>
                         <a href="addministy.php">- Add Ministries</a>
-                    </li>
-                    <li>
-                        <a href="addsubcom.php">- Add Sub-Comm</a>
                     </li>
                     <li>
                         <a href="addsubcomMembers.php">- Sub-Comm Members</a>

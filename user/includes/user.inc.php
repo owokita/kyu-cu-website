@@ -25,12 +25,12 @@ class USER extends SESSION
 
     public function getAllUsers($start, $limit)
     {
-        $sql = ("SELECT *  FROM user LIMIT $start,$limit");
+        $sql = ("SELECT *  FROM user where user_id != 1 LIMIT $start,$limit");
         $data = $this->queryNone($sql);
         return $data;
     }
 
-    public function count($field,$table)
+    public function count($field, $table)
     {
         $sql = "SELECT count($field) as id from $table";
         $stmt = $this->conn()->prepare($sql);
@@ -39,7 +39,7 @@ class USER extends SESSION
         return $row;
     }
 
-    public function countSpecific($field,$table,$condition)
+    public function countSpecific($field, $table, $condition)
     {
         $sql = "SELECT count($field) as id from $table where $field = '$condition';";
         $stmt = $this->conn()->prepare($sql);
@@ -58,7 +58,8 @@ class USER extends SESSION
 
 
     //gets all the admin records
-    public function getAdmins(){
+    public function getAdmins()
+    {
         $sql = "SELECT user_id,user_email,user_fname,user_lname,user_phobeNo,admin_registered_by from user 
         inner join admin on user_id = admin_fk_user_id;";
         $data = $this->queryNone($sql);
@@ -66,19 +67,13 @@ class USER extends SESSION
     }
 
     //check if the user is a leader it returns the data if found else false
-    public function getLeaderData($id){
-        
+    public function getLeaderData($id)
+    {
         $sql = "SELECT * from leaders WHERE leaders_fk_user_id = $id";
         $stmt = $this->conn()->prepare($sql);
         $stmt->execute();
         $row =$stmt->fetch();
 
         return $row;
-
-        
-        
     }
-
-    
-
 }

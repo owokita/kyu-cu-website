@@ -73,9 +73,9 @@ if ($_SESSION['user_type'] === "normal") {
             <div class="container-fluid">
                 <div class="row">
                     <div class="col p-2">
-                        <h6 class=" text-center">Confirmation</h6>
-                        <p>Are you Sure You want to Remove this Position</p>
-                        <p>NOTE: All members entitled to this Position Will be Affected</p>
+                    <h6 class="text-white text-center py-2 rounded" style="background: red"><span><i class="fas fa-exclamation-triangle"></i></span> WARNING</h6>
+                        <p>Removing this position will affect any member Linked to it</p>
+                        <p>Are you sure you want to continue?</p>
 
                         <button type="button" data-dismiss="modal" class="btn btn-secondary  btn-sm">NO</button>
                         <a id="demo" class="btn btn-danger btn-sm" href="">YES </a>

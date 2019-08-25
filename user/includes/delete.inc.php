@@ -29,6 +29,17 @@ if (isset($_GET['position'])) {
     //TODO: Redirect with a Message
     redirect("../allmembers.php");
 }
+
+//remove ethe leader
+elseif (isset($_GET['ministry'])) {
+    $ministry = $_GET['ministry'];
+
+    $sql = "DELETE FROM ministries WHERE (mty_id = '$ministry');";
+    $userOBJ = new USER();
+    $userOBJ->queryInsert($sql);
+    //TODO: Redirect with a Message
+    redirect("../addministy.php");
+}
  else {
     redirect("../user.php");
 }
