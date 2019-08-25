@@ -4,3 +4,5 @@
 mailer.php
 .json
 .lock
+
+user/includes/phpspreadsheet/vendor
