@@ -1,0 +1,6 @@
+# Igonre file named 'database.php'
+
+/vendor
+mailer.php
+.json
+.lock
