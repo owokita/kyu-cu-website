@@ -4,5 +4,9 @@
 mailer.php
 .json
 .lock
-
+felix.txt
 user/includes/phpspreadsheet/vendor
+user/includes/vendor
+user/includes/mailer.php
+user/includes/phpspreadsheet/
+
