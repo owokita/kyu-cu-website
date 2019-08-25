@@ -15,7 +15,7 @@ use PHPMailer\PHPMailer\Exception;
         try {
             //SMPT SERVER CONFIGURATION
         // $mail->SMTPDebug = 2;    // Enable verbose debug output
-        $mail->isSMTP();         // Set maile0791342771KYUCU.r to use SMTP
+        $mail->isSMTP();         // Set r to use SMTP
         $mail->Host = '**************';
             $mail->SMTPAuth   = true;
             $mail->Username   = '*****************8';        // SMTP username
@@ -26,7 +26,7 @@ use PHPMailer\PHPMailer\Exception;
 
             
             //RECEPIENTS
-            $mail->setFrom('noreply@kyucu.co.ke', 'Christian Union - KYU');
+            $mail->setFrom('*********', 'Christian Union - KYU');
             $mail->addAddress($to);
 
         
