@@ -20,7 +20,7 @@ if (isset($_POST['login-submit'])) {
 
     $Retrun = getCaptcha($_POST['g-recaptcha-response']);
     //check if the user is a robot
-   if ($Retrun->success == true && $Retrun->score > 0.2 ) {
+//    if ($Retrun->success == true && $Retrun->score > 0.2 ) {
        //Ckecks if the Email Address Exists
     $user= new USER();
     if (!$user->getuserbyEmail($user_email)) {
@@ -66,10 +66,10 @@ if (isset($_POST['login-submit'])) {
             # code...
         }
     }
-   } else {
-    // require 'init.php';
-    redirect("../login.php?robot");
-   }
+//    } else {
+//     // require 'init.php';
+//     redirect("../login.php?robot");
+//    }
    
     
 } else {

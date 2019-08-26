@@ -25,7 +25,7 @@ class USER extends SESSION
 
     public function getAllUsers($start, $limit)
     {
-        $sql = ("SELECT *  FROM user where user_id != 1 LIMIT $start,$limit");
+        $sql = ("SELECT *  FROM user where user_id != 1  ORDER BY user_id DESC LIMIT $start,$limit");
         $data = $this->queryNone($sql);
         return $data;
     }

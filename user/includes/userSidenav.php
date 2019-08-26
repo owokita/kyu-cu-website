@@ -21,14 +21,14 @@
                         class="fab fa-monero"></i></span> MINISTRIES</a>
             <ul class="collapse list-unstyled" id="pageSubmenu">
                 <li>
-                    <a href="#">- Your Ministries</a>
+                    <a href="userministry.php">- Your Ministries</a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="#">- Add Sub-comm Members</a>
                 </li>
                 <li>
                     <a href="#">- All Members</a>
-                </li>
+                </li> -->
             </ul>
         </li>
 

@@ -20,7 +20,7 @@ if ($_SESSION['user_type'] === "normal") {
             <div class="col">
                 <?php
             $userOBJ = new USER();
-            $limit = isset($_POST["limit-records"]) ? $_POST["limit-records"] : 40;
+            $limit = isset($_POST["limit-records"]) ? $_POST["limit-records"] : 15;
             
             $page = isset($_GET['page']) ? $_GET['page']:  1;
             $start = ($page - 1) * $limit;
@@ -39,18 +39,18 @@ if ($_SESSION['user_type'] === "normal") {
                 <!-- //PAGINATION navigation bar -->
                 <nav aria-label="Page navigation example bg-transparent">
                     <ul class="pagination bg-transparent">
-                        <li class="page-item "><a class="page-link bg-transparent"
-                                href="http://localhost/cuweb/user/allmembers.php?page=<?php echo $previous; ?>">Previous</a>
+                        <li class="page-item "><a class="page-link bg-transparent py-1"
+                                href="allmembers.php?page=<?php echo $previous; ?>">Previous</a>
                         </li>
 
                         <?php for ($i=1; $i <=$pages ; $i++): ?>
-                        <li class="page-item"><a class="page-link bg-transparent"
-                                href="http://localhost/cuweb/user/allmembers.php?page=<?php echo $i; ?>"><?php echo $i ;?></a></li>
+                        <li class="page-item"><a class="page-link bg-transparent py-1 "
+                                href="allmembers.php?page=<?php echo $i; ?>"><?php echo $i ;?></a></li>
 
                         <?php endfor ?>
 
-                        <li class="page-item bg-transparent"><a class="page-link bg-transparent"
-                                href="http://localhost/cuweb/user/allmembers.php?page=<?php echo $next; ?>"
+                        <li class="page-item bg-transparent"><a class="page-link bg-transparent py-1"
+                                href="allmembers.php?page=<?php echo $next; ?>"
                                 href="#">Next</a></li>
                         <li class="ml-4">
                             <!-- Limit the Number of Records From The Databse -->
@@ -76,49 +76,53 @@ if ($_SESSION['user_type'] === "normal") {
                     </ul>
                 </nav>
 
+                <div class="" style="overflow-x:auto; max-height:70vh;">
+                    <table class="table table-sm table-striped table-hover ">
+                        <thead class="greenBgDark " style="">
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">RGNo</th>
+                                <th scope="col">Phone No.</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Course</th>
+                                <th scope="col">Join Date</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($results as $result):?>
+                            <tr>
+                                <?php   $date= explode(" ", $result['user_joindate'], 2);  ?>
+                                <th scope="row" class="w-auto"><?php echo $result['user_id'];?>
+                                </th>
+                                <td class="text-capitalize"><?php echo ucwords($result['user_fname']); echo " "; echo $result['user_lname'];?>
+                                </td>
+                                <td><?php echo $result['user_regno']; ?>
+                                </td>
+                                <td><?php echo $result['user_phobeNo']; ?>
+                                </td>
+                                <td><?php echo $result['user_email']; ?>
+                                </td>
+                                <td><?php echo $result['user_course']; ?>
+                                </td>
+                                <td><?php echo $date[0] ?>
+                                </td>
+                                <td>
+                                    <button
+                                        id="<?php echo $result['user_id']; ?>"
+                                        type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                                        onclick="reply_click(this.id)"
+                                        data-target=".bd-example-modal-sm">Remove</button>
+                                </td>
+                            </tr>
+                            <?php endforeach?>
 
-                <table class="table table-sm table-striped table-hover">
-                    <thead class="greenBgDark">
-                        <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">RGNo</th>
-                            <th scope="col">Phone No.</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Course</th>
-                            <th scope="col">Join Date</th>
-                            <th scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($results as $result):?>
-                        <tr>
-                            <?php   $date= explode(" ", $result['user_joindate'], 2);  ?>
-                            <th scope="row" class="w-auto"><?php echo $result['user_id'];?>
-                            </th>
-                            <td class="text-capitalize"><?php echo ucwords($result['user_fname']); echo " "; echo $result['user_lname'];?>
-                            </td>
-                            <td><?php echo $result['user_regno']; ?>
-                            </td>
-                            <td><?php echo $result['user_phobeNo']; ?>
-                            </td>
-                            <td><?php echo $result['user_email']; ?>
-                            </td>
-                            <td><?php echo $result['user_course']; ?>
-                            </td>
-                            <td><?php echo $date[0] ?>
-                            </td>
-                            <td>
-                                <button
-                                    id="<?php echo $result['user_id']; ?>"
-                                    type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                    onclick="reply_click(this.id)" data-target=".bd-example-modal-sm">Remove</button>
-                            </td>
-                        </tr>
-                        <?php endforeach?>
+                        </tbody>
+                    </table>
 
-                    </tbody>
-                </table>
+                </div>
+                <hr style=" border-top: 3px solid black">
             </div>
 
         </div>
@@ -133,7 +137,8 @@ if ($_SESSION['user_type'] === "normal") {
             <div class="container-fluid">
                 <div class="row">
                     <div class="col p-2">
-                    <h6 class="text-white text-center py-2 rounded" style="background: red"><span><i class="fas fa-exclamation-triangle"></i></span> WARNING</h6>
+                        <h6 class="text-white text-center py-2 rounded" style="background: red"><span><i
+                                    class="fas fa-exclamation-triangle"></i></span> WARNING</h6>
                         <p>Removing this Member will delete all of his/her data in the database</p>
                         <p>Are you sure you want to continue?</p>
 
@@ -146,7 +151,7 @@ if ($_SESSION['user_type'] === "normal") {
     </div>
 </div>
 
-<!-- Modal -->
+<!--member reg  Modal -->
 <div class="modal fade" id="RegNewMemberModal" tabindex="-1" role="dialog" aria-labelledby="RegNewMemberModal"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable" role="document">
@@ -209,7 +214,8 @@ if ($_SESSION['user_type'] === "normal") {
                         <div class="form-group">
                             <label for="regno">Reg No</label>
                             <input type="text" class="form-control form-control-sm" id="regno"
-                                aria-describedby="emailHelp" placeholder="Enter Reg-No. If Student" name="regno">
+                                aria-describedby="emailHelp" placeholder="Enter Reg-No. If Student" name="regno"
+                                required>
 
                         </div>
                         <div class="form-group ">

@@ -43,7 +43,11 @@ if ($_SESSION['user_type'] === "normal") {
                         <!-- //ministry should only be selected if the leader is reponsible of a ministry -->
                         <div class="col-auto">
                             <div class="form-group form-group-sm">
+<?php 
+    $sql = "SELECT * from ministries_has_user  right outer join ministries
+            on fk_mty_id = mty_id where fk_user_id IS NULL";
 
+?>
                                 <label for="firstName">Select Ministry</label>
                                 <select id="inputState" name="ministry" class="form-control form-control-sm">
                                     <option disabled=="disabled" selected="selected">-- Select A Ministry --</option>

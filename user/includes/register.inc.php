@@ -54,25 +54,34 @@ if (isset($_POST['signup-submit'])) {
     $user_phone= "+254";
     $user_phone .= $_POST['phoneNo'];
     $user_course = strtoupper($_POST['course']);
-
+    //get the session of the person who is logged in;
+    $userOBJ= new USER();
+    $sessID = $userOBJ->getSessionID();
+    $sessdata =$userOBJ->getuserbyid($sessID);
+    $sessName = $sessdata['user_fname'] . ' '. $sessfname = $sessdata['user_lname'];
+    
     $user= new USER();
+  
 
     
     if ($user->getuserbyEmail($user_email)) {
         $user->redirect("../allmembers.php?message=emailexists");
     } else {
-        $sql=  "INSERT INTO user (user_email,user_fname,user_lname,user_phobeNo,user_regno,user_course,user_pwd)";
-        $sql .= " VALUES(?,?,?,?,?,?,?)";
+        $sql=  "INSERT INTO user (user_email,user_fname,user_lname,user_phobeNo,user_regno,user_course,user_pwd,registered_by)";
+        $sql .= " VALUES(?,?,?,?,?,?,?,?)";
         if (!$stmt = $user->conn()->prepare($sql)) {
             echo "Server Error!!  Please Report This Error To The Admin Through The Feedback Form In The Home Page";
         } else {
             $user_pwd = "0";
             $user_pwd .= $_POST['phoneNo'];
 
+            
+          
+
             // echo $user_pwd;
             // exit();
             $hashedpwd = password_hash($user_pwd, PASSWORD_DEFAULT);
-            if ($stmt->execute([$user_email,$user_fname,$user_lastname,$user_phone,$user_regno,$user_course,$hashedpwd])) {
+            if ($stmt->execute([$user_email,$user_fname,$user_lastname,$user_phone,$user_regno,$user_course,$hashedpwd,$sessName])) {
     
                     //send email congaratutaling him for his signup
                 require 'mailer.php';
@@ -116,13 +125,13 @@ if (isset($_POST['signup-submit'])) {
         //if the leader is assigned to aministry
         if (isset($_POST['ministry'])) {
             $ministry = $_POST['ministry'];
-            if(!empty($ministry)) {
+            if (!empty($ministry)) {
                 echo $ministry;
                 // exit();
                 // redirect("../churchleader.php");
             }
         } else {
-           echo "this field has not been set";
+            echo "this field has not been set";
         }
 
         //combine the user id and the user position with a hyphen separating them then store
@@ -213,7 +222,6 @@ elseif (isset($_POST['registerLeader'])) {
     $userOBJ= new USER();
     $sessID = $userOBJ->getSessionID();
     $sessdata =$userOBJ->getuserbyid($sessID);
-    
     $sessName = $sessdata['user_fname'] . ' '. $sessfname = $sessdata['user_lname'];
     $userdata =$userOBJ->getuserbyid($user_id);
     $userName = $userdata['user_fname'] . ' '. $userfname = $userdata['user_lname'];
@@ -246,19 +254,17 @@ elseif (isset($_POST['registerLeader'])) {
         //if the leader is assigned to aministry
         if (isset($_POST['ministry'])) {
             $ministry = $_POST['ministry'];
-            if(!empty($ministry)) {
+            if (!empty($ministry)) {
                 $sql ="UPDATE leaders SET leaders_fk_mty_id = '$ministry' WHERE (leaders_fk_user_id = '$user_id');";
                 $userOBJ->queryInsert($sql);
                 $sql = "UPDATE ministries SET mty_leader = '$user_id' WHERE (mty_id = '$ministry');";
                 $userOBJ->queryInsert($sql);
             }
         } else {
-
-           echo "this field has not been set";
+            echo "this field has not been set";
         }
 
         redirect("../churchleader.php");
-        
     } else {
         echo " there was a server error 101-2000. Please Notify the admin of this Error";
         exit();
