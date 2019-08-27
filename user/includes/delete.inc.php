@@ -40,6 +40,16 @@ elseif (isset($_GET['ministry'])) {
     //TODO: Redirect with a Message
     redirect("../addministy.php");
 }
+//remove ethe leader
+elseif (isset($_GET['category'])) {
+    $ministry = $_GET['ministry'];
+
+    $sql = "DELETE FROM ministries WHERE (mty_id = '$ministry');";
+    $userOBJ = new USER();
+    $userOBJ->queryInsert($sql);
+    //TODO: Redirect with a Message
+    redirect("../addministy.php");
+}
  else {
     redirect("../user.php");
 }

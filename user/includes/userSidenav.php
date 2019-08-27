@@ -9,7 +9,7 @@
                         class="fas fa-newspaper"></i></span> POSTS</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
                 <li>
-                    <a href="#">- Add Post</a>
+                    <a href="userpost.php">- Add Post</a>
                 </li>
 
             </ul>

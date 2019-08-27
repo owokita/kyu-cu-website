@@ -15,18 +15,18 @@ use PHPMailer\PHPMailer\Exception;
         try {
             //SMPT SERVER CONFIGURATION
         // $mail->SMTPDebug = 2;    // Enable verbose debug output
-        $mail->isSMTP();         // Set r to use SMTP
-        $mail->Host = '**************';
+        $mail->isSMTP();         // Set maile0791342771KYUCU.r to use SMTP
+        $mail->Host = 'mail.kyucu.co.ke';
             $mail->SMTPAuth   = true;
-            $mail->Username   = '*****************8';        // SMTP username
-            $mail->Password   = '***************';
+            $mail->Username   = 'noreply@kyucu.co.ke';        // SMTP username
+            $mail->Password   = 'L_rQhwMMr@df';
             $mail->SMTPSecure = 'ssl';     // Enable TLS encryption, `ssl` also accepted
             $mail->Port       = 465;
           
 
             
             //RECEPIENTS
-            $mail->setFrom('*********', 'Christian Union - KYU');
+            $mail->setFrom('noreply@kyucu.co.ke', 'Christian Union - KYU');
             $mail->addAddress($to);
 
         

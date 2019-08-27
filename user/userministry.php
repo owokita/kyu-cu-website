@@ -63,7 +63,6 @@ if ($_SESSION['user_type'] === "normal") {
                 </table>
             </div>
 
-
         </div>
     </div>
 </main>

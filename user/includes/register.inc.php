@@ -292,6 +292,27 @@ elseif (isset($_POST['addPosition'])) {
         
         redirect("../addposition.php");
     }
+} //ADD CATEGORY
+elseif (isset($_POST['addCategory'])) {
+    $category = $_POST['category'];
+
+    $userOBJ= new USER();
+    //check if the position already exits
+
+    $data = $userOBJ->countSpecific('category_name', 'category', $category);
+
+    if ($data['id'] == 1) {
+        echo "yu";
+    //TODO: return the user with message
+    } elseif (($data['id'] == 0)) {
+        #Enter the recods to the database
+        $sql = "INSERT INTO category (category_name) VALUES ('$category');";
+        $userOBJ->queryInsert($sql);
+        //TODO: return the user with message
+
+        
+        redirect("../addCategory.php");
+    } 
 } else {
-    redirect("../signup.php");
+    redirect("../user.php");
 }

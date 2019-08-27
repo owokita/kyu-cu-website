@@ -32,6 +32,9 @@
                     <li>
                         <a href="sent.php">- Sent</a>
                     </li>
+                    <li>
+                        <a href="notification.php">- Notification</a>
+                    </li>
 
                 </ul>
             </li>
