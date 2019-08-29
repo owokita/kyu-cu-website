@@ -39,7 +39,7 @@ elseif (isset($_GET['ministry'])) {
     //TODO: Redirect with a Message
     redirect("../addministy.php");
 }
-//remove ethe leader
+//remove CATEGORY
 elseif (isset($_GET['category'])) {
     $category = $_GET['category'];
 
@@ -47,7 +47,7 @@ elseif (isset($_GET['category'])) {
     $userOBJ = new USER();
     $userOBJ->queryInsert($sql);
     //TODO: Redirect with a Message
-    redirect("../addministy.php");
+    redirect("../addCategory.php");
 }
 
 //delete post

@@ -36,6 +36,13 @@ if (isset($_POST['post_article'])) {
 
     //check if the user changed the image
     if (empty($_FILES["image"]["name"])) {
+
+        $sql ="UPDATE article SET article_tittle = ?, article_text = ?,  category_fk_category_name = ? WHERE (article_id = $artid)";
+        $userOBJ = new USER();
+        $stmt = $userOBJ->conn()->prepare($sql);
+        $stmt->execute([$title,$content,$category ]);
+
+
     } else {
         require_once('functions.php');
         //adding time stamp to the image
@@ -48,7 +55,7 @@ if (isset($_POST['post_article'])) {
         $userOBJ = new USER();
         $stmt = $userOBJ->conn()->prepare($sql);
         $stmt->execute([$title,$content,$new_file,$category ]);
-        
+
         if (compress($_FILES['image']['tmp_name'], $target, 20)) {
 
             echo "the image was compressed successfuly";
@@ -57,10 +64,29 @@ if (isset($_POST['post_article'])) {
         }
     }
     
-
-    exit();
-
     redirect("../userpost.php");
-} else {
+} elseif (isset($_POST['verify_article'])) {
+    $artid=$_POST['artid'];
+    $userid=$_POST['userid'];
+
+
+    $userOBJ= new USER();
+    $sessID = $userOBJ->getSessionID();
+    $sessdata =$userOBJ->getuserbyid($sessID);
+    $sessName = $sessdata['user_fname'] . ' '. $sessfname = $sessdata['user_lname'];
+
+    $sql ="UPDATE article SET article_status = '1', verified_by = '$sessName' WHERE (article_id =  $artid);
+    ";
+
+    $artOBJ = new ARTICLE();
+    if ($artOBJ->queryInsert($sql)) {
+     redirect('../unverified.php');
+    } else {
+      echo  "no";
+    }
+    
+}
+
+else {
     echo "you are trying to access this page the wrong way";
 }

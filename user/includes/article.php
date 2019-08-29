@@ -83,6 +83,20 @@ class ARTICLE extends USER
         return $data;
     }
 
+    public function getArtUnverified()
+    {
+        $sql = "SELECT * FROM article where article_status = 0";
+        $data = $this->queryNone($sql);
+        return $data;
+    }
+
+    public function getArtVerified()
+    {
+        $sql = "SELECT * FROM article where article_status = 1";
+        $data = $this->queryNone($sql);
+        return $data;
+    }
+
     public function getArtSpecific($id)
     {
         $sql = "SELECT * FROM article where article_id = $id";

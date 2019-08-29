@@ -1,5 +1,6 @@
 <?php require 'includes/topnav.php';
     $sess = new SESSION();
+    $sessId = $sess->getSessionID();
    
 ?>
 
@@ -16,7 +17,11 @@
                         <div class="d-inline "> <i class="fas fa-newspaper fa-5x"></i></div>
                         <div class="flex-grow-1 ">
                             <h5 class="text-center">Your Posts</h5>
-                            <h1 class="text-center">0</h1>
+                            <?php  $userOBJ = new USER();
+                          $postCount=$userOBJ->countSpecific('article_fk_user_id', 'article', $sessId)
+                            
+                            ?>
+                            <h1 class="text-center"><?php echo $postCount['id'] ?></h1>
                         </div>
                     </div>
                 </div>

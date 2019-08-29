@@ -48,8 +48,9 @@ if ($_SESSION['user_type'] === "normal") {
                     <tr>
                         <th scope="row" class="w-auto"><?php echo $category['category_name']; ?>
                         </th>
-                        <td scope="row" class="w-auto"><button
-                                id="<?php echo $category['position_name']; ?>"
+                        <td scope="row" class="w-auto">
+                            <button
+                                id="<?php echo $category['category_name']; ?>"
                                 type="button" class="btn btn-danger btn-sm" data-toggle="modal"
                                 onclick="reply_click(this.id)" data-target=".bd-example-modal-sm">Remove</button>
                         </td>

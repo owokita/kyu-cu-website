@@ -1,5 +1,7 @@
 body{
     background-color:  #f6dffa; /* THE RGB FROMAT   rgb(246, 223, 250) */
+    max-height: 100vh;
+    overflow-y: hidden;
     
 }
 .greenBgDark{background:#009500}
