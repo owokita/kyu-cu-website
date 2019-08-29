@@ -6,7 +6,7 @@ if ($_SESSION['user_type'] === "normal") {
 
 <main class="wrapper">
     <!-- Right side navigation -->
-    <?php require 'includes/sidenav.php'?>
+    <?php require 'includes/userSidenav.php'?>
     <!--  End of Right side navigation -->
 
     <div class="content container-fluid">

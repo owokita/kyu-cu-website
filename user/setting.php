@@ -142,23 +142,6 @@
 <script src="js/croppie.min.js"></script> 
 <!-- Side Navigation Scripts -->
 <script>
-    $(document).ready(function() {
-        $('#sidebarCollapse').on('click', function() {
-            $('#sidebar').toggleClass('active');
-        });
-    });
-    document.querySelector('.content').addEventListener('click', function() {
-        document.getElementById('sidebar').classList.remove('active');
-
-    })
-    document.querySelector('.navbar-nav').addEventListener('click', function() {
-        document.getElementById('sidebar').classList.remove('active');
-
-    })
-
-</script>
-<script>
- 
 
     $(document).ready(function() {
         $(pcs % quote~2# sidebarCollapsepcs % quote~2).on(pcs % quote~2 clickpcs % quote~2,

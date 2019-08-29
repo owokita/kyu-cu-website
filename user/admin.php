@@ -126,7 +126,9 @@ if ($_SESSION['user_type'] === "normal") {
 <script src="js/popper.min.js">
 </script>
 <script src="js/bootstrap.min.js"> </script>
-<script src="js/admin.js"> </script> <!-- Side Navigation Scripts -->
+<script src="js/admin.js"> </script>
+
+ <!-- Side Navigation Scripts -->
 <script>
     $(document).ready(function() {
         $('#sidebarCollapse').on('click', function() {

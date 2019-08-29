@@ -37,7 +37,7 @@ use PhpOffice\PhpSpreadsheet\Style\Color;
             ->setCellValue('A'.$CurrentContentRow, $CurrentContentRow-1)
             ->setCellValue('B'.$CurrentContentRow, $user['user_fname'] . ' '.$user['user_lname'])
             ->setCellValue('C'.$CurrentContentRow, $user['user_regno'])
-            ->setCellValue('D'.$CurrentContentRow, $user['user_phobeNo'])
+            ->setCellValue('D'.$CurrentContentRow, '0'.substr($user['user_phobeNo'], -9))
             ->setCellValue('E'.$CurrentContentRow, $user['user_email'])
             ->setCellValue('F'.$CurrentContentRow, $user['user_course'])
             ->setCellValue('G'.$CurrentContentRow, $user['user_joindate'])

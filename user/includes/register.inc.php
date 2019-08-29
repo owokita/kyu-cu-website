@@ -7,6 +7,7 @@ if (isset($_POST['signup-submit'])) {
     $user_regno = strtoupper($_POST['regno']) ;
     $user_pwd = $_POST['password'];
     $user_phone= "+254";
+    $user_phone .= $_POST['phoneNo'];
     $user_phone .= strtoupper($_POST['course']);
 
     

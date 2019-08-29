@@ -1,12 +1,10 @@
 <?php
 
 if (isset($_POST['leaderquote'])) {
-    require_once 'init.php';
+    require 'init.php';
     $quote = $_POST['quote'];
 
-    echo $quote;
-
-    echo "it is working";
+    
     
     // exit();
     $userOBJ = new USER();
@@ -15,9 +13,15 @@ if (isset($_POST['leaderquote'])) {
     //TODO: USE PREPARED STATEMEMTS
     $sql = "UPDATE leaders SET leaders_quote = '$quote' WHERE (leaders_fk_user_id = '$sessID ');";
 
-    $userOBJ->writeSpecific($sql, $sessID);
+    // $userOBJ->writeSpecific($sql, $sessID);
+    $stmt = $userOBJ->conn()->prepare($sql);
+    $stmt->execute();
 
     redirect("../settings.php?message=updatesuccess");
+
+    echo $quote;
+
+    echo "it is working";
 
 } else {
     require_once 'init.php';

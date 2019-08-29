@@ -1,4 +1,3 @@
-
 <?php require 'user/includes/init.php' ?>
 
 <!DOCTYPE html>
@@ -559,24 +558,30 @@
 				<h3 class="mx-auto">Meet Our Dedicated Leaders</h3>
 			</div>
 			<div class="wrapper container text-center">
-				<?php  $sql = "select user_fname,user_lname, leaders_quote,leaders_fk_position_name from leaders
+				<?php  $sql = "select user_fname,user_lname, leaders_quote,leaders_fk_position_name,leaders_img from leaders
 inner join user on user_id = leaders_fk_user_id;";
-				$userOBJ = new USER();
-				$leaders = $userOBJ->queryNone($sql);				
-				?>
+                $userOBJ = new USER();
+                $leaders = $userOBJ->queryNone($sql);
+                ?>
 				<div class="leaders-carousel owl-carousel">
 					<?php foreach ($leaders as $leader): ?>
-						<div class="single-leader py-3">
-							<div class="leader-img">
-								<!-- <img src="images/2.jpg" alt="" srcset=""> -->
-							</div>
-							<div class="leader-text">
-								<h5 class="text-uppercase"> <?php echo $leader['user_fname']; ?> <?php echo $leader['user_lname']; ?></h5>
-								<h6><?php echo $leader['leaders_fk_position_name']; ?> </h6>
-								<hr>
-								<p> <?php echo $leader['leaders_quote']; ?> </p>
-							</div>
+					<div class="single-leader py-3">
+						<div class="leader-img"><?php echo '
+								<img src="data:image/png;base64,'.base64_encode($leader['leaders_img']).'" alt="" srcset="">
+								';
+                                ?>
 						</div>
+						<div class="leader-text">
+							<h5 class="text-uppercase"> <?php echo $leader['user_fname']; ?>
+								<?php echo $leader['user_lname']; ?>
+							</h5>
+							<h6><?php echo $leader['leaders_fk_position_name']; ?>
+							</h6>
+							<hr>
+							<p> <?php echo   substr($leader['leaders_quote'], 0, 235);  ?>
+							</p>
+						</div>
+					</div>
 					<?php endforeach;?>
 				</div>
 			</div>

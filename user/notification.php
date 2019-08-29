@@ -7,9 +7,17 @@ if ($_SESSION['user_type'] === "normal") {
 <main class="wrapper">
     <!-- Right side navigation -->
     <?php require 'includes/sidenav.php'?>
+
     <!--  End of Right side navigation -->
 
     <div class="content container-fluid">
+    <?php
+                        if (isset($_GET['message'])) {
+                            if ($_GET['message'] == "success") {
+                                echo '<p class =" text-white text-center mt-2" style=" background-color: green;border-radius:5px">The first 150 Emails Sent Successfully . Please wait for 1 hour to send The next Email</p>';
+                            }
+                        }
+                        ?>
         <!-- Admin DashBoad -->
         <script src="https://cdn.ckeditor.com/4.12.1/full/ckeditor.js"></script>
         <form method="post" action="includes/sendnotification.php" >

@@ -76,7 +76,7 @@ if ($_SESSION['user_type'] === "normal") {
                     <div class="col p-2">
                         <h6 class="text-white text-center py-2 rounded" style="background: red"><span><i
                                     class="fas fa-exclamation-triangle"></i></span> WARNING</h6>
-                        <p>Removing this position will affect any member Linked to it</p>
+                        <p>Removing this category will Delete any Post Linked to it</p>
                         <p>Are you sure you want to continue?</p>
 
                         <button type="button" data-dismiss="modal" class="btn btn-secondary  btn-sm">NO</button>
@@ -99,7 +99,8 @@ if ($_SESSION['user_type'] === "normal") {
 <script src="js/popper.min.js">
 </script>
 <script src="js/bootstrap.min.js"> </script>
-<script src="js/admin.js"> </script> <!-- Side Navigation Scripts -->
+<!-- <script src="js/admin.js"> </script>  -->
+<!-- Side Navigation Scripts -->
 <script>
     $(document).ready(function() {
         $('#sidebarCollapse').on('click', function() {

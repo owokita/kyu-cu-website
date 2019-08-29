@@ -20,7 +20,7 @@ if ($_SESSION['user_type'] === "normal") {
             <div class="col">
                 <?php
             $userOBJ = new USER();
-            $limit = isset($_POST["limit-records"]) ? $_POST["limit-records"] : 15;
+            $limit = isset($_POST["limit-records"]) ? $_POST["limit-records"] : 50;
             
             $page = isset($_GET['page']) ? $_GET['page']:  1;
             $start = ($page - 1) * $limit;
@@ -100,7 +100,7 @@ if ($_SESSION['user_type'] === "normal") {
                                 </td>
                                 <td><?php echo $result['user_regno']; ?>
                                 </td>
-                                <td><?php echo $result['user_phobeNo']; ?>
+                                <td><?php echo '0'. substr($result['user_phobeNo'], -9); ?>
                                 </td>
                                 <td><?php echo $result['user_email']; ?>
                                 </td>
