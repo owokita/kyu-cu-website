@@ -47,8 +47,8 @@ if (isset($_SESSION['user_id'])) {
                         echo '<p class =" text-white text-center" style=" background-color: red;border-radius:5px"> Wrong Password</p>';
                     } elseif (isset($_GET['resetsuccess'])) {
                         echo '<p class =" text-white text-center" style=" background-color: green;border-radius:5px"> Password Reset Was Successful</p>';
-                    } elseif (isset($_GET['robot'])) {
-                        echo '<p class =" text-white text-center" style=" background-color: red;border-radius:5px">Google Report is You Are Behaving Like a Robot Please Try Again Later</p>';
+                    } elseif (isset($_GET['login'])) {
+                        echo '<p class =" text-white text-center" style=" background-color: green;border-radius:5px">To Comment on the Post</p>';
                     }
                     
                     ?>

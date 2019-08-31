@@ -24,11 +24,30 @@ if (isset($_POST['post_article'])) {
     $artOBJ->insertArt();
     if (compress($_FILES['image']['tmp_name'], $target, 20)) {
     }
+
+    //NOTIFY THE AMDIN OF THE NEW POST
+    $sql = "SELECT user_email from admin inner join user on 
+    user_id =admin_fk_user_id";
+    $emails =$artOBJ->queryNone($sql);
+     require 'mailer.php';
+     $subject = "POST FROM A MEMBER";
+     $message = '
+     <p>There is a new POST from a member on the Kirinyaga University Christian Union Website.</p>
+
+<p>Please use the link&nbsp;or button below to verify the POST.</p>
+
+<p><a href="https://test.kyucu.co.ke/user/unverified.php">https://test.kyucu.co.ke/user/unverified.php</a></p>
+
+<p><a href="https://test.kyucu.co.ke/user/unverified.php"><span style="font-size:18px"><span style="color:#27ae60"><strong><span style="background-color:#f1c40f">VERIFY POST</span></strong></span></span></a></p>
+
+<p>&nbsp;</p>
+     ';
+    foreach ($emails as $email) {
+        sendmail($email, $subject, $message);
+    }
     
     redirect("../userpost.php");
 } elseif (isset($_POST['update_article'])) {
-    
-
     $artid=$_POST['artid'];
     $title =$_POST['post-title'];
     $content =$_POST['content2'];
@@ -36,13 +55,10 @@ if (isset($_POST['post_article'])) {
 
     //check if the user changed the image
     if (empty($_FILES["image"]["name"])) {
-
         $sql ="UPDATE article SET article_tittle = ?, article_text = ?,  category_fk_category_name = ? WHERE (article_id = $artid)";
         $userOBJ = new USER();
         $stmt = $userOBJ->conn()->prepare($sql);
         $stmt->execute([$title,$content,$category ]);
-
-
     } else {
         require_once('functions.php');
         //adding time stamp to the image
@@ -57,7 +73,6 @@ if (isset($_POST['post_article'])) {
         $stmt->execute([$title,$content,$new_file,$category ]);
 
         if (compress($_FILES['image']['tmp_name'], $target, 20)) {
-
             echo "the image was compressed successfuly";
         } else {
             echo "there was an error NO 101000 compressing the image please repoer this to the admin: 0701702734 or dijiflex@gmail.com";
@@ -80,13 +95,31 @@ if (isset($_POST['post_article'])) {
 
     $artOBJ = new ARTICLE();
     if ($artOBJ->queryInsert($sql)) {
-     redirect('../unverified.php');
+        redirect('../unverified.php');
     } else {
-      echo  "no";
+        echo  "no";
     }
-    
-}
 
-else {
-    echo "you are trying to access this page the wrong way";
+//reject the artcle
+} elseif (isset($_POST['reject_article'])) {
+    $artid=$_POST['artid'];
+    $userid=$_POST['userid'];
+
+
+    $userOBJ= new USER();
+    $sessID = $userOBJ->getSessionID();
+    $sessdata =$userOBJ->getuserbyid($sessID);
+    $sessName = $sessdata['user_fname'] . ' '. $sessfname = $sessdata['user_lname'];
+
+    $sql ="UPDATE article SET article_status = '0', verified_by = '$sessName' WHERE (article_id =  $artid);
+    ";
+
+    $artOBJ = new ARTICLE();
+    if ($artOBJ->queryInsert($sql)) {
+        redirect('../unverified.php');
+    } else {
+        echo  "no";
+    }
+} else {
+    redirect('../user.php');
 }

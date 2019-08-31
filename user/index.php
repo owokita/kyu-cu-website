@@ -19,8 +19,12 @@ if ($_SESSION['user_type'] === "normal" ) {
                         <div class="d-inline "> <i class="fas fa-question
                             fa-5x"></i></div>
                         <div class="flex-grow-1 ">
+                        <?php 
+                            $userOBJ = new USER();
+                            $unverifiedCount = $userOBJ->countSpecific('article_status','article','0');
+                             ?>
                             <h5 class="text-center">Unverified Posts</h5>
-                            <h1 class="text-center">0</h1>
+                            <h1 class="text-center"><?php echo $unverifiedCount['id'] ?></h1>
                         </div>
                     </div>
                 </div>

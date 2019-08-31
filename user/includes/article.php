@@ -92,7 +92,9 @@ class ARTICLE extends USER
 
     public function getArtVerified()
     {
-        $sql = "SELECT * FROM article where article_status = 1";
+        $sql = "SELECT article_id,article_tittle,article_text,article_pub_date,articleimg,user_fname,user_lname,article_fk_user_id,likes,article_status,category_fk_category_name,verified_by  FROM article 
+        inner join user on user_id= article_fk_user_id
+        where article_status = 1 ";
         $data = $this->queryNone($sql);
         return $data;
     }
@@ -102,5 +104,38 @@ class ARTICLE extends USER
         $sql = "SELECT * FROM article where article_id = $id";
         $data = $this->queryNone($sql);
         return $data;
+    }
+    public function getArtSpecificWhere($id)
+    {
+        $sql = "SELECT article_id,article_tittle,article_text,article_pub_date,articleimg,user_fname,user_lname,article_fk_user_id,likes,article_status,category_fk_category_name,verified_by  FROM article 
+        inner join user on user_id= article_fk_user_id
+        where article_id = $id ";
+        $data = $this->query_1($sql, $id);
+        return $data;
+    }
+
+    public function getArtResent()
+    {
+        $sql = "SELECT article_id,article_tittle,articleimg  FROM article where article_status = 1 order by article_id DESC LIMIT 5 ;";
+        $data = $this->queryNone($sql);
+        return $data;
+    }
+
+    public function getArtPorpular()
+    {
+        $sql = "SELECT article_id,article_tittle,article_text,article_pub_date,articleimg,user_fname,user_lname,article_fk_user_id,likes,article_status,category_fk_category_name,verified_by  FROM article 
+        inner join user on user_id= article_fk_user_id order by article_id DESC LIMIT 5 ;";
+        $data = $this->queryNone($sql);
+        return $data;
+    }
+
+    public function getcomments($id)
+    {
+        $sql ="SELECT comment,user_fname,user_lname from article_comments 
+        inner join user on article_comments_fk_user_id = user_id
+        where article_comment_fk_article_id =$id";
+        $data = $this->queryNone($sql);
+        return $data;
+
     }
 }

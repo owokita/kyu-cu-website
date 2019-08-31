@@ -15,8 +15,9 @@ require 'includes/article.php';
 
     <div class="content container-fluid">
         <!-- User Dashboard -->
-
-        <div class="row mt-2">
+        <div class="row"> <div class="col text-center font-weight-bold text-success">Unverified Posts</div></div>
+     
+        <div class="row mt-1">
             <div class="col">
 
                 <?php

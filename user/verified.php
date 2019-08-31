@@ -15,8 +15,9 @@ require 'includes/article.php';
 
     <div class="content container-fluid">
         <!-- User Dashboard -->
-
-        <div class="row mt-2">
+        <div class="row"> <div class="col text-center font-weight-bold text-success">Verified Posts</div></div>
+        <div class="row mt-1">
+           
             <div class="col">
 
                 <?php
@@ -25,7 +26,7 @@ require 'includes/article.php';
                 ?>
 
                 <div class="" style="overflow-x:auto; max-height:70vh;">
-                    <table class="table table-sm table-striped table-hover ">
+                    <table class="table table-sm table-striped table-hover table-condensed">
                         <thead class="greenBgDark " style="">
                             <tr>
                                 <th scope="col">No</th>

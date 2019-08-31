@@ -17,7 +17,7 @@ if ($_SESSION['user_type'] === "normal") {
                     <div class="form-group ">
                         <label for="firstName">Enter Name Of The Category</label>
                         <input type="text" class="form-control form-control-sm" id="firstName"
-                            aria-describedby="emailHelp" placeholder="e.g PASTOR" name="category" required>
+                            aria-describedby="emailHelp" placeholder="e.g POEM" name="category" required>
                     </div>
                 </form>
             </div>

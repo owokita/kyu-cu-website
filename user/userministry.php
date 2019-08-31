@@ -10,60 +10,54 @@ if ($_SESSION['user_type'] === "normal") {
     <!--  End of Right side navigation -->
 
     <div class="content container-fluid">
-        <div class="row pt-1">
-            <div class="col-sm-6 mt-1">
-                <div class="card bg-transparent ">
-                    <div class="card-body bg-transparent">
-                        <h5 class="card-title">Select A Ministry Here</h5>
-                        <form action="includes/reset.inc.php" method="post">
-                            <div class="form-group">
-                                
-                                
+        <div class="row pt-1 mt-5">
 
-                            </div>
-                           
-                            <button type="submit" class="btn btn-success d-flex mx-auto " name="updatepassword">Update
-                                Join</button>
-                        </form>
-                    </div>
-                </div>
-
+            <div class="col ">
+                <h2 class="text-center text-success ">Will be Available in</h2>
             </div>
+
+
+
+
         </div>
- 
+
         <div class="row">
             <div class="col">
-                <?php
-                $sql ="SELECT * FROM position";
-                $userOBJ = new USER();
-                $positions = $userOBJ->queryNone($sql);
-            ?>
-                <table class="table table-sm table-striped table-hover w-sm-100 table-bordered">
-                    <thead class="greenBgDark">
-                        <tr>
-                            <th scope="col">Position Name</th>
-                            <th scope="col">Remove</th>
-                        </tr>
-                    </thead>
-
-                    <?php foreach ($positions as $position):?>
-                    <tr>
-                        <th scope="row" class="w-auto"><?php echo $position['position_name']; ?>
-                        </th>
-                        <td scope="row" class="w-auto"><button
-                                id="<?php echo $position['position_name']; ?>"
-                                type="button" class="btn btn-danger btn-sm" data-toggle="modal"
-                                onclick="reply_click(this.id)" data-target=".bd-example-modal-sm">Remove</button>
-                        </td>
-                        </td>
-                    </tr>
-                    <?php endforeach?>
-
-                    </tbody>
-                </table>
+                <h5 id="demo" class="text-center font-weight-bold"></h5>
             </div>
 
         </div>
+        <script>
+            // Set the date we're counting down to
+            var countDownDate = new Date("Sep 5, 2019 15:37:25").getTime();
+
+            // Update the count down every 1 second
+            var x = setInterval(function() {
+
+                // Get today's date and time
+                var now = new Date().getTime();
+
+                // Find the distance between now and the count down date
+                var distance = countDownDate - now;
+
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Output the result in an element with id="demo"
+                document.getElementById("demo").innerHTML = days + "d " + hours + "h " +
+                    minutes + "m " + seconds + "s ";
+
+                // If the count down is over, write some text 
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("demo").innerHTML = "EXPIRED";
+                }
+            }, 1000);
+        </script>
+
     </div>
 </main>
 

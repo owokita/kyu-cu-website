@@ -76,22 +76,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div id="main-col" class="col-md-9 rounded ">
                     <div class="w3ls px-2  row">
                         <?php
-                            $artOBJ = new  ARTICLE();
-                            $articles = $artOBJ-> getArtVerified();
+                            if (isset($_GET['id'])):
+                                $urlID= $_GET['id'];
+                                
+                                $artOBJ = new  ARTICLE();
+                                $article = $artOBJ->getArtSpecificWhere($urlID);
+                                // echo print_r($article);
 
                         ?>
-                        <?php foreach ($articles as $article):?>
+
                         <article class="tc-ch wow fadeInDown mt-2" data-wow-duration=".8s" data-wow-delay=".2s">
                             <div class="tch-img">
-                                <a href="singlepage.html"><img
-                                        src="user/includes/images/<?php echo $article['articleimg']  ?>"
-                                        class="img-responsive article-img" alt=""></a>
+                                <img src="user/includes/images/<?php echo $article['articleimg']  ?>"
+                                    class="img-responsive article-img" alt="">
                             </div>
 
-                            <h3><a
-                                    href="article.php?id=<?php  echo $article['article_id']; ?>"><?php echo  $article['article_tittle']; ?></a>
+                            <h3><?php echo  $article['article_tittle']; ?>
                             </h3>
                             <h6 class="text-capitalize font-weight-bold">By <?php echo  $article['user_fname']; echo " "; echo  $article['user_lname'];?>
+                                on
                                 <?php echo  $article['article_pub_date']; ?>.
                             </h6>
                             <!-- Like Buttons And Comments -->
@@ -107,11 +110,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="d-inline">
                                     <button class="btn btn-sm btn-outline-success">Read More</button>
                                 </div>
-                                <div class="d-inline">
-                                    <a href="article.php?id=<?php  echo $article['article_id']; ?>"
-                                        class="d-inline btn btn-sm btn-success">Comment</a>
 
-                                </div>
 
                                 <!-- Social Media  -->
                                 <div class="d-inline">
@@ -126,13 +125,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                 </div>
                             </div>
+
                             <!-- Comment -->
+                            <form id="comment" action="user/includes/articleComment.php" method="POST"
+                                id="comment_form">
+
+                                <input type="hidden" name="artid"
+                                    value=" <?php echo $article['article_id']  ?>">
+
+                                <div class="form-group">
+                                    <textarea name="comment_content" id="comment_content" class="form-control"
+                                        placeholder="Enter Comment" rows="5" required></textarea>
+                                </div>
+                                <button class="btn btn-success" name="comment">Submit</button>
+                                <div class="row">
+                                    <?php
+                                    $artOBJ = new  ARTICLE();
+                                    $comments = $artOBJ->getcomments($article['article_id']);
+                                    foreach ($comments as $comment):
+                                     ?>
+                                    <div class="col  ml-5 mt-1 flex-fill text-right border rounded">
+                                        <?php  echo $comment['comment'] ?>
+                                        <br><span class="font-italic font-weight-bold" style="font-size: 0.7em"><?php  echo $comment['user_fname']; echo " "; echo $comment['user_lname'];  ?></span>
+                                    </div>
+                                    <?php endforeach ?>
+                                </div>
+
+                            </form>
+
+
+
 
                         </article>
-                        <?php endforeach?>
+
 
                         <div class="clearfix"></div>
                     </div>
+                    <?php endif ?>
                 </div>
 
                 <!-- Resent Article Section -->
@@ -150,9 +179,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                             <h4>Resent Posts </h4>
                             <?php
-$artRecentOBJ = new  ARTICLE();
-$recents = $artRecentOBJ->getArtResent();
-foreach ($recents as $recent):?>
+                            $artRecentOBJ = new  ARTICLE();
+                            $recents = $artRecentOBJ->getArtResent();
+                            foreach ($recents as $recent):?>
                             <div class="blog-grids wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
                                 <div class="blog-grid-left">
                                     <a
@@ -181,11 +210,52 @@ foreach ($recents as $recent):?>
         </div>
     </section>
     <!-- foote -->
-
     <?php require 'footer.php' ?>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+
+            $('#comment_form').on('submit', function(event) {
+                event.preventDefault();
+                var form_data = $(this).serialize();
+                $.ajax({
+                    url: "user/includes/articleComment.php",
+                    method: "POST",
+                    data: form_data,
+                    dataType: "JSON",
+                    success: function(data) {
+                        if (data.error != '') {
+                            $('#comment_form')[0].reset();
+                            $('#comment_message').html(data.error);
+                            $('#comment_id').val('0');
+                            load_comment();
+                        }
+                    }
+                })
+            });
+
+            load_comment();
+
+            function load_comment() {
+                $.ajax({
+                    url: "fetch_comment.php",
+                    method: "POST",
+                    success: function(data) {
+                        $('#display_comment').html(data);
+                    }
+                })
+            }
+
+            $(document).on('click', '.reply', function() {
+                var comment_id = $(this).attr("id");
+                $('#comment_id').val(comment_id);
+                $('#comment_name').focus();
+            });
+
+        });
+    </script>
 
 </body>
 

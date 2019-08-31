@@ -15,4 +15,6 @@ if (isset($_POST['sendmail'])) {
 
     redirect("../notification.php?message=success");
 } else {
+
+    
 }
