@@ -278,9 +278,9 @@
 								</div>
 								<h4>Resent Posts </h4>
 								<?php
-									$artRecentOBJ = new  ARTICLE();
-									$recents = $artRecentOBJ->getArtResent();
-									foreach ($recents as $recent):?>
+                                    $artRecentOBJ = new  ARTICLE();
+                                    $recents = $artRecentOBJ->getArtResent();
+                                    foreach ($recents as $recent):?>
 								<div class="blog-grids wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
 									<div class="blog-grid-left">
 										<a
@@ -466,8 +466,8 @@ inner join user on user_id = leaders_fk_user_id;";
 
 
 	</main>
-<!-- Footer -->
-<?php require 'footer.php' ?>
+	<!-- Footer -->
+	<?php require 'includes/footer.php' ?>
 	<a href="#" class="back-to-top"><i class="fas fa-arrow-circle-up fx-7"></i></a>
 
 
