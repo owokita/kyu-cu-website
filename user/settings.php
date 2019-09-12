@@ -69,19 +69,49 @@
 
 
             <div class="col-sm-6 mt-1">
-            <div class="col"></div>
+                <div class="col"></div>
+                <div class="card bg-transparent ">
+                    <div class="card-body bg-transparent">
+                        <h5 class="card-title">Update Phone Number</h5>
+                        <form action="includes/update.inc.php" method="post">
+                            <div class="form-group">
+                                <label for="phoneNo">Phone No</label>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text" id="basic-addon1">+254</span>
+                                    </div>
+                                    <input type="number" id="phoneNo" class="form-control" placeholder=" e.g 701702734"
+                                        aria-label="phoneNo" aria-describedby="basic-addon1" name="phoneNo" required>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-success d-flex mx-auto "
+                                name="updatephone">Update</button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-6 mt-1">
+                <div class="col"></div>
                 <div class="card bg-transparent ">
                     <div class="card-body bg-transparent">
                         <h5 class="card-title">Update Password</h5>
                         <form action="includes/reset.inc.php" method="post">
                             <div class="form-group">
-                                <label for="password">Password</label>
+                                <label for="password">Current Password</label>
+                                <input type="password" class="form-control form-control-sm" id="oldpassword"
+                                    placeholder="Password" name="oldpassword" required>
+
+                            </div>
+                            <div class="form-group">
+                                <label for="password">New Password</label>
                                 <input type="password" class="form-control form-control-sm" id="password"
                                     placeholder="Password" name="password" required>
 
                             </div>
                             <div class="form-group">
-                                <label for="confirmPassword">Password Confirm</label>
+                                <label for="confirmPassword">Confirm Password</label>
                                 <input type="password" class="form-control form-control-sm" id="confirmPassword"
                                     placeholder="Password confirmation" name="passordconfirm" required>
 
@@ -131,15 +161,20 @@
 
 <script src="js/bootstrap-validate.js"></script>
 <script>
-    bootstrapValidate('#quote', 'max:231:You can Only Enter A Maximum of 231 Characters');
     bootstrapValidate('#confirmPassword', 'matches:#password:Password Must Match');
     bootstrapValidate('#password', 'min:4:Weak Password');
+
+    bootstrapValidate('#phoneNo', 'startsWith:7:Phone No. MUST start with 7 ')
+
+    bootstrapValidate('#phoneNo', 'max:9:Max Entry is 9 digits');
+    bootstrapValidate('#phoneNo', 'min:9:Minimun Entry is 9 digits');
+    bootstrapValidate('#quote', 'max:231:You can Only Enter A Maximum of 231 Characters');
 </script>
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/admin.js"></script>
-<script src="js/croppie.min.js"></script> 
+<script src="js/croppie.min.js"></script>
 <!-- Side Navigation Scripts -->
 <script>
     $(document).ready(function() {
@@ -155,11 +190,8 @@
         document.getElementById('sidebar').classList.remove('active');
 
     })
-
 </script>
 <script>
- 
-
     $(document).ready(function() {
         $(pcs % quote~2# sidebarCollapsepcs % quote~2).on(pcs % quote~2 clickpcs % quote~2,
             function() {
@@ -182,67 +214,67 @@
 
         });
 </script>
-<script>  
-$(document).ready(function(){
+<script>
+    $(document).ready(function() {
 
- $image_crop = $('#image_demo').croppie({
-    enableExif: true,
-    viewport: {
-      width:200,
-      height:200,
-      type:'circle' //circle
-    },
-    boundary:{
-      width:300,
-      height:300
-    }    
-  });
+        $image_crop = $('#image_demo').croppie({
+            enableExif: true,
+            viewport: {
+                width: 200,
+                height: 200,
+                type: 'circle' //circle
+            },
+            boundary: {
+                width: 300,
+                height: 300
+            }
+        });
 
-  $('#insert_image').on('change', function(){
-    var reader = new FileReader();
-    reader.onload = function (event) {
-      $image_crop.croppie('bind', {
-        url: event.target.result
-      }).then(function(){
-        console.log('jQuery bind complete');
-      });
-    }
-    reader.readAsDataURL(this.files[0]);
-    $('#insertimageModal').modal('show');
-  });
+        $('#insert_image').on('change', function() {
+            var reader = new FileReader();
+            reader.onload = function(event) {
+                $image_crop.croppie('bind', {
+                    url: event.target.result
+                }).then(function() {
+                    console.log('jQuery bind complete');
+                });
+            }
+            reader.readAsDataURL(this.files[0]);
+            $('#insertimageModal').modal('show');
+        });
 
-  $('.crop_image').click(function(event){
-    $image_crop.croppie('result', {
-      type: 'canvas',
-      size: 'viewport'
-    }).then(function(response){
-      $.ajax({
-        url:'includes/insertfile.php',
-        type:'POST',
-        data:{"image":response},
-        success:function(data){
-          $('#insertimageModal').modal('hide');
-          load_images();
-          alert(data);
+        $('.crop_image').click(function(event) {
+            $image_crop.croppie('result', {
+                type: 'canvas',
+                size: 'viewport'
+            }).then(function(response) {
+                $.ajax({
+                    url: 'includes/insertfile.php',
+                    type: 'POST',
+                    data: {
+                        "image": response
+                    },
+                    success: function(data) {
+                        $('#insertimageModal').modal('hide');
+                        load_images();
+                        alert(data);
+                    }
+                })
+            });
+        });
+
+        load_images();
+
+        function load_images() {
+            $.ajax({
+                url: "fetch_images.php",
+                success: function(data) {
+                    $('#store_image').html(data);
+                }
+            })
         }
-      })
+
     });
-  });
-
-  load_images();
-
-  function load_images()
-  {
-    $.ajax({
-      url:"fetch_images.php",
-      success:function(data)
-      {
-        $('#store_image').html(data);
-      }
-    })
-  }
-
-});  
 </script>
 
 

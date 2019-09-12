@@ -22,7 +22,21 @@ if (isset($_POST['leaderquote'])) {
     echo $quote;
 
     echo "it is working";
+} elseif (isset($_POST['updatephone'])) {
+    require 'init.php';
+    $phone = "+254";
+    $phone .= $_POST['phoneNo'];
+    //get the session of the person who is logged in
+    $sess = new SESSION();
+    $sessId = $sess->getSessionID();
 
+    $sql = "UPDATE user SET user_phobeNo = '$phone' WHERE (user_id = $sessId);";
+  
+    $userOBJ = new USER();
+    $stmt = $userOBJ->conn()->prepare($sql);
+    $stmt->execute();
+
+    redirect("../settings.php?message=updatesuccess");
 } else {
     require_once 'init.php';
     redirect("../user.php");

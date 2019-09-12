@@ -2,7 +2,7 @@
 require 'init.php';
 require 'article.php';
 
-if (isset( $_SESSION['user_id'])) {
+if (isset($_SESSION['user_id'])) {
     if (isset($_POST['comment'])) {
         $comment = $_POST['comment_content'];
         $articleID = $_POST['artid'];
@@ -27,4 +27,3 @@ if (isset( $_SESSION['user_id'])) {
     redirect("../login.php?login");
 }
 exit();
-
