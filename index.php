@@ -61,9 +61,10 @@
 		<div class="row p-0 m-0">
 
 			<div class="col p-0 wow fadeInRightBig">
-				<h2 class="text-center main-h1" style="font-size:2vw"><strong>KIIRINYAGA UNIVERSITY CHRISTIAN
+				<h2 class="text-center main-h1" style="font-size:2vw"><strong>KIRINYAGA UNIVERSITY CHRISTIAN
 						UNION</strong></h2>
-				<h4 class="text-center" style="font-size:1.5vw"><em>Serving God With Ferverent Worship</em>
+				<h4 class="text-center" style="font-size:1.5vw"><em>Serving God With
+						Fervent Worship</em>
 				</h4>
 			</div>
 
@@ -276,7 +277,7 @@
 										<input type="submit" value=" ">
 									</form>
 								</div>
-								<h4>Resent Posts </h4>
+								<h4>Recent Posts </h4>
 								<?php
                                     $artRecentOBJ = new  ARTICLE();
                                     $recents = $artRecentOBJ->getArtResent();

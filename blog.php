@@ -148,7 +148,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <input type="submit" value=" ">
                                 </form>
                             </div>
-                            <h4>Resent Posts </h4>
+                            <h4>Recent Posts </h4>
                             <?php
 $artRecentOBJ = new  ARTICLE();
 $recents = $artRecentOBJ->getArtResent();

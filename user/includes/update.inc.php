@@ -5,7 +5,6 @@ if (isset($_POST['leaderquote'])) {
     $quote = $_POST['quote'];
 
     
-    
     // exit();
     $userOBJ = new USER();
     //GET SESSION ID
@@ -31,6 +30,7 @@ if (isset($_POST['leaderquote'])) {
     $sessId = $sess->getSessionID();
 
     $sql = "UPDATE user SET user_phobeNo = '$phone' WHERE (user_id = $sessId);";
+    
   
     $userOBJ = new USER();
     $stmt = $userOBJ->conn()->prepare($sql);
