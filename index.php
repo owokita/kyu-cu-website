@@ -21,16 +21,15 @@
 	<link rel="stylesheet" href="css/owl.theme.default.min.css">
 
 	<link href="css/animate.min.css" rel="stylesheet">
-	<script src="js/wow.min.js"></script>
+	<!-- <script src="js/wow.min.js"></script>
 	<script>
 		new WOW().init();
-	</script>
+	</script> -->
 	<!-- this scipt is used to enable drop drop down on hover of the header -->
 	<style type="text/css">
 		.bs-example {
 			margin: 20px;
 		}
-
 		@media screen and (min-width: 768px) {
 
 			.dropdown:hover .dropdown-menu,
