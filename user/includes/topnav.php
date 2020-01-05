@@ -26,7 +26,7 @@ if (!isset($_SESSION['user_id'])) {
     <!--MEDIA QUERIES-->
     <!-- <link rel="stylesheet" href="css/mq..css"> -->
     <!--FONT AWESOME-->
-    <script src="js/all.js"></script>
+    <script src="js/lib/all.js"></script>
     <style type="text/css">
         .bs-example {
             margin: 20px;

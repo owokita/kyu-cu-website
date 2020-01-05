@@ -19,13 +19,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--MEDIA QUERIES-->
     <link rel="stylesheet" href="css/mq..css">
     <!--FONT AWESOME-->
-    <script src="js/all.js"></script>
+    <script src="js/lib/all.js"></script>
     <!--OWL CSS-->
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
     <link href="css/animate.min.css" rel="stylesheet">
-    <script src="js/wow.min.js"></script>
+    <script src="js/lib/wow.min.js"></script>
     <script>
         new WOW().init();
     </script>
@@ -211,9 +211,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </section>
     <!-- foote -->
     <?php require 'includes/footer.php' ?>
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script src="js/lib/jquery-3.2.1.min.js"></script>
+    <script src="js/lib/popper.min.js"></script>
+    <script src="js/lib/bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
 

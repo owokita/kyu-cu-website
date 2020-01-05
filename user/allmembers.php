@@ -234,12 +234,12 @@ if ($_SESSION['user_type'] === "normal") {
         </div>
     </div>
 </div>
-<script src="js/bootstrap-validate.js"></script>
-<script src="js/admin.js"></script>
-<script src="js/jquery-3.2.1.min.js"> </script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"> </script>
-<script src="js/admin.js"> </script> <!-- Side Navigation Scripts -->
+<script src="js/lib/bootstrap-validate.js"></script>
+<script src="js/lib/admin.js"></script>
+<script src="js/lib/jquery-3.2.1.min.js"> </script>
+<script src="js/lib/popper.min.js"></script>
+<script src="js/lib/bootstrap.min.js"> </script>
+<script src="js/lib/admin.js"> </script> <!-- Side Navigation Scripts -->
 <script>
     $(document).ready(function() {
         $('#sidebarCollapse').on('click', function() {

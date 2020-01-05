@@ -15,13 +15,13 @@
 	<!--MEDIA QUERIES-->
 	<link rel="stylesheet" href="css/mq..css">
 	<!--FONT AWESOME-->
-	<script src="js/all.js"></script>
+	<script src="js/lib/all.js"></script>
 	<!--OWL CSS-->
 	<link rel="stylesheet" href="css/owl.carousel.min.css">
 	<link rel="stylesheet" href="css/owl.theme.default.min.css">
 
 	<link href="css/animate.min.css" rel="stylesheet">
-	<!-- <script src="js/wow.min.js"></script>
+	<!-- <script src="js/lib/wow.min.js"></script>
 	<script>
 		new WOW().init();
 	</script> -->
@@ -435,7 +435,7 @@
 				<h3 class="mx-auto">Meet Our Dedicated Leaders</h3>
 			</div>
 			<div class="wrapper container text-center">
-				<?php  $sql = "select user_fname,user_lname, leaders_quote,leaders_fk_position_name, from leaders
+				<?php  $sql = "SELECT user_fname,user_lname, leaders_quote,leaders_fk_position_name from leaders
 inner join user on user_id = leaders_fk_user_id;";
                 $userOBJ = new USER();
                 $leaders = $userOBJ->queryNone($sql);
@@ -471,9 +471,9 @@ inner join user on user_id = leaders_fk_user_id;";
 	<a href="#" class="back-to-top"><i class="fas fa-arrow-circle-up fx-7"></i></a>
 
 
-	<script src="js/jquery-3.2.1.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	<script src="js/lib/jquery-3.2.1.min.js"></script>
+	<script src="js/lib/popper.min.js"></script>
+	<script src="js/lib/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$(".dropdown, .btn-group").hover(function() {
@@ -484,7 +484,7 @@ inner join user on user_id = leaders_fk_user_id;";
 			});
 		});
 	</script>
-	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/lib/owl.carousel.min.js"></script>
 	<!-- OWL CAROUSEL -->
 	<script>
 		$('.leaders-carousel').owlCarousel({

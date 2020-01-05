@@ -129,17 +129,17 @@
 
 
 
-<script src="js/bootstrap-validate.js"></script>
+<script src="js/lib/bootstrap-validate.js"></script>
 <script>
     bootstrapValidate('#quote', 'max:231:You can Only Enter A Maximum of 231 Characters');
     bootstrapValidate('#confirmPassword', 'matches:#password:Password Must Match');
     bootstrapValidate('#password', 'min:4:Weak Password');
 </script>
-<script src="js/jquery-3.2.1.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/admin.js"></script>
-<script src="js/croppie.min.js"></script> 
+<script src="js/lib/jquery-3.2.1.min.js"></script>
+<script src="js/lib/popper.min.js"></script>
+<script src="js/lib/bootstrap.min.js"></script>
+<script src="js/lib/admin.js"></script>
+<script src="js/lib/croppie.min.js"></script> 
 <!-- Side Navigation Scripts -->
 <script>
 

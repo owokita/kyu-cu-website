@@ -75,7 +75,7 @@ if (isset($_SESSION['user_id'])) {
         </div>
     </div>
 
-    <script src="js/bootstrap-validate.js"></script>
+    <script src="js/lib/bootstrap-validate.js"></script>
     <script >
     
     bootstrapValidate('#confirmPassword','matches:#password:Password Must Match'

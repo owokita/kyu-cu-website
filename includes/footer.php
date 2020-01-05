@@ -117,6 +117,6 @@
         </div>
         <div class="container-fluid" id="last-row">
 
-            <p id="last-row-para" class="text-center mx-auto"> &copy; Kirinyaga University Christian Union 2018</p>
+            <p id="last-row-para" class="text-center mb-0 mx-auto"> &copy; Kirinyaga University Christian Union 2020</p>
         </div>
     </footer>
