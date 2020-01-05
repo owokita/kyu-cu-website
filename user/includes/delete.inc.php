@@ -63,12 +63,11 @@ elseif (isset($_GET['article'])) {
 
  
 
-    if (unlink($target )) {
-        
-        echo ("Error deleting $image ");
-      } else {
-        echo ("Deleted $image ");
-      }
+    if (unlink($target)) {
+        echo("Error deleting $image ");
+    } else {
+        echo("Deleted $image ");
+    }
     
     
 
@@ -79,5 +78,5 @@ elseif (isset($_GET['article'])) {
     //TODO: Redirect with a Message
     redirect("../userpost.php");
 } else {
-     redirect("../user.php");
- }
+    redirect("../user.php");
+}

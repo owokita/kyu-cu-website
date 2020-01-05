@@ -51,7 +51,7 @@ require 'includes/article.php';
                                 </td>
                                 <td><?php echo $article['category_fk_category_name']; ?>
                                 </td>
-                                <td><?php echo $date[0] ?>
+                                <td><?php echo $date[0]; ?>
                                 </td>
                                 <td>
 

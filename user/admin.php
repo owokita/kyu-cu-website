@@ -87,7 +87,8 @@ if ($_SESSION['user_type'] === "normal") {
                                 echo '<p class =" text-white text-center" style=" background-color: red;border-radius:5px">There is NO member with that Email Address!!</p>';
                             } elseif ($_GET['message'] == "alreadyAdmin") {
                                 echo '<p class =" text-white text-center" style=" background-color: red;border-radius:5px">Submitted Email is Already an  Admin</p>';
-                            } else{ $id= $_GET['message'];
+                            } else {
+                                $id= $_GET['message'];
                                 echo '<p class =" text-white text-center" style=" background-color: green;border-radius:5px">Are you Sure?</p>';
                                 $userOBJ = new USER();
                                 $reslut = $userOBJ->getuserbyid($id);
@@ -98,9 +99,10 @@ if ($_SESSION['user_type'] === "normal") {
                         ?>
             </div>
             <div class="modal-footer">
-            <!-- this form will register the admin -->
+                <!-- this form will register the admin -->
                 <form id="registerAdmin" action="includes/register.inc.php" method="POST">
-                        <input type="hidden" name="id" value="<?php echo $reslut['user_id']?>">
+                    <input type="hidden" name="id"
+                        value="<?php echo $reslut['user_id']?>">
                 </form>
                 <?php
                     
@@ -109,14 +111,12 @@ if ($_SESSION['user_type'] === "normal") {
 
                         //this button will submit the form that will register the form
                         echo '<button type="submit" class="btn btn-success" name="registerAdmin" form="registerAdmin">Yes</button>';
-
                     } elseif ($_GET['message'] == "nouser" || $_GET['message'] == "alreadyAdmin") {
                         echo '<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>';
-                        
                     }
                 ?>
-                
-                
+
+
             </div>
         </div>
     </div>
@@ -128,7 +128,7 @@ if ($_SESSION['user_type'] === "normal") {
 <script src="js/bootstrap.min.js"> </script>
 <script src="js/admin.js"> </script>
 
- <!-- Side Navigation Scripts -->
+<!-- Side Navigation Scripts -->
 <script>
     $(document).ready(function() {
         $('#sidebarCollapse').on('click', function() {

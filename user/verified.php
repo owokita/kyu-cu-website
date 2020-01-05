@@ -15,9 +15,11 @@ require 'includes/article.php';
 
     <div class="content container-fluid">
         <!-- User Dashboard -->
-        <div class="row"> <div class="col text-center font-weight-bold text-success">Verified Posts</div></div>
+        <div class="row">
+            <div class="col text-center font-weight-bold text-success">Verified Posts</div>
+        </div>
         <div class="row mt-1">
-           
+
             <div class="col">
 
                 <?php
@@ -34,7 +36,7 @@ require 'includes/article.php';
                                 <th scope="col">Category</th>
                                 <th scope="col">Post Date</th>
                                 <th scope="col"></th>
-                               
+
                             </tr>
                         </thead>
                         <tbody>
@@ -61,7 +63,7 @@ require 'includes/article.php';
                                             data-target=".bd-example-modal-sm">View</button> </a>
 
                                 </td>
-                              
+
 
 
                             </tr>
@@ -82,7 +84,7 @@ require 'includes/article.php';
 
 
 
-<!--member edit post Modal -->
+<!--amin verify  post Modal -->
 
 <div class="modal fade" id="editpost" tabindex="-1" role="dialog" aria-labelledby="RegNewMemberModal"
     aria-hidden="true">
@@ -121,21 +123,22 @@ require 'includes/article.php';
                     <input type="hidden" name="artid"
                         value=" <?php echo $articleData[0]['article_id']  ?>">
 
-                        <!-- //id if the person who posted the article -->
-                        <input type="hidden" name="userid"
+                    <!-- //id if the person who posted the article -->
+                    <input type="hidden" name="userid"
                         value=" <?php echo $articleData[0]['article_fk_user_id']  ?>">
                     <div class="col card mb-2">
-                       <?php echo $articleData[0]['article_text']  ?>
+                        <?php echo $articleData[0]['article_text']  ?>
                     </div>
 
-                 
+
                 </form>
                 <?php endif ?>
             </div>
             <div class="modal-footer p-1" style="background-color:  #f6dffa;">
                 <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancle</button>
-                <button type="submit" class="btn btn-danger btn-sm" form="userEditpost" name="reject_article">Reject</button>
-                
+                <button type="submit" class="btn btn-danger btn-sm" form="userEditpost"
+                    name="reject_article">Reject</button>
+
             </div>
         </div>
     </div>

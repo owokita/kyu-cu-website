@@ -36,10 +36,10 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <?php  if (empty($articles )) {
-                               echo '<tr> <td colspan="6" class="text-center">You have no POSTS. Click on the <strong>Create New Post</strong> to post your first article </td></tr>';
-                            }  ?>
-                            
+                            <?php  if (empty($articles)) {
+                    echo '<tr> <td colspan="6" class="text-center">You have no POSTS. Click on the <strong>Create New Post</strong> to post your first article </td></tr>';
+                }  ?>
+
                             <?php foreach ($articles as $article):?>
                             <tr>
                                 <?php   $date= explode(" ", $article['article_pub_date'], 2);  ?>
@@ -137,7 +137,7 @@
 
             </div>
             <div class="modal-footer" style="background-color:  #f6dffa;">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancle</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                 <button type="submit" class="btn btn-success" form="usernewpost" name="post_article">Post</button>
             </div>
         </div>
@@ -160,7 +160,7 @@
             <!-- //require the ck editor -->
             <script src="ckeditor/ckeditor.js"></script>
             <?php  if (isset($_GET['id'])): ?>
-                 <?php
+            <?php
                     $urlID= $_GET['id'];
 
                     $artOBJ = new  ARTICLE();
@@ -208,11 +208,12 @@
                         CKEDITOR.replace('content2');
                     </script>
                 </form>
-<?php endif ?>
+                <?php endif ?>
             </div>
             <div class="modal-footer p-1" style="background-color:  #f6dffa;">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
-                <button type="submit" class="btn btn-success" form="userEditpost" name="update_article">Update</button>
+                <butlton type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
+                    <button type="submit" class="btn btn-success" form="userEditpost"
+                        name="update_article">Update</button>
             </div>
         </div>
     </div>

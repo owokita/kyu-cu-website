@@ -23,12 +23,7 @@
             </div>
         </div>
         <div class="row ">
-
-
             <?php
-
-                    
-
                     $userOBJ = new USER();
                     //GET SESSION ID
                     $sessID = $userOBJ->getSessionID();
@@ -38,7 +33,6 @@
                     } else {
                         $leaderdata = $userOBJ->getLeaderData($sessID);
                       
-                        
                         echo '
                         <div class="col-sm-6 mt-1">
                         <div class="row">

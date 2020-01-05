@@ -16,10 +16,8 @@ if (isset($_SESSION['user_id'])) {
         $artOBJ->queryInsert($sql);
 
        
-
-
     
-        redirect("http://localhost/cuweb/article.php?id=$articleID");
+        redirect("https://kyucu.co.ke/article.php?id=$articleID");
     } else {
         redirect("index.php");
     }

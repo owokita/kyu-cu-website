@@ -19,21 +19,21 @@ if ($_SESSION['user_type'] === "normal") {
         <div class="row">
             <div class="col">
                 <?php
-            $userOBJ = new USER();
-            $limit = isset($_POST["limit-records"]) ? $_POST["limit-records"] : 50;
-            
-            $page = isset($_GET['page']) ? $_GET['page']:  1;
-            $start = ($page - 1) * $limit;
-            $results = $userOBJ->getAllUsers($start, $limit);
-            $count=$start;
+                    $userOBJ = new USER();
+                    $limit = isset($_POST["limit-records"]) ? $_POST["limit-records"] : 50;
+                    
+                    $page = isset($_GET['page']) ? $_GET['page']:  1;
+                    $start = ($page - 1) * $limit;
+                    $results = $userOBJ->getAllUsers($start, $limit);
+                    $count=$start;
 
 
-            $countResult = $userOBJ->count('user_id', 'user');
-            $count = $countResult['id'];
-            $pages = ceil($count/$limit) ;
+                    $countResult = $userOBJ->count('user_id', 'user');
+                    $count = $countResult['id'];
+                    $pages = ceil($count/$limit) ;
 
-            $previous =$page -1;
-            $next = $page + 1;
+                    $previous =$page -1;
+                    $next = $page + 1;
             
             ?>
                 <!-- //PAGINATION navigation bar -->
@@ -59,8 +59,8 @@ if ($_SESSION['user_type'] === "normal") {
                                     <option disabled=="disabled" selected="selected">--Limit Records--</option>
                                     <?php foreach ([5,50,100,200] as $limit): ?>
                                     <option <?php if (isset($_POST["limit-records"]) && $_POST["limit-records"] == $limit) {
-                echo "selected";
-            } ?>
+                                            echo "selected";
+                                        } ?>
                                         value="<?php echo $limit ?>">
                                         <?php echo $limit ?>
                                     </option>
@@ -178,7 +178,7 @@ if ($_SESSION['user_type'] === "normal") {
                             <div class="col">
                                 <div class="form-group ">
                                     <label for="firstName">First Name</label>
-                                    <input type="text" class="form-control form-control-sm" id="firstName"
+                                    <input type="text" class="form-control " id="firstName"
                                         aria-describedby="emailHelp" placeholder="Enter First Name" name="firstname"
                                         required>
                                 </div>
@@ -227,7 +227,7 @@ if ($_SESSION['user_type'] === "normal") {
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancle</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                 <button type="submit" class="btn btn-success" form="newMemberReg"
                     name="ADMINnewMemberReg">Register</button>
             </div>

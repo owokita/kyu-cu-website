@@ -32,6 +32,7 @@ class DATABASE
     {
         $stmt = $this->conn()->prepare($sql);
         $stmt->execute([$id]);
+        $data = '';
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             $data = $row;
         }

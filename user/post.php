@@ -66,7 +66,7 @@ if ($_SESSION['user_type'] === "normal") {
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancle</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                 <button type="submit" class="btn btn-success" form="usernewpost" name="post_article">Register</button>
             </div>
         </div>

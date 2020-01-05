@@ -29,9 +29,9 @@ if (isset($_POST['post_article'])) {
     $sql = "SELECT user_email from admin inner join user on 
     user_id =admin_fk_user_id";
     $emails =$artOBJ->queryNone($sql);
-     require 'mailer.php';
-     $subject = "POST FROM A MEMBER";
-     $message = '
+    require 'mailer.php';
+    $subject = "POST FROM A MEMBER";
+    $message = '
      <p>There is a new POST from a member on the Kirinyaga University Christian Union Website.</p>
 
 <p>Please use the link&nbsp;or button below to verify the POST.</p>
@@ -100,7 +100,7 @@ if (isset($_POST['post_article'])) {
         echo  "no";
     }
 
-//reject the artcle
+    //reject the artcle
 } elseif (isset($_POST['reject_article'])) {
     $artid=$_POST['artid'];
     $userid=$_POST['userid'];

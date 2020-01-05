@@ -10,8 +10,6 @@ if (isset($_POST['signup-submit'])) {
     $user_phone .= $_POST['phoneNo'];
    
 
-    
-
     $user= new USER();
 
     if ($user->getuserbyEmail($user_email)) {

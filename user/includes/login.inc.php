@@ -8,17 +8,17 @@ if (isset($_POST['login-submit'])) {
     $user_email = $_POST['email'];
     $user_pwd = $_POST['password'];
     
-    function getCaptcha($SecretKey){
-        // $Response="";
-        $Response =
-         file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".SECRET_KEY."&response={$SecretKey}");
-        //decode the json
-        $Retrun = json_decode($Response);
+    // function getCaptcha($SecretKey){
+    //     // $Response="";
+    //     $Response =
+    //      file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".SECRET_KEY."&response={$SecretKey}");
+    //     //decode the json
+    //     $Retrun = json_decode($Response);
 
-        return $Retrun;
-    }
+    //     return $Retrun;
+    // }
 
-    $Retrun = getCaptcha($_POST['g-recaptcha-response']);
+    // $Retrun = getCaptcha($_POST['g-recaptcha-response']);
     //check if the user is a robot
 //    if ($Retrun->success == true && $Retrun->score > 0.2 ) {
        //Ckecks if the Email Address Exists
@@ -57,9 +57,7 @@ if (isset($_POST['login-submit'])) {
                     } else {
                         echo "super";
                     }
-                   
                     $sess->redirect("../index.php");
-                    
                 }
             }
         } else {
