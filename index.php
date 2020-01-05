@@ -435,7 +435,7 @@
 				<h3 class="mx-auto">Meet Our Dedicated Leaders</h3>
 			</div>
 			<div class="wrapper container text-center">
-				<?php  $sql = "select user_fname,user_lname, leaders_quote,leaders_fk_position_name,leaders_img from leaders
+				<?php  $sql = "select user_fname,user_lname, leaders_quote,leaders_fk_position_name, from leaders
 inner join user on user_id = leaders_fk_user_id;";
                 $userOBJ = new USER();
                 $leaders = $userOBJ->queryNone($sql);
@@ -444,7 +444,7 @@ inner join user on user_id = leaders_fk_user_id;";
 					<?php foreach ($leaders as $leader): ?>
 					<div class="single-leader py-3">
 						<div class="leader-img"><?php echo '
-								<img src="data:image/png;base64,'.base64_encode($leader['leaders_img']).'" alt="" srcset="">
+								<img src="" alt="" srcset="">
 								';
                                 ?>
 						</div>
