@@ -89,16 +89,16 @@
 					<!--Images-->
 					<div id="carausel" class="carousel-inner">
 						<div class="carousel-item active">
-							<img src="images/slider/1.jpeg" class=" w-100 slide-img" alt="pic 1">
+							<img loading="lazy"  src="images/slider/1.jpeg" class=" w-100 slide-img" alt="pic 1">
 						</div>
 						<div class="carousel-item">
-							<img src="images/slider/2.jpeg" class=" w-100 slide-img" alt="pic 1">
+							<img loading="lazy"  src="images/slider/2.jpeg" class=" w-100 slide-img" alt="pic 1">
 						</div>
 						<div class="carousel-item">
-							<img src="images/slider/3.jpeg" class="  w-100 slide-img " alt="pic 1">
+							<img loading="lazy"  src="images/slider/3.jpeg" class="  w-100 slide-img " alt="pic 1">
 						</div>
 						<div class="carousel-item">
-							<img src="images/slider/4.jpeg" class=" w-100 slide-img" alt="pic 1">
+							<img loading="lazy"  src="images/slider/4.jpeg" class=" w-100 slide-img" alt="pic 1">
 						</div>
 					</div>
 					<!--End of Images-->
@@ -130,24 +130,24 @@
 						<div class="bg-light px-2">
 							<!-- UPCOMING EVENTS PICTURE ROW-->
 							<div class="row w-50 mx-auto wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
-								<img src="images/upcomingevents2.png" alt="" class="img-fluid px-3" srcset="">
+								<img loading="lazy"  src="images/upcomingevents2.png" alt="" class="img-fluid px-3" srcset="">
 							</div>
 							<!-- UPCOMING EVENTS ROW-->
 							<div id="upcoming" class="d-flex justify-content-center ">
 								<div class="col-auto col-md-3 ">
-									<img src="images/uploads/2.jpeg" class="img-fluid" alt="">
+									<img loading="lazy"  src="images/uploads/2.jpeg" class="img-fluid" alt="">
 								</div>
 								<div class="col-auto col-md-3 ">
-									<img src="images/uploads/1.jpeg" class="img-fluid" alt="">
+									<img loading="lazy"  src="images/uploads/1.jpeg" class="img-fluid" alt="">
 								</div>
 								<div class="col-auto col-md-3 ">
-									<img src="images/uploads/3.jpeg" class="img-fluid" alt="">
+									<img loading="lazy"  src="images/uploads/3.jpeg" class="img-fluid" alt="">
 								</div>
 								<div class="col-auto col-md-3 ">
-									<img src="images/uploads/4.jpeg" class="img-fluid" alt="">
+									<img loading="lazy"  src="images/uploads/4.jpeg" class="img-fluid" alt="">
 								</div>
 								<div class="col-auto col-md-3 ">
-									<img src="images/uploads/4.jpeg" class="img-fluid" alt="">
+									<img loading="lazy"  src="images/uploads/4.jpeg" class="img-fluid" alt="">
 								</div>
 
 
@@ -284,7 +284,7 @@
 								<div class="blog-grids wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
 									<div class="blog-grid-left">
 										<a
-											href="article.php?id=<?php  echo $recent['article_id']; ?>"><img
+											href="article.php?id=<?php  echo $recent['article_id']; ?>"><img loading="lazy" 
 												src="user/includes/images/<?php echo $recent['articleimg']  ?>"
 												alt=""></a>
 									</div>
@@ -337,7 +337,7 @@
 				<div class="row bg-color tGB">
 					<div class="col-lg-4 mt-1">
 						<div class="immageBox">
-							<img src="images/t1.jpg" alt="" width="1600" class="img-fluid">
+							<img loading="lazy"  src="images/t1.jpg" alt="" width="1600" class="img-fluid">
 							<div class="textBox pt-5">
 								<p class="text-center bg-color"><em><strong>ZIPPORAH THUO<br>
 											Praise &amp; Worship Director</strong></em></p>
@@ -347,7 +347,7 @@
 					</div>
 					<div class="col-lg-4 mt-1">
 						<div class="immageBox">
-							<img src="images/t1.jpg" alt="" width="1600" class="img-fluid ">
+							<img loading="lazy"  src="images/t1.jpg" alt="" width="1600" class="img-fluid ">
 							<div class="textBox pt-5 ">
 								<p class="text-center "><strong>PAUL MUNGATHIA<br>
 										bible study co-ordinator</strong></p>
@@ -357,7 +357,7 @@
 					</div>
 					<div class="col-lg-4 mt-1">
 						<div class="immageBox">
-							<img src="images/t1.jpg" alt="" width="1600" class="img-fluid">
+							<img loading="lazy"  src="images/t1.jpg" alt="" width="1600" class="img-fluid">
 							<div class="textBox pt-5">
 								<p class="text-center"><em><strong>AUSTIN MATUNGA<br>
 											Music co-ordinator</strong></em></p>
@@ -381,7 +381,7 @@
 						<div class="tc-ch">
 							<div class="tch-img">
 								<a href="singlepage.html">
-									<img src="images/m4.jpg" class="img-responsive" alt=""></a>
+									<img loading="lazy"  src="images/m4.jpg" class="img-responsive" alt=""></a>
 							</div>
 
 							<h3><a href="singlepage.html">Lorem Ipsum is simply</a></h3>
@@ -404,7 +404,7 @@
 					<div class="col-md-6 w3ls-left wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
 						<div class="tc-ch">
 							<div class="tch-img">
-								<a href="singlepage.html"><img src="images/m5.jpg" class="img-responsive" alt=""></a>
+								<a href="singlepage.html"><img loading="lazy"  src="images/m5.jpg" class="img-responsive" alt=""></a>
 							</div>
 
 							<h3><a href="singlepage.html">Lorem Ipsum is simply</a></h3>
@@ -435,7 +435,7 @@
 				<h3 class="mx-auto">Meet Our Dedicated Leaders</h3>
 			</div>
 			<div class="wrapper container text-center">
-				<?php  $sql = "SELECT user_fname,user_lname, leaders_quote,leaders_fk_position_name from leaders
+				<?php  $sql = "SELECT user_fname,user_lname, leaders_quote,leaders_fk_position_name,user_img from leaders
 inner join user on user_id = leaders_fk_user_id;";
                 $userOBJ = new USER();
                 $leaders = $userOBJ->queryNone($sql);
@@ -443,10 +443,8 @@ inner join user on user_id = leaders_fk_user_id;";
 				<div class="leaders-carousel owl-carousel">
 					<?php foreach ($leaders as $leader): ?>
 					<div class="single-leader py-3">
-						<div class="leader-img"><?php echo '
-								<img src="" alt="" srcset="">
-								';
-                                ?>
+						<div class="leader-img">
+								<img loading="lazy"   class="img-fluid" src="user/images/userimgs/<?php echo $leader['user_img'];  ?>" alt="" >
 						</div>
 						<div class="leader-text">
 							<h5 class="text-uppercase"> <?php echo $leader['user_fname']; ?>
