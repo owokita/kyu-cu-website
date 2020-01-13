@@ -35,14 +35,20 @@
                       
                         echo '
                         <div class="col-sm-6 mt-1">
-                        <div class="row">
-                            <div class="col"> <div class="col ">Upload Your Image Here</div></div>
+                        <form id="picform">
+                        <div class="card bg-transparent">
+                            <div class="card-body bg-transparent">
+                                <h6 class="card-title">Update Upload Your Image Here</h6>
+                                <input type="file" name="imageuserimage" id="insert_image" required>
+                            </div>
+                            <button id="imgsubmit" type="submit" class="btn btn-success d-flex mx-auto " name="imageuserimage">Update
+                           </button>
                         </div>
-                        <div class="row"> 
-                        <div class="col"> <input type="file" name="image" id="insert_image" accept="image/*" /></div>
-                        </div>
-                        
-                        <form action="includes/update.inc.php" method="post">
+                    </form>
+                    </div>
+                     </div>
+                     <div class="col-sm-6 mt-1">
+                        <form  method="post">
                         <div class="card bg-transparent">
                             <div class="card-body bg-transparent">
                                 <h5 class="card-title">Update Your Quote</h5>
@@ -121,53 +127,29 @@
     </div>
 </main>
 
-<!-- //crop images -->
-<div id="insertimageModal" class="modal" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Crop & Insert Image</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-8 text-center">
-                        <div id="image_demo" style="width:350px; margin-top:30px"></div>
-                    </div>
-                    <div class="col-md-4" style="padding-top:30px;">
-                        <br />
-                        <br />
-                        <br />
-                        <button class="btn btn-success crop_image">Crop & Insert Image</button>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-
 
 
 
 <script src="js/lib/bootstrap-validate.js"></script>
 <script>
-    bootstrapValidate('#confirmPassword', 'matches:#password:Password Must Match');
-    bootstrapValidate('#password', 'min:4:Weak Password');
+    try {
+        bootstrapValidate('#confirmPassword', 'matches:#password:Password Must Match');
+        bootstrapValidate('#password', 'min:4:Weak Password');
 
-    bootstrapValidate('#phoneNo', 'startsWith:7:Phone No. MUST start with 7 ')
+        bootstrapValidate('#phoneNo', 'startsWith:7:Phone No. MUST start with 7 ')
 
-    bootstrapValidate('#phoneNo', 'max:9:Max Entry is 9 digits');
-    bootstrapValidate('#phoneNo', 'min:9:Minimun Entry is 9 digits');
-    bootstrapValidate('#quote', 'max:231:You can Only Enter A Maximum of 231 Characters');
+        bootstrapValidate('#phoneNo', 'max:9:Max Entry is 9 digits');
+        bootstrapValidate('#phoneNo', 'min:9:Minimun Entry is 9 digits');
+        bootstrapValidate('#quote', 'max:231:You can Only Enter A Maximum of 231 Characters');
+    } catch (error) {
+
+    }
 </script>
 <script src="js/lib/jquery-3.2.1.min.js"></script>
 <script src="js/lib/popper.min.js"></script>
 <script src="js/lib/bootstrap.min.js"></script>
-<script src="js/lib/admin.js"></script>
+<!-- <script src="js/lib/admin.js"></script> -->
+<script type="module" src="js/app/settings.js"></script>
 
 <!-- Side Navigation Scripts -->
 <script>
@@ -186,6 +168,7 @@
     })
 </script>
 <script>
+try {
     $(document).ready(function() {
         $(pcs % quote~2# sidebarCollapsepcs % quote~2).on(pcs % quote~2 clickpcs % quote~2,
             function() {
@@ -201,21 +184,18 @@
 
         })
     document.querySelector(pcs % quote~2. navbar - navpcs % quote~2).addEventListener(pcs % quote~
+    
         2 clickpcs % quote~2,
         function() {
             document.getElementById(pcs % quote~2 sidebarpcs % quote~2).classList.remove(pcs %
                 quote~2 activepcs % quote~2);
 
         });
+} catch (error) {
+    
+}
+    
 </script>
-
-
-
-
-
-
-
-
 
 <?php
 

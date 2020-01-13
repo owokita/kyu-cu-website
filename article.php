@@ -126,34 +126,53 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
 
-                            <!-- Comment -->
-                            <form id="comment" action="user/includes/articleComment.php" method="POST"
-                                id="comment_form">
-
+                            <!-- Comment  form-->
+                            <form method="POST" id="comment_form">
                                 <input type="hidden" name="artid"
                                     value=" <?php echo $article['article_id']  ?>">
-
                                 <div class="form-group">
                                     <textarea name="comment_content" id="comment_content" class="form-control"
                                         placeholder="Enter Comment" rows="5" required></textarea>
                                 </div>
-                                <button class="btn btn-success" name="comment">Submit</button>
-                                <div class="row">
-                                    <?php
-                                    $artOBJ = new  ARTICLE();
-                                    $comments = $artOBJ->getcomments($article['article_id']);
-                                    foreach ($comments as $comment):
-                                     ?>
-                                    <div class="col  ml-5 mt-1 flex-fill text-right border rounded">
-                                        <?php  echo $comment['comment'] ?>
-                                        <br><span class="font-italic font-weight-bold" style="font-size: 0.7em"><?php  echo $comment['user_fname']; echo " "; echo $comment['user_lname'];  ?></span>
-                                    </div>
-                                    <?php endforeach ?>
-                                </div>
+                                <div class="form-group">
+                                <input type="hidden" id="comment_id" name="comment_id" value="0">
+                                    <button id="submit" class="btn btn-success" name="comment">Submit</button>
 
                             </form>
+                            <span id="comment_message" class="d-flex" style="display: inline-block!important">  </span> <br>
+                            <!-- All comments of th arcile will be shown here -->
+                            <div id="display_comment">
+                                <div class="row flex-row">
+                                    <!-- <div class="col-1"><img loading="lazy" src="user/images/userimgs/user.jpg"
+                                            class="img-fluid rounded-circle" alt=""></div> -->
+                                            <!-- comment -->
+                                    <div class="col-11">
+                                        <div class="row p-0 m-0 flex-column ">
+                                            <div class="col px-0 "><span class="text-primary">Felix Omuok </span> <span class="font-weight-lighter font-italic">2019 WED</span> </div>
+                                            <div class="col px-0"> Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                                Blanditiis, corporis? </div>
+                                                <div class="col px-0 d-flex justify-content-end"> <input class="btn btn-primary btn-sm py-0" type="submit" value="Reply"> </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row flex-row" style="margin-left:30px">
+                                    <!-- <div class="col-1"><img loading="lazy" src="user/images/userimgs/user.jpg"
+                                            class="img-fluid rounded-circle" alt=""></div> -->
+                                            <!-- comment -->
+                                    <div class="col-11">
+                                        <div class="row p-0 m-0 flex-column ">
+                                            <div class="col px-0 "><span class="text-primary">Felix Omuok </span> <span class="font-weight-lighter font-italic">2019 WED</span> </div>
+                                            <div class="col px-0"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora quas id dicta natus neque repellendus nemo. Blanditiis quia sed expedita quas sit repudiandae, quos mollitia. Voluptas minus quisquam vero laboriosam. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                                Blanditiis, corporis? </div>
+                                                <div class="col px-0 d-flex justify-content-end"> <input class="btn btn-primary btn-sm py-0" type="submit" value="Reply"> </div>
+                                        </div>
+                                    </div>
+
+                                </div>
 
 
+                            </div>
 
 
                         </article>
@@ -186,6 +205,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="blog-grid-left">
                                     <a
                                         href="article.php?id=<?php  echo $recent['article_id']; ?>"><img
+                                            loading="lazy"
                                             src="user/includes/images/<?php echo $recent['articleimg']  ?>"
                                             alt=""></a>
                                 </div>
@@ -214,48 +234,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="js/lib/jquery-3.2.1.min.js"></script>
     <script src="js/lib/popper.min.js"></script>
     <script src="js/lib/bootstrap.min.js"></script>
-    <script>
-        $(document).ready(function() {
-
-            $('#comment_form').on('submit', function(event) {
-                event.preventDefault();
-                var form_data = $(this).serialize();
-                $.ajax({
-                    url: "user/includes/articleComment.php",
-                    method: "POST",
-                    data: form_data,
-                    dataType: "JSON",
-                    success: function(data) {
-                        if (data.error != '') {
-                            $('#comment_form')[0].reset();
-                            $('#comment_message').html(data.error);
-                            $('#comment_id').val('0');
-                            load_comment();
-                        }
-                    }
-                })
-            });
-
-            load_comment();
-
-            function load_comment() {
-                $.ajax({
-                    url: "fetch_comment.php",
-                    method: "POST",
-                    success: function(data) {
-                        $('#display_comment').html(data);
-                    }
-                })
-            }
-
-            $(document).on('click', '.reply', function() {
-                var comment_id = $(this).attr("id");
-                $('#comment_id').val(comment_id);
-                $('#comment_name').focus();
-            });
-
-        });
-    </script>
+    <script src="js/app/article.js"></script>
+    
 
 </body>
 

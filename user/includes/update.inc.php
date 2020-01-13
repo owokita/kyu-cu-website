@@ -1,10 +1,9 @@
 <?php
-
+//this will update the leaders quotes
 if (isset($_POST['leaderquote'])) {
     require 'init.php';
     $quote = $_POST['quote'];
 
-    
     // exit();
     $userOBJ = new USER();
     //GET SESSION ID

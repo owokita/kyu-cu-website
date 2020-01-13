@@ -83,7 +83,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <?php foreach ($articles as $article):?>
                         <article class="tc-ch wow fadeInDown mt-2" data-wow-duration=".8s" data-wow-delay=".2s">
                             <div class="tch-img">
-                                <a href="singlepage.html"><img
+                                <a href="singlepage.html"><img loading="lazy"
                                         src="user/includes/images/<?php echo $article['articleimg']  ?>"
                                         class="img-responsive article-img" alt=""></a>
                             </div>
@@ -150,13 +150,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                             <h4>Recent Posts </h4>
                             <?php
-$artRecentOBJ = new  ARTICLE();
-$recents = $artRecentOBJ->getArtResent();
-foreach ($recents as $recent):?>
+                                $artRecentOBJ = new  ARTICLE();
+                                $recents = $artRecentOBJ->getArtResent();
+                                foreach ($recents as $recent):?>
                             <div class="blog-grids wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
                                 <div class="blog-grid-left">
                                     <a
                                         href="article.php?id=<?php  echo $recent['article_id']; ?>"><img
+                                            loading="lazy"
                                             src="user/includes/images/<?php echo $recent['articleimg']  ?>"
                                             alt=""></a>
                                 </div>
@@ -182,10 +183,12 @@ foreach ($recents as $recent):?>
     </section>
     <!-- foote -->
 
-    <?php require 'footer.php' ?>
+    <?php require 'includes/footer.php' ?>
     <script src="js/lib/jquery-3.2.1.min.js"></script>
     <script src="js/lib/popper.min.js"></script>
     <script src="js/lib/bootstrap.min.js"></script>
+    
+  
 
 </body>
 

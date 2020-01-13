@@ -136,6 +136,39 @@ class ARTICLE extends USER
         where article_comment_fk_article_id =$id";
         $data = $this->queryNone($sql);
         return $data;
-
     }
+    public function get_reply_comment($parent_id = 0, $marginleft = 0)
+    {
+        $sql = "SELECT * from article_comments inner join user on article_comments_fk_user_id = user_id WHERE parent_comment_id = '".$parent_id."'";
+           $output = '';
+           $result = $this->queryNone($sql);
+           if ($parent_id == 0) {
+               $marginleft = 0;
+           } else {
+               $marginleft = $marginleft + 30;
+           }
+           
+               foreach ($result as $row) {
+                   $output .= '
+                   <div class="row flex-row" style="margin-left:' . $marginleft . 'px">
+                   <!-- <div class="col-1"><img loading="lazy" src="user/images/userimgs/user.jpg"
+                           class="img-fluid rounded-circle" alt=""></div> -->
+                           <!-- comment -->
+                   <div class="col-11">
+                       <div class="row p-0 m-0 flex-column ">
+                           <div class="col px-0 "><span class="text-primary"> '.$row["user_fname"]. ' '.$row["user_fname"] .' </span> - <span class="font-weight-lighter font-italic">'.$row["article_comment_date"]. '</span> </div>
+                           <div class="col px-0"> '.$row["comment"]. '
+                               Blanditiis, corporis? </div>
+                               <div class="col px-0 d-flex justify-content-end"> <input class="btn btn-primary btn-sm py-0 reply" id="'.$row["article_comments_id"].'" type="submit" value="Reply"> </div>
+                       </div>
+                   </div>
+               </div>
+          ';
+                   $output .= $this->get_reply_comment( $row["article_comments_id"], $marginleft);
+               }
+           
+           return $output;
+    }
+
+    
 }
