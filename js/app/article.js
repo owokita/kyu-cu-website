@@ -19,14 +19,15 @@ $(document).ready(function () {
             }
         })
     })
-
     load_comment();
     function load_comment() {
-        
-
+        var idarray = window.location.search.split('=');
+        var id =  idarray[1];
+        // alert(id)
         $.ajax({
             url: "user/includes/articleComment.php",
             method: "POST",
+            data:{artid: id},
             success: function (data) {
                 // console.log(data);
 

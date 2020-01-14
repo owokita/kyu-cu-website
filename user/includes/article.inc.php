@@ -53,6 +53,7 @@ if (isset($_POST['post_article'])) {
     $content =$_POST['content2'];
     $category = $_POST['category'];
 
+
     //check if the user changed the image
     if (empty($_FILES["image"]["name"])) {
         $sql ="UPDATE article SET article_tittle = ?, article_text = ?,  category_fk_category_name = ? WHERE (article_id = $artid)";

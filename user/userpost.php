@@ -210,9 +210,9 @@
                 </form>
                 <?php endif ?>
             </div>
-            <div class="modal-footer p-1" style="background-color:  #f6dffa;">
-                <butlton type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
-                    <button type="submit" class="btn btn-success" form="userEditpost"
+            <div class="modal-footer p-1 " style="background-color:  #f6dffa;">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancle</button>
+                <button type="submit" class="btn btn-success" form="userEditpost"
                         name="update_article">Update</button>
             </div>
         </div>

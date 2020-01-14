@@ -478,10 +478,13 @@ inner join user on user_id = leaders_fk_user_id;";
 				var dropdownMenu = $(this).children(".dropdown-menu");
 				if (dropdownMenu.is(":visible")) {
 					dropdownMenu.parent().toggleClass("open");
+					
+
 				}
 			});
 		});
 	</script>
+	<script src="js/lib/timeago.js"></script>
 	<script src="js/lib/owl.carousel.min.js"></script>
 	<!-- OWL CAROUSEL -->
 	<script>

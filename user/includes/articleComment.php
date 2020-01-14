@@ -32,8 +32,11 @@ $error = '';
 
             exit(json_encode($data));
         }
-    } elseif (isset($_POST)) {
-        $sql ="SELECT * from article_comments inner join user on article_comments_fk_user_id = user_id WHERE parent_comment_id = '0' ORDER BY article_comments_id DESC" ;
+    } elseif (isset($_POST['artid'])) {
+
+        $articleID = $_POST['artid'];
+        $sql ="SELECT * from article_comments inner join user on article_comments_fk_user_id = user_id
+         WHERE parent_comment_id = '0' AND article_comment_fk_article_id = $articleID ORDER BY article_comments_id DESC" ;
         $output = '';
         $result =$artOBJ->queryNone($sql);
         foreach ($result as $row) {

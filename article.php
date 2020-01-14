@@ -73,7 +73,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <div class="row">
                 <!-- Articles-->
-                <div id="main-col" class="col-md-9 rounded ">
+                <div id="main-col" class="col-md-9 col-lg-9 rounded ">
                     <div class="w3ls px-2  row">
                         <?php
                             if (isset($_GET['id'])):
@@ -85,7 +85,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                         ?>
 
-                        <article class="tc-ch wow fadeInDown mt-2" data-wow-duration=".8s" data-wow-delay=".2s">
+                        <article class="tc-ch wow fadeInDown mt-2 w-100" data-wow-duration=".8s" data-wow-delay=".2s">
                             <div class="tch-img">
                                 <img src="user/includes/images/<?php echo $article['articleimg']  ?>"
                                     class="img-responsive article-img" alt="">
@@ -184,7 +184,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
 
                 <!-- Resent Article Section -->
-                <div id="article" class="col-md-3  ">
+                <div id="article" class="col-md-3 col-lg-3 ">
                     <div class="blo-top1 bg-light rounded px-2">
 
                         <div class="tech-btm">
