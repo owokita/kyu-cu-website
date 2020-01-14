@@ -81,6 +81,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 
                                 $artOBJ = new  ARTICLE();
                                 $article = $artOBJ->getArtSpecificWhere($urlID);
+                                if ($article ==  false) {
+                                
+                                    echo ' <script>  
+                                    window.location.href = "blog.php";
+                                    </script>
+                                    ';
+                                    
+                                }
                                 // echo print_r($article);
 
                         ?>
@@ -234,6 +242,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="js/lib/jquery-3.2.1.min.js"></script>
     <script src="js/lib/popper.min.js"></script>
     <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/lib/timeago.js"></script>
     <script src="js/app/article.js"></script>
     
 
