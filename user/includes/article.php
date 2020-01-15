@@ -134,6 +134,7 @@ class ARTICLE extends USER
         return $data;
     }
 
+
     public function getcomments($id)
     {
         $sql ="SELECT comment,user_fname,user_lname from article_comments 
@@ -163,7 +164,7 @@ class ARTICLE extends USER
                        <div class="row p-0 m-0 flex-column ">
                            <div class="col px-0 "><span class="text-primary"> '.$row["user_fname"]. ' '.$row["user_fname"] .' </span> - <span data-date="'.$row["article_comment_date"]. '" class="font-weight-lighter font-italic timeago">'.$row["article_comment_date"]. '</span> </div>
                            <div class="col px-0"> '.$row["comment"]. '
-                               Blanditiis, corporis? </div>
+                               </div>
                                <div class="col px-0 d-flex justify-content-end"> <input class="btn btn-primary btn-sm py-0 reply" id="'.$row["article_comments_id"].'" type="submit" value="Reply"> </div>
                        </div>
                    </div>

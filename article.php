@@ -103,21 +103,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </h3>
                             <h6 class="text-capitalize font-weight-bold">By <?php echo  $article['user_fname']; echo " "; echo  $article['user_lname'];?>
                                 on
-                              <span class="timeago"> <?php echo  $article['article_pub_date']; ?></span> .
+                              <span class="timeago1"> <?php echo  $article['article_pub_date']; ?></span>.
                             </h6>
                             <!-- Like Buttons And Comments -->
                             <div class="d-flex">
-                                <div class="mx-3"><span> <i class="far fa-comment-alt"></i> </span> 4</div>
-                                <div class="mx-3"><span> <i class="far fa-thumbs-up"></i> </span> 4</div>
-                                <div class="mx-3"><span> <i class="far fa-share-square"></i> </span> </div>
+                                <div class="mx-3 comment"><span> <i  class="far fa-comment-alt"></i> </span><span id="coment_count">4</span> </div>
+                                <div class="mx-3"><span> <i class="fas fa-thumbs-up text-primary"></i> </span> 4</div>
+                                
                             </div>
-                            <p><?php echo  $article['article_text']; ?>
-                            </p>
+                            <div class="readmore" style="overflow:hidden">
+                            <?php echo  $article['article_text']; ?>
+                            </div>
                             <!-- View More Share -->
                             <div class="d-flex justify-content-between">
-                                <div class="d-inline">
+                                <!-- <div class="d-inline">
                                     <button class="btn btn-sm btn-outline-success">Read More</button>
-                                </div>
+                                </div> -->
 
 
                                 <!-- Social Media  -->
@@ -158,7 +159,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <div class="row p-0 m-0 flex-column ">
                                             <div class="col px-0 "><span class="text-primary">Felix Omuok </span> <span class="font-weight-lighter font-italic">2019 WED</span> </div>
                                             <div class="col px-0"> Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                                Blanditiis, corporis? </div>
+                                                </div>
                                                 <div class="col px-0 d-flex justify-content-end"> <input class="btn btn-primary btn-sm py-0" type="submit" value="Reply"> </div>
                                         </div>
                                     </div>
@@ -172,7 +173,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <div class="row p-0 m-0 flex-column ">
                                             <div class="col px-0 "><span class="text-primary">Felix Omuok </span> <span class="font-weight-lighter font-italic">2019 WED</span> </div>
                                             <div class="col px-0"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempora quas id dicta natus neque repellendus nemo. Blanditiis quia sed expedita quas sit repudiandae, quos mollitia. Voluptas minus quisquam vero laboriosam. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                                Blanditiis, corporis? </div>
+                                                </div>
                                                 <div class="col px-0 d-flex justify-content-end"> <input class="btn btn-primary btn-sm py-0" type="submit" value="Reply"> </div>
                                         </div>
                                     </div>
@@ -243,7 +244,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="js/lib/popper.min.js"></script>
     <script src="js/lib/bootstrap.min.js"></script>
     <script src="js/lib/timeago.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/readmore-js@2.2.1/readmore.min.js"></script>
     <script src="js/app/article.js"></script>
+
+    
     <script>
         
     </script>

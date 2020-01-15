@@ -41,33 +41,60 @@ $(document).ready(function () {
                 // console.log(data);
 
                 $('#display_comment').html(data);
+
                 $('.timeago').each(function (item) {
                     var date = $(this).text();
+                    console.log(date);
+                    
                     // console.log(date);
                     var timeago =  $.timeago(date)
                     $(this).text(timeago)
-                    console.log($(this).attr('data-date'));
                     
-
-                    // var timeago =  $.timeago("2020-01-14 19:36:49")
-                    // var timeago1 =  $.timeago()
-                    console.log(timeago);
                 });
 
-                console.log('IT IS WORKING');
+                
+            }
+        })
+    };
+
+    function count_comments(){
+
+        //count the comments on a specific article
+        var idarray = window.location.search.split('=');
+        var id = idarray[1];
+        $.ajax({
+            url: "user/includes/articleComment.php",
+            method: "POST",
+            data: { commentcount: id },
+            success: function (data) {
+                $('#coment_count').html(data);
+                $('.comment').click(function (e) {
+                    $('#comment_content').focus();
+                });
+                count_comments()              
+                
             }
         })
     }
 
+    count_comments()
     $(document).on('click', '.reply', function () {
-
-
         var comment_id = $(this).attr("id");
-
         $('#comment_id').val(comment_id);
         console.log($('#comment_id').val());
         $('#comment_content').focus();
     });
+
+    $('.timeago1').each(function (item) {
+        var date = $(this).text();
+        console.log(date);
+        
+        // console.log(date);
+        var timeago =  $.timeago(date)
+        $(this).text(timeago)
+        
+    });
+    $('.readmore').readmore();
 
 
 
