@@ -94,7 +94,7 @@ $(document).ready(function () {
         $(this).text(timeago)
         
     });
-    $('.readmore').readmore();
+    // $('.readmore').readmore();
 
     
 
