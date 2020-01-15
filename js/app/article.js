@@ -96,7 +96,36 @@ $(document).ready(function () {
     });
     $('.readmore').readmore();
 
+    
+
 
 
 })
+
+
+function react (item,id) {
+    $(item).toggleClass('text-primary');
+    console.log(id);
+    
+    var likedata = {
+        react: 1,
+        articleid: id,
+        post_likes:'postlikes'
+    }
+    
+    $.ajax({
+        url: "user/includes/article.inc.php",
+        method: "POST",
+        data: likedata,
+        dataType: "html",
+        success: function (data) {
+            console.log(data);
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    })
+
+    
+}
 

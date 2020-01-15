@@ -108,7 +108,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <!-- Like Buttons And Comments -->
                             <div class="d-flex">
                                 <div class="mx-3 comment"><span> <i  class="far fa-comment-alt"></i> </span><span id="coment_count">4</span> </div>
-                                <div class="mx-3"><span> <i class="fas fa-thumbs-up text-primary"></i> </span> 4</div>
+                                <div class="mx-3"><span> <i onclick="react(this,<?php echo $urlID ?>)" class="fas fa-thumbs-up"></i> 4 </span> </div>
                                 
                             </div>
                             <div class="readmore" style="overflow:hidden">

@@ -34,13 +34,13 @@ if (isset($_POST['post_article'])) {
     $message = '
      <p>There is a new POST from a member on the Kirinyaga University Christian Union Website.</p>
 
-<p>Please use the link&nbsp;or button below to verify the POST.</p>
+        <p>Please use the link&nbsp;or button below to verify the POST.</p>
 
-<p><a href="https://test.kyucu.co.ke/user/unverified.php">https://test.kyucu.co.ke/user/unverified.php</a></p>
+        <p><a href="https://test.kyucu.co.ke/user/unverified.php">https://test.kyucu.co.ke/user/unverified.php</a></p>
 
-<p><a href="https://test.kyucu.co.ke/user/unverified.php"><span style="font-size:18px"><span style="color:#27ae60"><strong><span style="background-color:#f1c40f">VERIFY POST</span></strong></span></span></a></p>
+        <p><a href="https://test.kyucu.co.ke/user/unverified.php"><span style="font-size:18px"><span style="color:#27ae60"><strong><span style="background-color:#f1c40f">VERIFY POST</span></strong></span></span></a></p>
 
-<p>&nbsp;</p>
+        <p>&nbsp;</p>
      ';
     foreach ($emails as $email) {
         sendmail($email, $subject, $message);
@@ -121,6 +121,31 @@ if (isset($_POST['post_article'])) {
     } else {
         echo  "no";
     }
+} elseif (isset($_POST['post_likes'])) {
+
+    $articleid = $_POST['articleid'];
+    $react = $_POST['react'];
+    $userid = $_SESSION['user_id'];
+
+    $userOBJ= new USER();
+
+
+    //check if the user has already liked the artices
+    $sql= "SELECT * from article_likes WHERE article_fk_article_id = $articleid AND user_fk_user_id = $userid";
+    if ($stmt = $userOBJ->conn()->prepare($sql)) {
+        $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            return true;
+        } else {
+            $sql = "INSERT INTO article_likes (article_fk_article_id, user_fk_user_id) VALUES ('$articleid', '$userid');
+            ";
+            $userOBJ->queryInsert($sql);
+        }
+    }
+    
+    // echo var_dump($_POST);
+    exit(json_encode($_POST));
 } else {
+    echo ' you are in the woring place';
     redirect('../user.php');
 }
