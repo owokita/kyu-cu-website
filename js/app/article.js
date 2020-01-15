@@ -44,7 +44,7 @@ $(document).ready(function () {
 
                 $('.timeago').each(function (item) {
                     var date = $(this).text();
-                    console.log(date);
+                    // console.log(date);
                     
                     // console.log(date);
                     var timeago =  $.timeago(date)
@@ -96,36 +96,143 @@ $(document).ready(function () {
     });
     // $('.readmore').readmore();
 
-    
-
-
-
+    function getuserreactions(e) {
+        //get the id of the article
+        var idarray = window.location.search.split('=');
+        var id = idarray[1];
+        var likedata = {
+            articleid: id,
+            user_reaction:'postlikes'
+        }
+        $.ajax({
+            url: "user/includes/article.inc.php",
+            method: "POST",
+            data: likedata,
+            dataType: "html",
+            success: function (data) {
+                // console.log(typeof(data));
+                
+                if (data === 'true') {
+                   var  artcle_id = document.getElementById(id);
+                    $(artcle_id).addClass('text-primary');
+                } else{
+                    var  artcle_id = document.getElementById(id);
+                    $(artcle_id).removeClass('text-primary');
+                    
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        })
+    }
+    getuserreactions();
 })
 
+function checklogin() {
+    $.ajax({
+        url: "user/includes/checklogin.inc.php",
+        method: "POST",
+        dataType: "JSON",
+        success: function (data) {         
+           if (data == true) {
+             return data
+               console.log("it is very true");
+          
+           } else if(data == false){
+                return false
+           }else{
+               console.log('something is wrong');
+               
+           }
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    })
+}
 
 function react (item,id) {
-    $(item).toggleClass('text-primary');
-    console.log(id);
-    
     var likedata = {
         react: 1,
         articleid: id,
         post_likes:'postlikes'
     }
-    
     $.ajax({
-        url: "user/includes/article.inc.php",
+        url: "user/includes/checklogin.inc.php",
         method: "POST",
-        data: likedata,
-        dataType: "html",
-        success: function (data) {
-            console.log(data);
+        dataType: "JSON",
+        success: function (data) {         
+           if (data == true) {
+            $.ajax({
+                url: "user/includes/article.inc.php",
+                method: "POST",
+                data: likedata,
+                dataType: "html",
+                success: function (data) {
+                    // console.log(data);
+                    $(item).toggleClass('text-primary');
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            })
+          
+           } else if(data == false){
+                $('#loginfirst').html('<a href="user/login.php">Log In </a>to Like ');
+                
+           }else{
+               console.log('something is wrong');
+               
+           }
         },
         error: function (error) {
             console.log(error);
         }
     })
 
+   
+    
     
 }
+
+function loadlikes(){
+    var idarray = window.location.search.split('=');
+    var id = idarray[1];
+    $.ajax({
+        url: "user/includes/checklogin.inc.php",
+        method: "POST",
+        dataType: "JSON",
+        success: function (data) {         
+           if (data == true) {
+            $.ajax({
+                url: "user/includes/article.inc.php",
+                method: "POST",
+                data: likedata,
+                dataType: "html",
+                success: function (data) {
+                    // console.log(data);
+                    $(item).toggleClass('text-primary');
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            })
+          
+           } else if(data == false){
+                $('#loginfirst').html('<a href="user/login.php">Log In </a>to Like ');
+                
+           }else{
+               console.log('something is wrong');
+               
+           }
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    })
+}
+
+
+
 

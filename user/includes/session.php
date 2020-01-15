@@ -23,6 +23,15 @@ class SESSION extends DATABASE
         }
     }
 
+    public function cheklogin($user)
+    {//sets thesession id of the user
+        if (isset($_SESSION['user_id'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     
     public function is_admin()
     {

@@ -91,14 +91,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 }
                                 // echo print_r($article);
 
-                        ?>
+                        ?> 
 
                         <article class="tc-ch wow fadeInDown mt-2 w-100" data-wow-duration=".8s" data-wow-delay=".2s">
                             <div class="tch-img">
                                 <img src="user/includes/images/<?php echo $article['articleimg']  ?>"
                                     class="img-responsive article-img" alt="">
                             </div>
-
                             <h3><?php echo  $article['article_tittle']; ?>
                             </h3>
                             <h6 class="text-capitalize font-weight-bold">By <?php echo  $article['user_fname']; echo " "; echo  $article['user_lname'];?>
@@ -108,8 +107,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <!-- Like Buttons And Comments -->
                             <div class="d-flex">
                                 <div class="mx-3 comment"><span> <i  class="far fa-comment-alt"></i> </span><span id="coment_count">4</span> </div>
-                                <div class="mx-3"><span> <i onclick="react(this,<?php echo $urlID ?>)" class="fas fa-thumbs-up"></i> 4 </span> </div>
-                                
+                                <div class="mx-3"><span> <i id="<?php echo $urlID ?>" onclick="react(this,<?php echo $urlID ?>)" class="fas fa-thumbs-up"></i> 4 </span> </div>
+                                <span id="loginfirst" class=""></span>
+            
                             </div>
                             <div class="readmore" style="overflow:hidden">
                             <?php echo  $article['article_text']; ?>

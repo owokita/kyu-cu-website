@@ -135,7 +135,10 @@ if (isset($_POST['post_article'])) {
     if ($stmt = $userOBJ->conn()->prepare($sql)) {
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
-            return true;
+            $sql ="DELETE FROM article_likes where article_fk_article_id = $articleid  AND user_fk_user_id = $userid";
+            $userOBJ->queryInsert($sql);
+
+            exit(json_encode(true));
         } else {
             $sql = "INSERT INTO article_likes (article_fk_article_id, user_fk_user_id) VALUES ('$articleid', '$userid');
             ";
@@ -145,7 +148,24 @@ if (isset($_POST['post_article'])) {
     
     // echo var_dump($_POST);
     exit(json_encode($_POST));
-} else {
+} elseif (isset($_POST['user_reaction'])) {
+    $userid = $_SESSION['user_id'];
+    $articleid = $_POST['articleid'];
+    $userOBJ= new USER();
+
+    //check if the user has already liked the artices
+    $sql= "SELECT * from article_likes WHERE article_fk_article_id = $articleid AND user_fk_user_id = $userid";
+    if ($stmt = $userOBJ->conn()->prepare($sql)) {
+        $stmt->execute();
+        if ($stmt->rowCount() > 0) {
+            exit(json_encode(true));
+        } else {
+            exit(json_encode(false));
+        }
+    }
+    
+}
+ else {
     echo ' you are in the woring place';
     redirect('../user.php');
 }
