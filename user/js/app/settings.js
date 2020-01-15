@@ -24,6 +24,8 @@ class SETTINGS extends FETCH {
                 setTimeout(() => {
                     this.picbtn.innerHTML = "Upload Image";
                 }, 2000);
+
+                
              }
          ).catch(
              error=>{

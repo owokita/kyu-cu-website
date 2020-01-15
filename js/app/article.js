@@ -46,6 +46,8 @@ $(document).ready(function () {
                     // console.log(date);
                     var timeago =  $.timeago(date)
                     $(this).text(timeago)
+                    console.log($(this).attr('data-date'));
+                    
 
                     // var timeago =  $.timeago("2020-01-14 19:36:49")
                     // var timeago1 =  $.timeago()

@@ -47,7 +47,7 @@ $error = '';
                     <!-- comment -->
             <div class="col-11">
                 <div class="row p-0 m-0 flex-column ">
-                    <div class="col px-0 "><span class="text-primary"> '.$row["user_fname"]. ' '.$row["user_fname"] .' </span> - <span class="font-weight-lighter font-italic timeago">'.$row["article_comment_date"]. '</span> </div>
+                    <div class="col px-0 "><span class="text-primary"> '.$row["user_fname"]. ' '.$row["user_fname"] .' </span> - <span  class="font-weight-lighter font-italic timeago" data-date="'.$row["article_comment_date"]. '">'.$row["article_comment_date"]. '</span> </div>
                     <div class="col px-0"> '.$row["comment"]. '
                         Blanditiis, corporis? </div>
                         <div class="col px-0 d-flex justify-content-end"> <input class="btn btn-primary btn-sm py-0 reply" id="'.$row["article_comments_id"].'" type="submit" value="Reply"> </div>

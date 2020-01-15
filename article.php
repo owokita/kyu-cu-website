@@ -103,7 +103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </h3>
                             <h6 class="text-capitalize font-weight-bold">By <?php echo  $article['user_fname']; echo " "; echo  $article['user_lname'];?>
                                 on
-                                <?php echo  $article['article_pub_date']; ?>.
+                              <span class="timeago"> <?php echo  $article['article_pub_date']; ?></span> .
                             </h6>
                             <!-- Like Buttons And Comments -->
                             <div class="d-flex">
@@ -244,7 +244,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="js/lib/bootstrap.min.js"></script>
     <script src="js/lib/timeago.js"></script>
     <script src="js/app/article.js"></script>
-    
+    <script>
+        
+    </script>
 
 </body>
 
