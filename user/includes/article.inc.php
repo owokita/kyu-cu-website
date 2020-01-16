@@ -164,8 +164,15 @@ if (isset($_POST['post_article'])) {
         }
     }
     
+} elseif (isset($_POST['loadlikes'])) {
+    $id = $_POST['loadlikes'];
+    $artOBJ = new ARTICLE();
+    $sql = "SELECT  count(article_fk_article_id) FROM article_likes where article_fk_article_id = $id";
+    $count = $artOBJ->countSpecific('article_fk_article_id','article_likes',$id);
+    exit(json_encode($count['0']));
 }
  else {
+
     echo ' you are in the woring place';
-    redirect('../user.php');
+    // redirect('../user.php');
 }

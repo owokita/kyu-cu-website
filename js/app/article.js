@@ -127,7 +127,31 @@ $(document).ready(function () {
         })
     }
     getuserreactions();
+
+    
+
 })
+
+function loadlikes(){
+    var idarray = window.location.search.split('=');
+    var id = idarray[1];
+    $.ajax({
+        url: "user/includes/article.inc.php",
+        data:{loadlikes: id},
+        method: "POST",
+        dataType: "JSON",
+        success: function (data) {         
+            console.log(data);
+            $('#count').html(data)
+            
+        },
+        error: function (error) {
+            console.log(error);
+        }
+    })
+}
+
+loadlikes()
 
 function checklogin() {
     $.ajax({
@@ -172,6 +196,7 @@ function react (item,id) {
                 success: function (data) {
                     // console.log(data);
                     $(item).toggleClass('text-primary');
+                    loadlikes()
                 },
                 error: function (error) {
                     console.log(error);
@@ -191,47 +216,12 @@ function react (item,id) {
         }
     })
 
-   
-    
+    loadlikes()
+
     
 }
 
-function loadlikes(){
-    var idarray = window.location.search.split('=');
-    var id = idarray[1];
-    $.ajax({
-        url: "user/includes/checklogin.inc.php",
-        method: "POST",
-        dataType: "JSON",
-        success: function (data) {         
-           if (data == true) {
-            $.ajax({
-                url: "user/includes/article.inc.php",
-                method: "POST",
-                data: likedata,
-                dataType: "html",
-                success: function (data) {
-                    // console.log(data);
-                    $(item).toggleClass('text-primary');
-                },
-                error: function (error) {
-                    console.log(error);
-                }
-            })
-          
-           } else if(data == false){
-                $('#loginfirst').html('<a href="user/login.php">Log In </a>to Like ');
-                
-           }else{
-               console.log('something is wrong');
-               
-           }
-        },
-        error: function (error) {
-            console.log(error);
-        }
-    })
-}
+
 
 
 
