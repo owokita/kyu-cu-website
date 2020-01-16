@@ -93,7 +93,7 @@ class ARTICLE extends USER
     public function getArtVerified()
     {
         $sql = "SELECT article_id,article_tittle,article_text,article_pub_date,articleimg,user_fname,user_lname,article_fk_user_id,likes,article_status,category_fk_category_name,verified_by  FROM article 
-        inner join user on user_id= article_fk_user_id
+        inner join user on user_id = article_fk_user_id
         where article_status = 1 ";
         $data = $this->queryNone($sql);
         return $data;
@@ -105,6 +105,7 @@ class ARTICLE extends USER
         $data = $this->queryNone($sql);
         return $data;
     }
+
     public function getArtSpecificWhere($id)
     {
         $sql = "SELECT article_id,article_tittle,article_text,article_pub_date,articleimg,user_fname,user_lname,article_fk_user_id,likes,article_status,category_fk_category_name,verified_by  FROM article 
@@ -116,7 +117,7 @@ class ARTICLE extends USER
         } else{
             return $data;
         }
-        
+
     }
 
     public function getArtResent()
@@ -128,14 +129,22 @@ class ARTICLE extends USER
 
     public function getArtPorpular()
     {
-        $sql = "SELECT article_id,article_tittle,article_text,article_pub_date,articleimg,user_fname,user_lname,article_fk_user_id,likes,article_status,category_fk_category_name,verified_by  FROM article 
-        inner join user on user_id= article_fk_user_id order by article_id DESC LIMIT 5 ;";
+        $sql = "SELECT  article_fk_article_id as articleID, COUNT(article_fk_article_id) as total   from 
+        article_likes group by article_fk_article_id order by total DESC LIMIT 2;";
         $data = $this->queryNone($sql);
         return $data;
     }
 
 
     public function getcomments($id)
+    {
+        $sql ="SELECT comment,user_fname,user_lname from article_comments 
+        inner join user on article_comments_fk_user_id = user_id
+        where article_comment_fk_article_id =$id";
+        $data = $this->queryNone($sql);
+        return $data;
+    }
+    public function countComments($id)
     {
         $sql ="SELECT comment,user_fname,user_lname from article_comments 
         inner join user on article_comments_fk_user_id = user_id

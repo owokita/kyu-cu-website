@@ -30,6 +30,7 @@
 		.bs-example {
 			margin: 20px;
 		}
+
 		@media screen and (min-width: 768px) {
 
 			.dropdown:hover .dropdown-menu,
@@ -89,16 +90,16 @@
 					<!--Images-->
 					<div id="carausel" class="carousel-inner">
 						<div class="carousel-item active">
-							<img loading="lazy"  src="images/slider/1.jpeg" class=" w-100 slide-img" alt="pic 1">
+							<img loading="lazy" src="images/slider/1.jpeg" class=" w-100 slide-img" alt="pic 1">
 						</div>
 						<div class="carousel-item">
-							<img loading="lazy"  src="images/slider/2.jpeg" class=" w-100 slide-img" alt="pic 1">
+							<img loading="lazy" src="images/slider/2.jpeg" class=" w-100 slide-img" alt="pic 1">
 						</div>
 						<div class="carousel-item">
-							<img loading="lazy"  src="images/slider/3.jpeg" class="  w-100 slide-img " alt="pic 1">
+							<img loading="lazy" src="images/slider/3.jpeg" class="  w-100 slide-img " alt="pic 1">
 						</div>
 						<div class="carousel-item">
-							<img loading="lazy"  src="images/slider/4.jpeg" class=" w-100 slide-img" alt="pic 1">
+							<img loading="lazy" src="images/slider/4.jpeg" class=" w-100 slide-img" alt="pic 1">
 						</div>
 					</div>
 					<!--End of Images-->
@@ -130,24 +131,25 @@
 						<div class="bg-light px-2">
 							<!-- UPCOMING EVENTS PICTURE ROW-->
 							<div class="row w-50 mx-auto wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
-								<img loading="lazy"  src="images/upcomingevents2.png" alt="" class="img-fluid px-3" srcset="">
+								<img loading="lazy" src="images/upcomingevents2.png" alt="" class="img-fluid px-3"
+									srcset="">
 							</div>
 							<!-- UPCOMING EVENTS ROW-->
 							<div id="upcoming" class="d-flex justify-content-center ">
 								<div class="col-auto col-md-3 ">
-									<img loading="lazy"  src="images/uploads/2.jpeg" class="img-fluid" alt="">
+									<img loading="lazy" src="images/uploads/2.jpeg" class="img-fluid" alt="">
 								</div>
 								<div class="col-auto col-md-3 ">
-									<img loading="lazy"  src="images/uploads/1.jpeg" class="img-fluid" alt="">
+									<img loading="lazy" src="images/uploads/1.jpeg" class="img-fluid" alt="">
 								</div>
 								<div class="col-auto col-md-3 ">
-									<img loading="lazy"  src="images/uploads/3.jpeg" class="img-fluid" alt="">
+									<img loading="lazy" src="images/uploads/3.jpeg" class="img-fluid" alt="">
 								</div>
 								<div class="col-auto col-md-3 ">
-									<img loading="lazy"  src="images/uploads/4.jpeg" class="img-fluid" alt="">
+									<img loading="lazy" src="images/uploads/4.jpeg" class="img-fluid" alt="">
 								</div>
 								<div class="col-auto col-md-3 ">
-									<img loading="lazy"  src="images/uploads/4.jpeg" class="img-fluid" alt="">
+									<img loading="lazy" src="images/uploads/4.jpeg" class="img-fluid" alt="">
 								</div>
 
 
@@ -284,7 +286,8 @@
 								<div class="blog-grids wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
 									<div class="blog-grid-left">
 										<a
-											href="article.php?id=<?php  echo $recent['article_id']; ?>"><img loading="lazy" 
+											href="article.php?id=<?php  echo $recent['article_id']; ?>"><img
+												loading="lazy"
 												src="user/includes/images/<?php echo $recent['articleimg']  ?>"
 												alt=""></a>
 									</div>
@@ -337,7 +340,7 @@
 				<div class="row bg-color tGB">
 					<div class="col-lg-4 mt-1">
 						<div class="immageBox">
-							<img loading="lazy"  src="images/t1.jpg" alt="" width="1600" class="img-fluid">
+							<img loading="lazy" src="images/t1.jpg" alt="" width="1600" class="img-fluid">
 							<div class="textBox pt-5">
 								<p class="text-center bg-color"><em><strong>ZIPPORAH THUO<br>
 											Praise &amp; Worship Director</strong></em></p>
@@ -347,7 +350,7 @@
 					</div>
 					<div class="col-lg-4 mt-1">
 						<div class="immageBox">
-							<img loading="lazy"  src="images/t1.jpg" alt="" width="1600" class="img-fluid ">
+							<img loading="lazy" src="images/t1.jpg" alt="" width="1600" class="img-fluid ">
 							<div class="textBox pt-5 ">
 								<p class="text-center "><strong>PAUL MUNGATHIA<br>
 										bible study co-ordinator</strong></p>
@@ -357,7 +360,7 @@
 					</div>
 					<div class="col-lg-4 mt-1">
 						<div class="immageBox">
-							<img loading="lazy"  src="images/t1.jpg" alt="" width="1600" class="img-fluid">
+							<img loading="lazy" src="images/t1.jpg" alt="" width="1600" class="img-fluid">
 							<div class="textBox pt-5">
 								<p class="text-center"><em><strong>AUSTIN MATUNGA<br>
 											Music co-ordinator</strong></em></p>
@@ -376,54 +379,43 @@
 				<div class="row">
 					<h3 class="mx-auto">Porpular Posts</h3>
 				</div>
-				<div class="w3ls p-0 row">
-					<div class="col-md-6 w3ls-left wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
+				<div id="porpularPost" class="w3ls p-0 row ">
+					<!-- <div class="col-md-6 w3ls-left wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
 						<div class="tc-ch">
 							<div class="tch-img">
-								<a href="singlepage.html">
-									<img loading="lazy"  src="images/m4.jpg" class="img-responsive" alt=""></a>
+								<a href="article.php">
+									<img loading="lazy" src="images/m4.jpg" class="img-responsive" alt=""></a>
 							</div>
 
-							<h3><a href="singlepage.html">Lorem Ipsum is simply</a></h3>
-							<h6>BY <a href="singlepage.html">FELIX OMUOK </a>JULY 10 2016.</h6>
+							<h3><a href="article.php">Lorem Ipsum is simply</a></h3>
+
+							<h6>BY <a href="article.php">FELIX OMUOK </a>JULY 10 2016.</h6>
+							<div class="d-flex">
+								<div class="mx-3 comment"><span> <i class="far fa-comment-alt"></i> </span><span
+										id="coment_count">4</span> </div>
+								<div class="mx-3"><span> <i
+											id="<?php echo $urlID ?>"
+											onclick="react(this,<?php echo $urlID ?>)"
+											class="fas fa-thumbs-up"></i> <span id="count">4</span> </span> </div>
+								<span id="loginfirst" class=""></span>
+							</div>
 							<p>Ut enim ad minim veniam, quis nostrud eiusmod tempor incididunt ut labore et dolore magna
 								aliqua exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 							<div class="bht1">
-								<a href="singlepage.html">Read More</a>
+								<a href="article.php">Read More</a>
 							</div>
 							<div class="soci">
 								<ul>
-									<li class="hvr-rectangle-out"><a class="fb" href="#"><i
-												class="fab fa-facebook-f"></i></a></li>
+
+									<li class=""><a class="" href="#"><i class="fab fa-whatsapp-square fa-2x"></i></a>
+									</li>
 
 								</ul>
 							</div>
 							<div class="clearfix"></div>
 						</div>
-					</div>
-					<div class="col-md-6 w3ls-left wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
-						<div class="tc-ch">
-							<div class="tch-img">
-								<a href="singlepage.html"><img loading="lazy"  src="images/m5.jpg" class="img-responsive" alt=""></a>
-							</div>
-
-							<h3><a href="singlepage.html">Lorem Ipsum is simply</a></h3>
-							<h6>BY <a href="singlepage.html">FELIX OMUOK </a>JULY 10 2016.</h6>
-							<p>Ut enim ad minim veniam, quis nostrud eiusmod tempor incididunt ut labore et dolore magna
-								aliqua exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-							<div class="bht1">
-								<a href="singlepage.html">Read More</a>
-							</div>
-							<div class="soci">
-								<ul>
-									<li class="hvr-rectangle-out"><a class="twit" href="#"><i
-												class="fab fa-facebook-f"></i></a></li>
-
-								</ul>
-							</div>
-							<div class="clearfix"></div>
-						</div>
-					</div>
+					</div> -->
+					
 					<div class="clearfix"></div>
 				</div>
 			</div>
@@ -444,7 +436,9 @@ inner join user on user_id = leaders_fk_user_id;";
 					<?php foreach ($leaders as $leader): ?>
 					<div class="single-leader py-3">
 						<div class="leader-img">
-								<img loading="lazy"   class="img-fluid" src="user/images/userimgs/<?php echo $leader['user_img'];  ?>" alt="" >
+							<img loading="lazy" class="img-fluid"
+								src="user/images/userimgs/<?php echo $leader['user_img'];  ?>"
+								alt="">
 						</div>
 						<div class="leader-text">
 							<h5 class="text-uppercase"> <?php echo $leader['user_fname']; ?>
@@ -478,7 +472,7 @@ inner join user on user_id = leaders_fk_user_id;";
 				var dropdownMenu = $(this).children(".dropdown-menu");
 				if (dropdownMenu.is(":visible")) {
 					dropdownMenu.parent().toggleClass("open");
-					
+
 
 				}
 			});
@@ -486,6 +480,8 @@ inner join user on user_id = leaders_fk_user_id;";
 	</script>
 	<script src="js/lib/timeago.js"></script>
 	<script src="js/lib/owl.carousel.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/readmore-js@2.2.1/readmore.min.js"></script>
+	<script src="js/app/index.js"></script>
 	<!-- OWL CAROUSEL -->
 	<script>
 		$('.leaders-carousel').owlCarousel({

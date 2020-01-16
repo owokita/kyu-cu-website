@@ -122,7 +122,6 @@ if (isset($_POST['post_article'])) {
         echo  "no";
     }
 } elseif (isset($_POST['post_likes'])) {
-
     $articleid = $_POST['articleid'];
     $react = $_POST['react'];
     $userid = $_SESSION['user_id'];
@@ -163,16 +162,44 @@ if (isset($_POST['post_article'])) {
             exit(json_encode(false));
         }
     }
-    
 } elseif (isset($_POST['loadlikes'])) {
     $id = $_POST['loadlikes'];
     $artOBJ = new ARTICLE();
     $sql = "SELECT  count(article_fk_article_id) FROM article_likes where article_fk_article_id = $id";
-    $count = $artOBJ->countSpecific('article_fk_article_id','article_likes',$id);
+    $count = $artOBJ->countSpecific('article_fk_article_id', 'article_likes', $id);
     exit(json_encode($count['0']));
-}
- else {
+} elseif (isset($_POST['porpularArticles'])) {
+    //get the ids and total likes of the most porpular arcticles
+    $artOBJ = new ARTICLE();
+    $art_data = $artOBJ->getArtPorpular();
+    $art1 = $art_data[0]['articleID'];
+    $art2 = $art_data[1]['articleID'];
 
+   
+    //get the details of the most porpupar articles
+    $sql = "SELECT article_id,article_tittle,article_text,article_pub_date,articleimg,user_fname,user_lname,article_fk_user_id,likes,article_status,category_fk_category_name,verified_by  FROM article 
+        inner join user on user_id = article_fk_user_id
+        where article_status = 1 AND article_id = $art1 OR article_id = $art2";
+    $data = $artOBJ->queryNone($sql);
+    //COUNT THE total number of comments on each article
+    $sql = "SELECT article_comment_fk_article_id AS articleID, COUNT(article_comment_fk_article_id) as total from 
+    article_comments WHERE article_comment_fk_article_id = $art1 OR article_comment_fk_article_id = $art2 group by article_comment_fk_article_id  order by total DESC LIMIT 2 ";
+    $artcount = $artOBJ->queryNone($sql);
+    
+    $article = array();
+    $article[] = array(
+        "content"=>$data[0],
+        "comments"=>$artcount[0]['total'],
+        "likes"=>$art_data[0]['total'],
+
+    );
+    $article[] = array(
+        "content"=>$data[1],
+        "comments"=>$artcount[1]['total'],
+        "likes"=>$art_data[1]['total'],
+    );
+exit(json_encode($article));
+} else {
     echo ' you are in the woring place';
     // redirect('../user.php');
 }
