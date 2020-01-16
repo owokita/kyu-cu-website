@@ -480,6 +480,7 @@ inner join user on user_id = leaders_fk_user_id;";
 	</script>
 	<script src="js/lib/timeago.js"></script>
 	<script src="js/lib/owl.carousel.min.js"></script>
+	<script src="js/lib/timeago.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/readmore-js@2.2.1/readmore.min.js"></script>
 	<script src="js/app/index.js"></script>
 	<!-- OWL CAROUSEL -->

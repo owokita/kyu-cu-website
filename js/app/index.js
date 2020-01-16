@@ -21,22 +21,23 @@ class INDEX {
                 var output = '';
                 for(let i in data)
                 {   let string = data[i].content.article_text;
+                    let date = $.timeago(data[i].content.article_pub_date) ;
                     output += `
                     
                     <div class="col-md-6 w3ls-left wow fadeInDown " data-wow-duration=".8s" data-wow-delay=".2s">
                         
                         <div class="tc-ch">
                             <div class="tch-img">
-                                <a href="article.php?id=">
+                                <a href="article.php?id=${data[i].content.article_id}">
                                     <img loading="lazy" style="max-height:200px" src="user/includes/images/${data[i].content.articleimg}" class="img-responsive" alt=""></a>
                             </div>
 
                             <h3><a href="article.php?id=${data[i].content.article_id}">${data[i].content.article_tittle}</a></h3>
 
-                            <h6>By <a href="article.php">${data[i].content.user_fname} ${data[i].content.user_lname} </a>${data[i].content.article_pub_date}</h6>
+                            <h6>By <a href="article.php">${data[i].content.user_fname} ${data[i].content.user_lname} </a>${date}</h6>
                             <div class="d-flex">
-                                <div class="mx-3 comment"><span> <i class="far fa-comment-alt"></i> </span><span
-                                        id="coment_count">${data[i].comments}</span> </div>
+                                <div class="mx-3 comment"><a href="article.php?id=${data[i].content.article_id}#comment_content" class="text-dark"><span> <i class="far fa-comment-alt"></i> </span><span
+                                        id="coment_count">${data[i].comments}</span> </a> </div>
                                 <div class="mx-3"><span> <i
                                             id="<?php echo $urlID ?>"
                                             onclick="react(this,<?php echo $urlID ?>)"
@@ -45,12 +46,12 @@ class INDEX {
                             </div>
                             <div class="readmore" > ${string}</div>
                             <div class="bht1">
-                                <a href="article.php">Read More</a>
+                                <a href="article.php?id=${data[i].content.article_id}">Read More</a>
                             </div>
                             <div class="soci">
                                 <ul>
 
-                                    <li class=""><a class="" href="${data[i].content.article_id}"><i class="fab fa-whatsapp-square fa-2x"></i></a>
+                                    <li class=""><a class="" href="article.php?id=${data[i].content.article_id}"><i class="fab fa-whatsapp-square fa-2x"></i></a>
                                     </li>
 
                                 </ul>
