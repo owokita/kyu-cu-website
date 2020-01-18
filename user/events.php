@@ -10,8 +10,17 @@ if ($_SESSION['user_type'] === "normal") {
     <!--  End of Right side navigation -->
 
     <div class="content container-fluid">
-        <!-- Admin DashBoad -->
-        <p>events.php</p>
+        <div class="row">
+            <div class="col-lg-6">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil minima cumque repellat. Quos dolor consequatur earum, beatae cum velit est fuga perferendis temporibus reiciendis tempora eaque. Iusto culpa quos dolor?
+
+            </div>
+            <div class="col-lg-6">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus animi architecto doloribus veniam ipsam saepe eum labore quaerat modi quos, est, atque alias nisi recusandae porro rem reiciendis consectetur vel.
+
+            </div>
+
+        </div>
     </div>
 </main>
 
