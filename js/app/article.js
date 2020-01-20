@@ -15,10 +15,7 @@ $(document).ready(function () {
                     $('#comment_message p').fadeOut();
                 }, 2000);
                 $('#comment_id').val('0');
-                load_comment();
-                
-                
-               
+                load_comment(); 
             },
             error: function (error) {
                 console.log(error);
