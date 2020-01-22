@@ -208,7 +208,7 @@
 								</div>
 
 							</div>
-							<!-- WEEKLY PROGRAM ROW-->
+							<!-- WEEKLY MINISTRIAL PROGRAM TABLE-->
 							<div class="row">
 								<div class="col wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
 									<table class="table table-sm mt-4 border">
@@ -223,7 +223,7 @@
 										<tbody>
 											<tr>
 												<th>Monday</th>
-												<td>19:00-20:00 <br> 19:00-21:00 </td>
+												<td>19:00-20:00 <br> 20:00-21:00 </td>
 												<td>Bible Study <br> Creative Ministry</td>
 											</tr>
 											<tr>
@@ -238,23 +238,23 @@
 											</tr>
 											<tr>
 												<th>Thursaday</th>
-												<td>19:00-20:00</td>
-												<td>Choir</td>
+												<td>19:00-20:00 <br> 20:00-21:00</td>
+												<td>Choir <br> Praise and Worship Practice</td>
 											</tr>
 											<tr>
 												<th>Friday</th>
-												<td>19:00-20:30</td>
-												<td> Friday Night Service</td>
+												<td>19:00-21:00 <br> 21:30-23:30</td>
+												<td> Friday Night Service <br> Mini-Kesha</td>
 											</tr>
 											<tr>
 												<th>Saturday</th>
-												<td>12:00-14:00 <br> 14:00-16:00</td>
+												<td>15:00-16:00 <br> 16:00-18:00</td>
 												<td>Instrument Practise <br>Praise & Worship Practice</td>
 											</tr>
 											<tr>
 												<th>Sunday</th>
-												<td>07:00-09:00 <br>09:30-11:30 <br>19:00-20:00 </td>
-												<td>Fisrt Service <br>Second Service <br>Itercessory</td>
+												<td>07:00-09:00 <br>09:00-11:00 <br>19:00-20:00 </td>
+												<td>First Service <br>Second Service <br>Intercessory Prayers</td>
 											</tr>
 										</tbody>
 
