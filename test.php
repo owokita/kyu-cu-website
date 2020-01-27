@@ -1,9 +1,9 @@
-
-fhfdddfu
+THIS IS FELIX
 
 <?php
 
 ?php
+this
                                     $artOBJ = new  ARTICLE();
                                     $comments = $artOBJ->getcomments($article['article_id']);
                                     foreach ($comments as $comment):
