@@ -73,7 +73,7 @@ if (isset($_POST['post_article'])) {
         $stmt = $userOBJ->conn()->prepare($sql);
         $stmt->execute([$title,$content,$new_file,$category ]);
 
-        if (compress($_FILES['image']['tmp_name'], $target, 20)) {
+        if (compress($_FILES['image']['tmp_name'], $target, 50)) {
             echo "the image was compressed successfuly";
         } else {
             echo "there was an error NO 101000 compressing the image please repoer this to the admin: 0701702734 or dijiflex@gmail.com";
@@ -175,29 +175,56 @@ if (isset($_POST['post_article'])) {
     $art1 = $art_data[0]['articleID'];
     $art2 = $art_data[1]['articleID'];
 
-   
+
     //get the details of the most porpupar articles
     $sql = "SELECT article_id,article_tittle,article_text,article_pub_date,articleimg,user_fname,user_lname,article_fk_user_id,likes,article_status,category_fk_category_name,verified_by  FROM article 
         inner join user on user_id = article_fk_user_id
         where article_status = 1 AND article_id = $art1 OR article_id = $art2";
     $data = $artOBJ->queryNone($sql);
+
+   
     //COUNT THE total number of comments on each article
     $sql = "SELECT article_comment_fk_article_id AS articleID, COUNT(article_comment_fk_article_id) as total from 
-    article_comments WHERE article_comment_fk_article_id = $art1 OR article_comment_fk_article_id = $art2 group by article_comment_fk_article_id  order by total DESC LIMIT 2 ";
+    article_comments WHERE article_comment_fk_article_id = $art1 OR article_comment_fk_article_id = $art2 
+    group by article_comment_fk_article_id  order by total DESC LIMIT 2 ";
     $artcount = $artOBJ->queryNone($sql);
+
+
     
     $article = array();
+    if (isset($artcount[0]['total'])) {
+        $comment_count =  $artcount[0]['total'];
+     }else {
+         $comment_count =  0;
+     }
     $article[] = array(
         "content"=>$data[0],
-        "comments"=>$artcount[0]['total'],
+        "comments"=>$comment_count,
         "likes"=>$art_data[0]['total'],
 
     );
+
+   
+
+    if (isset($artcount[1]['total'])) {
+       $comment_count =  $artcount[1]['total'];
+    }else {
+        $comment_count =  0;
+    }
+
     $article[] = array(
         "content"=>$data[1],
-        "comments"=>$artcount[1]['total'],
+        "comments"=>$comment_count,
         "likes"=>$art_data[1]['total'],
     );
+
+    // echo var_dump($article);
+
+    // exit();
+
+    
+
+    
 exit(json_encode($article));
 } else {
     echo ' you are in the woring place';
