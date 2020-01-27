@@ -89,6 +89,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     ';
                                     
                                 }
+                                $txt = 'Hi, Check out my latest Article on Kirinyaga University CU Website https://kyucu.co.ke/article.php?id='. $article['article_id'];
+                                $txt = urlencode($txt);
+                                $url = 'https://wa.me/?text='. $txt;
                                 // echo print_r($article);
 
                         ?> 
@@ -127,8 +130,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <div class="d-inline font-weight-bold "> Share On</div>
                                     </div>
                                     <div class="row">
-                                        <div class="d-inline"> <i class="fab fa-whatsapp-square fa-2x"></i></div>
-                                        <div class="d-inline"><i class="fab fa-facebook-square fa-2x"></i></div>
+                                        <a href="<?php echo $url   ?>" class="d-inline" target="_blank"> <i class="fab fa-whatsapp-square fa-2x"></i></a>
                                     </div>
 
 

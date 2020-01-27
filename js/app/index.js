@@ -22,6 +22,9 @@ class INDEX {
                 for(let i in data)
                 {   let string = data[i].content.article_text;
                     let date = $.timeago(data[i].content.article_pub_date) ;
+					let txt = `Hi, Check out my latest Article on Kirinyaga University CU Website https://kyucu.co.ke/article.php?id=${data[i].content.article_id}`;
+					txt = encodeURI(txt)
+					let url = `https://wa.me/?text=${txt}`;  
                     output += `
                     
                     <div class="col-md-6 w3ls-left wow fadeInDown " data-wow-duration=".8s" data-wow-delay=".2s">
@@ -51,7 +54,7 @@ class INDEX {
                             <div class="soci">
                                 <ul>
 
-                                    <li class=""><a class="" href="article.php?id=${data[i].content.article_id}"><i class="fab fa-whatsapp-square fa-2x"></i></a>
+                                    <li class=""><a class="" href="${url}" target="_blank"><i class="fab fa-whatsapp-square fa-2x"></i></a>
                                     </li>
 
                                 </ul>
