@@ -104,7 +104,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <h3><?php echo  $article['article_tittle']; ?>
                             </h3>
                             <h6 class="text-capitalize font-weight-bold">By <?php echo  $article['user_fname']; echo " "; echo  $article['user_lname'];?>
-                                on
+                                
                               <span class="timeago1"> <?php echo  $article['article_pub_date']; ?></span>.
                             </h6>
                             <!-- Like Buttons And Comments -->
@@ -130,7 +130,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <div class="d-inline font-weight-bold "> Share On</div>
                                     </div>
                                     <div class="row">
-                                        <a href="<?php echo $url   ?>" class="d-inline" target="_blank"> <i class="fab fa-whatsapp-square fa-2x"></i></a>
+                                        <a href="<?php echo $url   ?>"  class="d-inline" target="_blank"> <i class="fab fa-whatsapp-square fa-2x"></i></a>
                                     </div>
 
 
