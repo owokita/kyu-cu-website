@@ -168,7 +168,7 @@
 											globe
 											for
 											God's
-											Grlory.
+											Glory.
 										</div>
 
 									</div>
@@ -185,7 +185,7 @@
 											globe
 											for
 											God's
-											Grlory.
+											Glory.
 										</div>
 									</div>
 								</div>
@@ -202,7 +202,7 @@
 											globe
 											for
 											God's
-											Grlory.
+											Glory.
 										</div>
 									</div>
 								</div>
@@ -342,7 +342,7 @@
 						<div class="immageBox">
 							<img loading="lazy" src="images/t1.jpg" alt="" width="1600" class="img-fluid">
 							<div class="textBox pt-5">
-								<p class="text-center bg-color"><em><strong>ZIPPORAH THUO<br>
+								<p class="text-center bg-color"><em><strong>FRANKLIN OWINO<br>
 											Praise &amp; Worship Director</strong></em></p>
 								<h1 class="text-center"><strong>PRAISE AND WORSHIP</strong></h1>
 							</div>
@@ -352,7 +352,7 @@
 						<div class="immageBox">
 							<img loading="lazy" src="images/t1.jpg" alt="" width="1600" class="img-fluid ">
 							<div class="textBox pt-5 ">
-								<p class="text-center "><strong>PAUL MUNGATHIA<br>
+								<p class="text-center "><strong>ALICE MUNENE<br>
 										bible study co-ordinator</strong></p>
 								<h1 class="text-center "><strong>BIBLE STUDY</strong></h1>
 							</div>
@@ -362,7 +362,7 @@
 						<div class="immageBox">
 							<img loading="lazy" src="images/t1.jpg" alt="" width="1600" class="img-fluid">
 							<div class="textBox pt-5">
-								<p class="text-center"><em><strong>AUSTIN MATUNGA<br>
+								<p class="text-center"><em><strong>WILLIS OMUYA<br>
 											Music co-ordinator</strong></em></p>
 								<h1 class="text-center"><strong>MUSIC</strong></h1>
 							</div>
@@ -373,13 +373,13 @@
 			</div>
 		</section>
 
-		<!-- Portpular Posts Section -->
+		<!-- Popular Posts Section -->
 		<section>
 			<div class="container">
 				<div class="row">
-					<h3 class="mx-auto">Porpular Posts</h3>
+					<h3 class="mx-auto">Popular Posts</h3>
 				</div>
-				<div id="porpularPost" class="w3ls p-0 row ">
+				<div id="popularPost" class="w3ls p-0 row ">
 					<!-- <div class="col-md-6 w3ls-left wow fadeInDown" data-wow-duration=".8s" data-wow-delay=".2s">
 						<div class="tc-ch">
 							<div class="tch-img">
