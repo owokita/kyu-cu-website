@@ -237,7 +237,7 @@
 												<td>Discipleship</td>
 											</tr>
 											<tr>
-												<th>Thursaday</th>
+												<th>Thursday</th>
 												<td>19:00-20:00 <br> 20:00-21:00</td>
 												<td>Choir <br> Praise and Worship Practice</td>
 											</tr>
